@@ -13,10 +13,9 @@ namespace Silk.NET.Assimp
     {
         public static Assimp GetApi()
         {
-             return new Assimp(CreateDefaultContext(new AssimpLibraryNameContainer().GetLibraryNames()));
+            return new Assimp(CreateDefaultContext(new AssimpLibraryNameContainer().GetLibraryNames()));
         }
 
         public override bool IsExtensionPresent(string extension) => IsExtensionSupported(extension) == 1;
     }
 }
-
