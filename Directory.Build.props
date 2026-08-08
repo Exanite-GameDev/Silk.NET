@@ -40,4 +40,34 @@
     <NoWarn>$(NoWarn);RS1041</NoWarn> <!-- Compiler extension target framework mismatch -->
     <NoWarn>$(NoWarn);SYSLIB0012</NoWarn> <!-- Assembly.CodeBase is obsolete -->
   </PropertyGroup>
+
+  <!-- Packages -->
+  <PropertyGroup>
+    <!-- Versioning -->
+    <!-- See: https://github.com/adamralph/minver -->
+    <MinVerTagPrefix>v</MinVerTagPrefix>
+    <MinVerDefaultPreReleaseIdentifiers>preview</MinVerDefaultPreReleaseIdentifiers>
+  </PropertyGroup>
+
+  <!-- Include branch name in preview versions -->
+  <Target Name="ExaniteIncludeBranchInPreviewVersions" BeforeTargets="MinVer" Condition="'$(ExaniteIncludeBranchInPreviewVersions)' != 'false'">
+    <!-- Github Actions -->
+    <PropertyGroup>
+      <ExaniteMinVerGitBranchNameRaw Condition="'$(GITHUB_HEAD_REF)' != ''">$(GITHUB_HEAD_REF)</ExaniteMinVerGitBranchNameRaw>
+      <ExaniteMinVerGitBranchNameRaw Condition="'$(ExaniteMinVerGitBranchNameRaw)' == '' AND '$(GITHUB_REF_NAME)' != ''">$(GITHUB_REF_NAME)</ExaniteMinVerGitBranchNameRaw>
+    </PropertyGroup>
+
+    <!-- Local/fallback -->
+    <Exec Command="git rev-parse --abbrev-ref HEAD" ConsoleToMSBuild="true" StandardOutputImportance="Low" Condition="'$(ExaniteMinVerGitBranchNameRaw)' == ''">
+      <Output TaskParameter="ConsoleOutput" PropertyName="ExaniteMinVerGitBranchNameRaw" />
+    </Exec>
+
+    <PropertyGroup Condition="'$(ExaniteMinVerGitBranchNameRaw)' != 'main'">
+      <ExaniteMinVerGitBranchNameSanitized>$([System.Text.RegularExpressions.Regex]::Replace($(ExaniteMinVerGitBranchNameRaw), '[^0-9A-Za-z-]', '-'))</ExaniteMinVerGitBranchNameSanitized>
+      <ExaniteMinVerGitBranchNameSanitized>$([System.Text.RegularExpressions.Regex]::Replace($(ExaniteMinVerGitBranchNameSanitized), '-+', '-'))</ExaniteMinVerGitBranchNameSanitized>
+      <ExaniteMinVerGitBranchNameSanitized>$(ExaniteMinVerGitBranchNameSanitized.Trim('-'))</ExaniteMinVerGitBranchNameSanitized>
+      <MinVerDefaultPreReleaseIdentifiers Condition="'$(MinVerDefaultPreReleaseIdentifiers)' != ''">$(MinVerDefaultPreReleaseIdentifiers)-</MinVerDefaultPreReleaseIdentifiers>
+      <MinVerDefaultPreReleaseIdentifiers>$(MinVerDefaultPreReleaseIdentifiers)$(ExaniteMinVerGitBranchNameSanitized)</MinVerDefaultPreReleaseIdentifiers>
+    </PropertyGroup>
+  </Target>
 </Project>
