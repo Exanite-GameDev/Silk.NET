@@ -1,7 +1,4 @@
 ﻿<Solution>
-  <Folder Name="/Build Properties/">
-    <Project Path="build\nuke\Silk.NET.NUKE.csproj"/>
-  </Folder>
   <Folder Name="/src/Assimp/">
     <Project Path="src\Assimp\Silk.NET.Assimp\Silk.NET.Assimp.csproj"/>
     <Project Path="src\Assimp\Silk.NET.Assimp.Tests\Silk.NET.Assimp.Tests.csproj"/>
