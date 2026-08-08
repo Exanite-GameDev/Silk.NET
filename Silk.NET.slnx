@@ -1,12 +1,10 @@
 ﻿<Solution>
   <Folder Name="/src/Assimp/">
     <Project Path="src\Assimp\Silk.NET.Assimp\Silk.NET.Assimp.csproj"/>
-    <Project Path="src\Assimp\Silk.NET.Assimp.Tests\Silk.NET.Assimp.Tests.csproj"/>
   </Folder>
   <Folder Name="/src/Core/">
     <Project Path="src\Core\Silk.NET.BuildTools\Silk.NET.BuildTools.csproj"/>
     <Project Path="src\Core\Silk.NET.Core\Silk.NET.Core.csproj"/>
-    <Project Path="src\Core\Silk.NET.Core.Tests\Silk.NET.Core.Tests.csproj"/>
     <Project Path="src\Core\Silk.NET.SilkTouch\Silk.NET.SilkTouch.csproj"/>
   </Folder>
   <Folder Name="/src/FreeType/">
@@ -17,8 +15,6 @@
   </Folder>
   <Folder Name="/src/Maths/">
     <Project Path="src\Maths\Silk.NET.Maths\Silk.NET.Maths.csproj"/>
-    <Project Path="src\Maths\Silk.NET.Maths.Benchmarks\Silk.NET.Maths.Benchmarks.csproj"/>
-    <Project Path="src\Maths\Silk.NET.Maths.Tests\Silk.NET.Maths.Tests.csproj"/>
   </Folder>
   <Folder Name="/src/Slang/">
     <Project Path="src\Slang\Silk.NET.Slang\Silk.NET.Slang.csproj"/>
