@@ -11,13 +11,33 @@
 
   <!-- Warnings -->
   <PropertyGroup>
+    <NoWarn>$(NoWarn);CA1416</NoWarn> <!-- Platform compatibility warning -->
     <NoWarn>$(NoWarn);CS0105</NoWarn> <!-- The using directive appeared previously in this namespace -->
+    <NoWarn>$(NoWarn);CS0162</NoWarn> <!-- Unreachable code detected -->
+    <NoWarn>$(NoWarn);CS0414</NoWarn> <!-- The field is assigned but its value is never used -->
+    <NoWarn>$(NoWarn);CS0660</NoWarn> <!-- Defines operator == or operator != but does not override Object.Equals(object o) -->
+    <NoWarn>$(NoWarn);CS0661</NoWarn> <!-- Defines operator == or operator != but does not override Object.GetHashCode() -->
+    <NoWarn>$(NoWarn);CS0809</NoWarn> <!-- Obsolete member overrides non-obsolete member -->
     <NoWarn>$(NoWarn);CS1591</NoWarn> <!-- Missing XML comment for publicly visible type or member -->
+    <NoWarn>$(NoWarn);CS8321</NoWarn> <!-- The local function is declared but never used -->
+    <NoWarn>$(NoWarn);CS8509</NoWarn> <!-- The switch expression does not handle all possible values of its input type -->
     <NoWarn>$(NoWarn);CS8600</NoWarn> <!-- Converting null literal or possible null value to non-nullable type. -->
+    <NoWarn>$(NoWarn);CS8601</NoWarn> <!-- Possible null reference assignment -->
     <NoWarn>$(NoWarn);CS8602</NoWarn> <!-- Dereference of a possibly null reference -->
     <NoWarn>$(NoWarn);CS8603</NoWarn> <!-- Possible null reference return -->
     <NoWarn>$(NoWarn);CS8604</NoWarn> <!-- Possible null reference argument for parameter -->
+    <NoWarn>$(NoWarn);CS8605</NoWarn> <!-- Unboxing a possibly null value -->
+    <NoWarn>$(NoWarn);CS8620</NoWarn> <!-- Argument nullability mismatch for parameter -->
+    <NoWarn>$(NoWarn);CS8629</NoWarn> <!-- Nullable value type may be null -->
     <NoWarn>$(NoWarn);CS8632</NoWarn> <!-- The annotation for nullable reference types should only be used in code within a '#nullable' annotations context -->
     <NoWarn>$(NoWarn);CS9088</NoWarn> <!-- This returns a parameter by reference 'capture' but it is scoped to the current method -->
+    <NoWarn>$(NoWarn);CS9193</NoWarn> <!-- Argument should be a variable because it is passed to a 'ref readonly' parameter -->
+    <NoWarn>$(NoWarn);IL3000</NoWarn> <!-- Assembly.Location always returns an empty string for single-file apps -->
+    <NoWarn>$(NoWarn);IL3002</NoWarn> <!-- Member with RequiresAssemblyFilesAttribute can break in single-file apps -->
+    <NoWarn>$(NoWarn);IL3050</NoWarn> <!-- Member with RequiresDynamicCodeAttribute can break when AOT compiling -->
+    <NoWarn>$(NoWarn);NU5128</NoWarn> <!-- Target frameworks mismatch between dependencies group and lib/ref folder -->
+    <NoWarn>$(NoWarn);RS1036</NoWarn> <!-- Analyzer project should specify EnforceExtendedAnalyzerRules -->
+    <NoWarn>$(NoWarn);RS1041</NoWarn> <!-- Compiler extension target framework mismatch -->
+    <NoWarn>$(NoWarn);SYSLIB0012</NoWarn> <!-- Assembly.CodeBase is obsolete -->
   </PropertyGroup>
 </Project>
