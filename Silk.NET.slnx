@@ -1,61 +1,92 @@
 ﻿<Solution>
-  <Folder Name="/src/Assimp/">
-    <Project Path="src\Assimp\Silk.NET.Assimp\Silk.NET.Assimp.csproj"/>
-  </Folder>
-  <Folder Name="/src/Core/">
-    <Project Path="src\Core\Silk.NET.BuildTools\Silk.NET.BuildTools.csproj"/>
-    <Project Path="src\Core\Silk.NET.Core\Silk.NET.Core.csproj"/>
-    <Project Path="src\Core\Silk.NET.SilkTouch\Silk.NET.SilkTouch.csproj"/>
-  </Folder>
-  <Folder Name="/src/FreeType/">
-    <Project Path="src\FreeType\Silk.NET.FreeType\Silk.NET.FreeType.csproj"/>
-  </Folder>
-  <Folder Name="/src/HarfBuzz/">
-    <Project Path="src\HarfBuzz\Silk.NET.HarfBuzz\Silk.NET.HarfBuzz.csproj"/>
-  </Folder>
-  <Folder Name="/src/Maths/">
-    <Project Path="src\Maths\Silk.NET.Maths\Silk.NET.Maths.csproj"/>
-  </Folder>
-  <Folder Name="/src/Slang/">
-    <Project Path="src\Slang\Silk.NET.Slang\Silk.NET.Slang.csproj"/>
-  </Folder>
-  <Folder Name="/src/Tracy/">
-    <Project Path="src\Tracy\Silk.NET.Tracy\Silk.NET.Tracy.csproj"/>
-  </Folder>
-  <Folder Name="/src/Vulkan/">
-    <Project Path="src\Vulkan\Silk.NET.Vulkan\Silk.NET.Vulkan.csproj"/>
-    <Project Path="src\Vulkan\Silk.NET.Vulkan.Tests\Silk.NET.Vulkan.Tests.csproj"/>
-    <Project Path="src\Vulkan\Silk.NET.Vulkan.Vma\Silk.NET.Vulkan.Vma.csproj"/>
-  </Folder>
-  <Folder Name="/src/Vulkan/Extensions/">
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.AMD\Silk.NET.Vulkan.Extensions.AMD.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.AMDX\Silk.NET.Vulkan.Extensions.AMDX.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.ANDROID\Silk.NET.Vulkan.Extensions.ANDROID.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.ARM\Silk.NET.Vulkan.Extensions.ARM.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.BRCM\Silk.NET.Vulkan.Extensions.BRCM.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.COREAVI\Silk.NET.Vulkan.Extensions.COREAVI.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.EXT\Silk.NET.Vulkan.Extensions.EXT.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.FB\Silk.NET.Vulkan.Extensions.FB.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.FUCHSIA\Silk.NET.Vulkan.Extensions.FUCHSIA.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.GGP\Silk.NET.Vulkan.Extensions.GGP.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.GOOGLE\Silk.NET.Vulkan.Extensions.GOOGLE.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.HUAWEI\Silk.NET.Vulkan.Extensions.HUAWEI.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.IMG\Silk.NET.Vulkan.Extensions.IMG.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.INTEL\Silk.NET.Vulkan.Extensions.INTEL.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.JUICE\Silk.NET.Vulkan.Extensions.JUICE.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.KHR\Silk.NET.Vulkan.Extensions.KHR.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.LUNARG\Silk.NET.Vulkan.Extensions.LUNARG.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.MESA\Silk.NET.Vulkan.Extensions.MESA.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.MSFT\Silk.NET.Vulkan.Extensions.MSFT.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.MTK\Silk.NET.Vulkan.Extensions.MTK.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.MVK\Silk.NET.Vulkan.Extensions.MVK.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.NN\Silk.NET.Vulkan.Extensions.NN.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.NV\Silk.NET.Vulkan.Extensions.NV.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.NVX\Silk.NET.Vulkan.Extensions.NVX.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.OHOS\Silk.NET.Vulkan.Extensions.OHOS.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.QCOM\Silk.NET.Vulkan.Extensions.QCOM.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.QNX\Silk.NET.Vulkan.Extensions.QNX.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.SEC\Silk.NET.Vulkan.Extensions.SEC.csproj"/>
-    <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.VALVE\Silk.NET.Vulkan.Extensions.VALVE.csproj"/>
-  </Folder>
+    <Folder Name="/1. Projects/">
+        <File Path="src\Assimp\Directory.Build.props"/>
+        <File Path="src\Core\Directory.Build.props"/>
+        <File Path="src\Maths\Directory.Build.props"/>
+        <File Path="src\Vulkan\Directory.Build.props"/>
+    </Folder>
+    <Folder Name="/1. Projects/Assimp/">
+        <Project Path="src\Assimp\Silk.NET.Assimp\Silk.NET.Assimp.csproj"/>
+    </Folder>
+    <Folder Name="/1. Projects/Core/">
+        <Project Path="src\Core\Silk.NET.BuildTools\Silk.NET.BuildTools.csproj"/>
+        <Project Path="src\Core\Silk.NET.Core\Silk.NET.Core.csproj"/>
+        <Project Path="src\Core\Silk.NET.SilkTouch\Silk.NET.SilkTouch.csproj"/>
+    </Folder>
+    <Folder Name="/1. Projects/FreeType/">
+        <Project Path="src\FreeType\Silk.NET.FreeType\Silk.NET.FreeType.csproj"/>
+    </Folder>
+    <Folder Name="/1. Projects/HarfBuzz/">
+        <Project Path="src\HarfBuzz\Silk.NET.HarfBuzz\Silk.NET.HarfBuzz.csproj"/>
+    </Folder>
+    <Folder Name="/1. Projects/Maths/">
+        <Project Path="src\Maths\Silk.NET.Maths\Silk.NET.Maths.csproj"/>
+    </Folder>
+    <Folder Name="/1. Projects/Slang/">
+        <Project Path="src\Slang\Silk.NET.Slang\Silk.NET.Slang.csproj"/>
+    </Folder>
+    <Folder Name="/1. Projects/Tracy/">
+        <Project Path="src\Tracy\Silk.NET.Tracy\Silk.NET.Tracy.csproj"/>
+    </Folder>
+    <Folder Name="/1. Projects/Vulkan/">
+        <Project Path="src\Vulkan\Silk.NET.Vulkan\Silk.NET.Vulkan.csproj"/>
+        <Project Path="src\Vulkan\Silk.NET.Vulkan.Tests\Silk.NET.Vulkan.Tests.csproj"/>
+        <Project Path="src\Vulkan\Silk.NET.Vulkan.Vma\Silk.NET.Vulkan.Vma.csproj"/>
+    </Folder>
+    <Folder Name="/1. Projects/Vulkan/Extensions/">
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.AMD\Silk.NET.Vulkan.Extensions.AMD.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.AMDX\Silk.NET.Vulkan.Extensions.AMDX.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.ANDROID\Silk.NET.Vulkan.Extensions.ANDROID.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.ARM\Silk.NET.Vulkan.Extensions.ARM.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.BRCM\Silk.NET.Vulkan.Extensions.BRCM.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.COREAVI\Silk.NET.Vulkan.Extensions.COREAVI.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.EXT\Silk.NET.Vulkan.Extensions.EXT.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.FB\Silk.NET.Vulkan.Extensions.FB.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.FUCHSIA\Silk.NET.Vulkan.Extensions.FUCHSIA.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.GGP\Silk.NET.Vulkan.Extensions.GGP.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.GOOGLE\Silk.NET.Vulkan.Extensions.GOOGLE.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.HUAWEI\Silk.NET.Vulkan.Extensions.HUAWEI.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.IMG\Silk.NET.Vulkan.Extensions.IMG.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.INTEL\Silk.NET.Vulkan.Extensions.INTEL.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.JUICE\Silk.NET.Vulkan.Extensions.JUICE.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.KHR\Silk.NET.Vulkan.Extensions.KHR.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.LUNARG\Silk.NET.Vulkan.Extensions.LUNARG.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.MESA\Silk.NET.Vulkan.Extensions.MESA.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.MSFT\Silk.NET.Vulkan.Extensions.MSFT.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.MTK\Silk.NET.Vulkan.Extensions.MTK.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.MVK\Silk.NET.Vulkan.Extensions.MVK.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.NN\Silk.NET.Vulkan.Extensions.NN.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.NV\Silk.NET.Vulkan.Extensions.NV.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.NVX\Silk.NET.Vulkan.Extensions.NVX.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.OHOS\Silk.NET.Vulkan.Extensions.OHOS.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.QCOM\Silk.NET.Vulkan.Extensions.QCOM.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.QNX\Silk.NET.Vulkan.Extensions.QNX.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.SEC\Silk.NET.Vulkan.Extensions.SEC.csproj"/>
+        <Project Path="src\Vulkan\Extensions\Silk.NET.Vulkan.Extensions.VALVE\Silk.NET.Vulkan.Extensions.VALVE.csproj"/>
+    </Folder>
+    <Folder Name="/2. Files/">
+        <File Path=".editorconfig"/>
+        <File Path=".gitattributes"/>
+        <File Path=".gitignore"/>
+        <File Path=".gitmodules"/>
+        <File Path="Directory.Build.props"/>
+        <File Path="Directory.Build.targets"/>
+        <File Path="LICENSE.md"/>
+        <File Path="README.md"/>
+        <File Path="Silk.NET.sln.DotSettings"/>
+        <File Path="Silk.NET.slnx"/>
+        <File Path="generator.json"/>
+        <File Path="global.json"/>
+    </Folder>
+    <Folder Name="/2. Files/build/">
+        <File Path="build\LICENSE_HEADER.txt"/>
+        <File Path="build\csharp_typemap.json"/>
+        <File Path="build\dx_typemap.json"/>
+        <File Path="build\gl_typemap.json"/>
+        <File Path="build\khronos_typemap.json"/>
+    </Folder>
+    <Folder Name="/2. Files/build/props/">
+        <File Path="build\props\bindings.props"/>
+        <File Path="build\props\common.props"/>
+    </Folder>
 </Solution>
