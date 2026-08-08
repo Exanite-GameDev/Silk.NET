@@ -81,10 +81,13 @@ silk_touch_vtable_preload = false
 silk_touch_telemetry = false
 silk_touch_compact_file_format = true
 
-[*.{appxmanifest,asax,ascx,aspx,build,config,cs,cshtml,csproj,dbml,discomap,dtd,fs,fsi,fsscript,fsx,htm,html,jsproj,lsproj,master,ml,mli,njsproj,nuspec,proj,props,razor,resw,resx,skin,StyleCop,targets,tasks,vb,vbproj,xaml,xamlx,xml,xoml,xsd}]
-indent_style = space
-indent_size = 4
-tab_width = 4
+[*.{slnx,appxmanifest,asax,ascx,aspx,build,config,cs,cshtml,csproj,dbml,discomap,dtd,fs,fsi,fsscript,fsx,htm,html,jsproj,lsproj,master,ml,mli,njsproj,nuspec,proj,props,razor,resw,resx,skin,StyleCop,targets,tasks,vb,vbproj,xaml,xamlx,xml,xoml,xsd}]
+indent_size = 2
+tab_width = 2
+
+[*.json]
+indent_size = 2
+tab_width = 2
 
 # License header + warning generated if missing
 file_header_template=Licensed to the .NET Foundation under one or more agreements.\nThe .NET Foundation licenses this file to you under the MIT license.

@@ -230,7 +230,7 @@ namespace Silk.NET.BuildTools.Baking
                         classes[@class.ClassName] = new Class
                         {
                             ClassName = @class.ClassName,
-                            NativeApis = @class.NativeApis.ToDictionary(),
+                            NativeApis = ToDictionaryExtension.ToDictionary(@class.NativeApis),
                             Constants = @class.Constants.ToList(),
                             Functions = @class.Functions.ToList()
                         };

@@ -1223,7 +1223,7 @@ namespace Silk.NET.BuildTools.Converters.Readers
             var trimmedExt = TrimName(ext, task);
             var splitTrimmed = trimmedExt.Split('_');
             return splitTrimmed[0].ToUpper() + "_" + string.Join
-                       ("_", new ArraySegment<string>(splitTrimmed, 1, splitTrimmed.Length - 1));
+                       ("_", new ArraySegment<string>(splitTrimmed, 1, splitTrimmed.Length - 1).AsSpan());
         }
 
         /// <inheritdoc />
