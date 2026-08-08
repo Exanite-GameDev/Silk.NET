@@ -1,2 +1,23 @@
 <Project>
+  <!-- Builds -->
+  <PropertyGroup>
+    <!-- Store all project obj/bin folders in a central location -->
+    <BaseOutputPath>$(MSBuildThisFileDirectory)outputs/cache/dotnet/$(MSBuildProjectName)/bin/</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)outputs/cache/dotnet/$(MSBuildProjectName)/obj/</BaseIntermediateOutputPath>
+
+    <!-- Output nupkgs to a central location -->
+    <PackageOutputPath>$(MSBuildThisFileDirectory)outputs/nuget/$(Configuration)/</PackageOutputPath>
+  </PropertyGroup>
+
+  <!-- Warnings -->
+  <PropertyGroup>
+    <NoWarn>$(NoWarn);CS0105</NoWarn> <!-- The using directive appeared previously in this namespace -->
+    <NoWarn>$(NoWarn);CS1591</NoWarn> <!-- Missing XML comment for publicly visible type or member -->
+    <NoWarn>$(NoWarn);CS8600</NoWarn> <!-- Converting null literal or possible null value to non-nullable type. -->
+    <NoWarn>$(NoWarn);CS8602</NoWarn> <!-- Dereference of a possibly null reference -->
+    <NoWarn>$(NoWarn);CS8603</NoWarn> <!-- Possible null reference return -->
+    <NoWarn>$(NoWarn);CS8604</NoWarn> <!-- Possible null reference argument for parameter -->
+    <NoWarn>$(NoWarn);CS8632</NoWarn> <!-- The annotation for nullable reference types should only be used in code within a '#nullable' annotations context -->
+    <NoWarn>$(NoWarn);CS9088</NoWarn> <!-- This returns a parameter by reference 'capture' but it is scoped to the current method -->
+  </PropertyGroup>
 </Project>

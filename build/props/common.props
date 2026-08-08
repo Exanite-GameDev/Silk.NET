@@ -1,27 +1,14 @@
-<Project InitialTargets="SilkAddIcon;SilkGenerateNuGetReadme">
-  <!-- Presets for metapackages and native packages -->
-  <PropertyGroup Condition="'$(SilkMetapackage)' == 'true' or '$(SilkNativePackage)' == 'true'">
-    <IncludeBuildOutput>false</IncludeBuildOutput>
-  </PropertyGroup>
-  
+<Project InitialTargets="SilkGenerateNuGetReadme">
   <!-- Core properties -->
   <PropertyGroup>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <LangVersion>preview</LangVersion>
     <Authors>.NET Foundation and Contributors</Authors>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <PackageOutputPath>$(MSBuildThisFileDirectory)/../output_packages</PackageOutputPath>
-    <RepositoryUrl>https://github.com/dotnet/Silk.NET.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/Exanite-GameDev/Silk.NET</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <VersionPrefix>2.23.1</VersionPrefix>
-    <VersionSuffix Condition="'$(VersionSuffix)' == ''"/>
-    <Description Condition="'$(Description)' == ''">
-      Silk.NET is a high-speed, advanced library, providing bindings to popular low-level APIs such as OpenGL, OpenCL, OpenAL, OpenXR, GLFW, SDL, Vulkan, Assimp, and DirectX.
-    </Description>
-    <CheckEolWorkloads>false</CheckEolWorkloads>
   </PropertyGroup>
-  <PropertyGroup Condition="$(TargetFramework.StartsWith('net10'))">
+  <PropertyGroup>
     <IsTrimmable>true</IsTrimmable>
     <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
     <EnableAotAnalyzer>true</EnableAotAnalyzer>
@@ -38,21 +25,10 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.301" PrivateAssets="All"/>
     <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1" PrivateAssets="All"/>
     <PackageReference Include="DotNet.ReproducibleBuilds.Isolated" Version="1.1.1" PrivateAssets="All"/>
   </ItemGroup>
-  
-  <!-- Nuget Icon - done as a target so it doesn't appear in the IDE -->
-  <Target Name="SilkAddIcon" Condition="'$(SilkIconExempt)' == ''">
-    <ItemGroup>
-      <None Include="$(MSBuildThisFileDirectory)../../documentation/readme/silkdotnet_v3.png"
-            Pack="true"
-            PackagePath="\"/>
-    </ItemGroup>
-    <PropertyGroup>
-      <PackageIcon>silkdotnet_v3.png</PackageIcon>
-    </PropertyGroup>
-  </Target>
   
   <!-- NuGet README -->
   <Target Name="SilkGenerateNuGetReadme" Condition="'$(SilkReadmeExempt)' == ''">
@@ -84,10 +60,7 @@
       <SilkReadmeLines Include="$(SilkReadme)"/>
       <SilkReadmeGenerated Include="$(SilkReadmePath)"/>
     </ItemGroup>
-    <WriteLinesToFile File="@(SilkReadmeGenerated)"
-                      Lines="@(SilkReadmeLines)"
-                      Overwrite="true"
-                      Encoding="UTF-8"/>
+    <WriteLinesToFile File="@(SilkReadmeGenerated)" Lines="@(SilkReadmeLines)" Overwrite="true" Encoding="UTF-8"/>
     <PropertyGroup>
       <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
