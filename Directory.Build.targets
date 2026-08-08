@@ -1,6 +1,2 @@
 <Project>
-  <PropertyGroup>
-    <AssemblyName>Exanite.$(AssemblyName)</AssemblyName>
-    <PackageId>$(AssemblyName)</PackageId>
-  </PropertyGroup>
 </Project>

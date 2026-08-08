@@ -1,4 +1,10 @@
 <Project>
+  <!-- Override assembly/package names -->
+  <PropertyGroup>
+    <AssemblyName>Exanite.$(MSBuildProjectName)</AssemblyName>
+    <PackageId>Exanite.$(MSBuildProjectName)</PackageId>
+  </PropertyGroup>
+  
   <!-- Builds -->
   <PropertyGroup>
     <!-- Store all project obj/bin folders in a central location -->

@@ -3,8 +3,6 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <IncludeBuildOutput>false</IncludeBuildOutput>
-    <SilkEnableSourceLink>false</SilkEnableSourceLink>
-    <SilkSourceLinkExempt>true</SilkSourceLinkExempt>
     
     <IsPackable>false</IsPackable>
   </PropertyGroup>

@@ -9,6 +9,8 @@
 
     <!-- Workaround for issue https://github.com/microsoft/ClangSharp/issues/129 -->
     <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == '' AND '$(PackAsTool)' != 'true' AND '$(SilkNukeBuild)' != 'true'">$(NETCoreSdkRuntimeIdentifier)</RuntimeIdentifier>
+    
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
