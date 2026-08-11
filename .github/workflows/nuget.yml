@@ -34,22 +34,22 @@ jobs:
           path: .git
           key: git-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('**/.gitmodules') }}
 
-          - name: Checkout repo
-            uses: actions/checkout@v7
-            with:
-              submodules: recursive
-              lfs: false
-              fetch-depth: 0
-              filter: tree:0
+      - name: Checkout repo
+        uses: actions/checkout@v7
+        with:
+          submodules: recursive
+          lfs: false
+          fetch-depth: 0
+          filter: tree:0
 
-          - name: Build
-            run: dotnet build --configuration Release
+      - name: Build
+        run: dotnet build --configuration Release
 
-          - name: Test
-            run: dotnet test --configuration Release --no-build
+      - name: Test
+        run: dotnet test --configuration Release --no-build
 
-          - name: Pack
-            run: dotnet pack --configuration Release --no-build
+      - name: Pack
+        run: dotnet pack --configuration Release --no-build
 
-          - name: Publish
-            run: dotnet nuget push ./outputs/nuget/Release/**/*.nupkg --skip-duplicate --api-key ${{steps.nuget.outputs.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
+      - name: Publish
+        run: dotnet nuget push ./outputs/nuget/Release/**/*.nupkg --skip-duplicate --api-key ${{steps.nuget.outputs.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
