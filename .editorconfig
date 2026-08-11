@@ -85,7 +85,7 @@ silk_touch_compact_file_format = true
 indent_size = 2
 tab_width = 2
 
-[*.json]
+[*.{json,yml,yaml}]
 indent_size = 2
 tab_width = 2
 

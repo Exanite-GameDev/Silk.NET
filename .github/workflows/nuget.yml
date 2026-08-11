@@ -1,52 +1,58 @@
 name: Publish NuGet packages
 
 on:
-    workflow_dispatch:
+  workflow_dispatch:
 
 permissions:
-    id-token: write
-    contents: read
+  id-token: write
+  contents: read
 
 jobs:
-    nuget:
-        name: Publish NuGet packages
-        runs-on: ubuntu-24.04
-        
-        env:
-            BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-        
-        steps:
+  nuget:
+    name: Publish NuGet packages
+    runs-on: ubuntu-24.04
+    
+    env:
+      BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+    
+    steps:
 
-            - name: Login to NuGet
-              uses: NuGet/login@v1
-              id: nuget
-              with:
-                  user: ${{ vars.NUGET_PUBLISH_USERNAME }}
+      - name: Login to NuGet
+        uses: NuGet/login@v1
+        id: nuget
+        with:
+          user: ${{ vars.NUGET_PUBLISH_USERNAME }}
 
-            - name: Setup .NET
-              uses: actions/setup-dotnet@v6
-              with:
-                  dotnet-version: "10.0.100"
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: "10.0.100"
 
-            - name: Checkout repo
-              uses: actions/checkout@v7
-              with:
-                  submodules: recursive
-                  lfs: false
-                  fetch-depth: 0
-                  filter: tree:0
+      - name: Cache .git folder
+        uses: actions/cache@v6
+        with:
+          path: .git
+          key: git-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('**/.gitmodules') }}
 
-            - name: Build
-              run: dotnet build --configuration Release
+          - name: Checkout repo
+            uses: actions/checkout@v7
+            with:
+              submodules: recursive
+              lfs: false
+              fetch-depth: 0
+              filter: tree:0
 
-            - name: Test
-              run: dotnet test --configuration Release --no-build
+          - name: Build
+            run: dotnet build --configuration Release
 
-            - name: Pack
-              run: dotnet pack --configuration Release --no-build
+          - name: Test
+            run: dotnet test --configuration Release --no-build
 
-            - name: Debug
-              run: ls ./outputs/nuget/Release/
+          - name: Pack
+            run: dotnet pack --configuration Release --no-build
 
-#            - name: Publish
-#              run: dotnet nuget push ./outputs/nuget/Release/**/*.nupkg --skip-duplicate --api-key ${{steps.nuget.outputs.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
+          - name: Debug
+            run: ls ./outputs/nuget/Release/
+
+#          - name: Publish
+#            run: dotnet nuget push ./outputs/nuget/Release/**/*.nupkg --skip-duplicate --api-key ${{steps.nuget.outputs.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
