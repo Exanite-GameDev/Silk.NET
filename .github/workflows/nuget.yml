@@ -31,7 +31,6 @@ jobs:
             - name: Checkout repo
               uses: actions/checkout@v7
               with:
-                  token: ${{ secrets._GITHUB_TOKEN }}
                   submodules: recursive
                   lfs: false
                   fetch-depth: 0
