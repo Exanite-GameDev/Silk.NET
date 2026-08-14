@@ -8,7 +8,7 @@ namespace Silk.NET.Vulkan
     /// <summary>
     /// Contains the library name of Vulkan.
     /// </summary>
-    internal class VulkanLibraryNameContainer : SearchPathContainer
+    public class VulkanLibraryNameContainer : SearchPathContainer
     {
         /// <inheritdoc />
         public override string[] Linux => new[] { "libvulkan.so.1" };

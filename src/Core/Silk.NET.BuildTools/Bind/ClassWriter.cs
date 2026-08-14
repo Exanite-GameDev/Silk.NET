@@ -36,7 +36,7 @@ namespace Silk.NET.BuildTools.Bind
             sw.WriteLine("    /// <summary>");
             sw.WriteLine($"    /// Contains the library name of {profile.Name}.");
             sw.WriteLine("    /// </summary>");
-            sw.WriteLine($"    internal class {task.Task.NameContainer.ClassName} : SearchPathContainer");
+            sw.WriteLine($"    public class {task.Task.NameContainer.ClassName} : SearchPathContainer");
             sw.WriteLine("    {");
             sw.WriteLine("        /// <inheritdoc />");
             sw.WriteLine($"        public override string[] Linux => new[] {{ \"{task.Task.NameContainer.Linux}\" }};");

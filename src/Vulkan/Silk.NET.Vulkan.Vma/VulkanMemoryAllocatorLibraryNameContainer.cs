@@ -8,7 +8,7 @@ namespace Silk.NET.Vulkan.Vma
     /// <summary>
     /// Contains the library name of VulkanMemoryAllocator.
     /// </summary>
-    internal class VulkanMemoryAllocatorLibraryNameContainer : SearchPathContainer
+    public class VulkanMemoryAllocatorLibraryNameContainer : SearchPathContainer
     {
         /// <inheritdoc />
         public override string[] Linux => new[] { "libExaniteVulkanMemoryAllocator.so" };

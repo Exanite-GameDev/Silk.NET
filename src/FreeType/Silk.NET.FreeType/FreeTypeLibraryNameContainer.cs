@@ -8,7 +8,7 @@ namespace Silk.NET.FreeType
     /// <summary>
     /// Contains the library name of FreeType.
     /// </summary>
-    internal class FreeTypeLibraryNameContainer : SearchPathContainer
+    public class FreeTypeLibraryNameContainer : SearchPathContainer
     {
         /// <inheritdoc />
         public override string[] Linux => new[] { "libfreetype.so" };

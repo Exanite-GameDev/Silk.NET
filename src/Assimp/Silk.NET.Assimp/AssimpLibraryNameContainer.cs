@@ -8,7 +8,7 @@ namespace Silk.NET.Assimp
     /// <summary>
     /// Contains the library name of Assimp.
     /// </summary>
-    internal class AssimpLibraryNameContainer : SearchPathContainer
+    public class AssimpLibraryNameContainer : SearchPathContainer
     {
         /// <inheritdoc />
         public override string[] Linux => new[] { "libassimp.so.5" };

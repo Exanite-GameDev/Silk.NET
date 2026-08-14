@@ -8,7 +8,7 @@ namespace Silk.NET.Tracy
     /// <summary>
     /// Contains the library name of Tracy.
     /// </summary>
-    internal class TracyLibraryNameContainer : SearchPathContainer
+    public class TracyLibraryNameContainer : SearchPathContainer
     {
         /// <inheritdoc />
         public override string[] Linux => new[] { "libExaniteTracyClient.so" };

@@ -8,7 +8,7 @@ namespace Silk.NET.HarfBuzz
     /// <summary>
     /// Contains the library name of HarfBuzz.
     /// </summary>
-    internal class HarfBuzzLibraryNameContainer : SearchPathContainer
+    public class HarfBuzzLibraryNameContainer : SearchPathContainer
     {
         /// <inheritdoc />
         public override string[] Linux => new[] { "libharfbuzz.so" };

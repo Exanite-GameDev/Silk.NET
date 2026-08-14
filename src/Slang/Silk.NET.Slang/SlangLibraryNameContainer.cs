@@ -8,7 +8,7 @@ namespace Silk.NET.Slang
     /// <summary>
     /// Contains the library name of Slang.
     /// </summary>
-    internal class SlangLibraryNameContainer : SearchPathContainer
+    public class SlangLibraryNameContainer : SearchPathContainer
     {
         /// <inheritdoc />
         public override string[] Linux => new[] { "libslang-compiler.so" };
