@@ -16,7 +16,7 @@ public unsafe partial struct OpenArgs
     public byte* MemoryBase;
 
     [NativeName("memory_size")]
-    public nint MemorySize;
+    public long MemorySize;
 
     [NativeName("pathname")]
     public sbyte* Pathname;

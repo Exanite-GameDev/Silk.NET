@@ -13,10 +13,10 @@ public partial struct SizeRequestRec
     public SizeRequestType Type;
 
     [NativeName("width")]
-    public nint Width;
+    public long Width;
 
     [NativeName("height")]
-    public nint Height;
+    public long Height;
 
     [NativeName("horiResolution")]
     public uint HoriResolution;

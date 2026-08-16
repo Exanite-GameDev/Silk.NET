@@ -25,5 +25,5 @@ public unsafe partial struct OutlineFuncs
     public int Shift;
 
     [NativeName("delta")]
-    public nint Delta;
+    public long Delta;
 }

@@ -49,11 +49,11 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
 
         [NativeName("FT_CeilFix")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_CeilFix")]
-        public static extern nint CeilFix(nint a);
+        public static extern long CeilFix(long a);
 
         [NativeName("FT_DivFix")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_DivFix")]
-        public static extern nint DivFix(nint a, nint b);
+        public static extern long DivFix(long a, long b);
 
         [NativeName("FT_Done_Face")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Done_Face")]
@@ -106,14 +106,14 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
 
         [NativeName("FT_Face_GetCharsOfVariant")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Face_GetCharsOfVariant")]
-        public static extern uint* FaceGetCharsOfVariant(FaceRec* face, nuint variantSelector);
+        public static extern uint* FaceGetCharsOfVariant(FaceRec* face, ulong variantSelector);
 
         [NativeName("FT_Face_GetCharsOfVariant")]
         [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharsOfVariant")]
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static Ptr<uint> FaceGetCharsOfVariant(Ref<FaceRec> face, nuint variantSelector)
+        public static Ptr<uint> FaceGetCharsOfVariant(Ref<FaceRec> face, ulong variantSelector)
         {
             fixed (FaceRec* __dsl_face = face)
             {
@@ -125,8 +125,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Face_GetCharVariantIndex")]
         public static extern uint FaceGetCharVariantIndex(
             FaceRec* face,
-            nuint charcode,
-            nuint variantSelector
+            ulong charcode,
+            ulong variantSelector
         );
 
         [NativeName("FT_Face_GetCharVariantIndex")]
@@ -136,8 +136,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         )]
         public static uint FaceGetCharVariantIndex(
             Ref<FaceRec> face,
-            nuint charcode,
-            nuint variantSelector
+            ulong charcode,
+            ulong variantSelector
         )
         {
             fixed (FaceRec* __dsl_face = face)
@@ -154,8 +154,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         )]
         public static extern int FaceGetCharVariantIsDefault(
             FaceRec* face,
-            nuint charcode,
-            nuint variantSelector
+            ulong charcode,
+            ulong variantSelector
         );
 
         [NativeName("FT_Face_GetCharVariantIsDefault")]
@@ -165,8 +165,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         )]
         public static int FaceGetCharVariantIsDefault(
             Ref<FaceRec> face,
-            nuint charcode,
-            nuint variantSelector
+            ulong charcode,
+            ulong variantSelector
         )
         {
             fixed (FaceRec* __dsl_face = face)
@@ -194,14 +194,14 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
 
         [NativeName("FT_Face_GetVariantsOfChar")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Face_GetVariantsOfChar")]
-        public static extern uint* FaceGetVariantsOfChar(FaceRec* face, nuint charcode);
+        public static extern uint* FaceGetVariantsOfChar(FaceRec* face, ulong charcode);
 
         [NativeName("FT_Face_GetVariantsOfChar")]
         [NativeFunction("freetype", EntryPoint = "FT_Face_GetVariantsOfChar")]
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static Ptr<uint> FaceGetVariantsOfChar(Ref<FaceRec> face, nuint charcode)
+        public static Ptr<uint> FaceGetVariantsOfChar(Ref<FaceRec> face, ulong charcode)
         {
             fixed (FaceRec* __dsl_face = face)
             {
@@ -254,18 +254,18 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
 
         [NativeName("FT_FloorFix")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_FloorFix")]
-        public static extern nint FloorFix(nint a);
+        public static extern long FloorFix(long a);
 
         [NativeName("FT_Get_Char_Index")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Get_Char_Index")]
-        public static extern uint GetCharIndex(FaceRec* face, nuint charcode);
+        public static extern uint GetCharIndex(FaceRec* face, ulong charcode);
 
         [NativeName("FT_Get_Char_Index")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Char_Index")]
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static uint GetCharIndex(Ref<FaceRec> face, nuint charcode)
+        public static uint GetCharIndex(Ref<FaceRec> face, ulong charcode)
         {
             fixed (FaceRec* __dsl_face = face)
             {
@@ -292,19 +292,19 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
 
         [NativeName("FT_Get_First_Char")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Get_First_Char")]
-        public static extern nuint GetFirstChar(FaceRec* face, uint* agindex);
+        public static extern ulong GetFirstChar(FaceRec* face, uint* agindex);
 
         [NativeName("FT_Get_First_Char")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_First_Char")]
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static nuint GetFirstChar(Ref<FaceRec> face, Ref<uint> agindex)
+        public static ulong GetFirstChar(Ref<FaceRec> face, Ref<uint> agindex)
         {
             fixed (uint* __dsl_agindex = agindex)
             fixed (FaceRec* __dsl_face = face)
             {
-                return (nuint)GetFirstChar(__dsl_face, __dsl_agindex);
+                return (ulong)GetFirstChar(__dsl_face, __dsl_agindex);
             }
         }
 
@@ -409,19 +409,19 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
 
         [NativeName("FT_Get_Next_Char")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Get_Next_Char")]
-        public static extern nuint GetNextChar(FaceRec* face, nuint char_code, uint* agindex);
+        public static extern ulong GetNextChar(FaceRec* face, ulong char_code, uint* agindex);
 
         [NativeName("FT_Get_Next_Char")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Next_Char")]
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static nuint GetNextChar(Ref<FaceRec> face, nuint char_code, Ref<uint> agindex)
+        public static ulong GetNextChar(Ref<FaceRec> face, ulong char_code, Ref<uint> agindex)
         {
             fixed (uint* __dsl_agindex = agindex)
             fixed (FaceRec* __dsl_face = face)
             {
-                return (nuint)GetNextChar(__dsl_face, char_code, __dsl_agindex);
+                return (ulong)GetNextChar(__dsl_face, char_code, __dsl_agindex);
             }
         }
 
@@ -492,9 +492,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Get_Track_Kerning")]
         public static extern int GetTrackKerning(
             FaceRec* face,
-            nint point_size,
+            long point_size,
             int degree,
-            nint* akerning
+            long* akerning
         );
 
         [NativeName("FT_Get_Track_Kerning")]
@@ -504,12 +504,12 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         )]
         public static int GetTrackKerning(
             Ref<FaceRec> face,
-            nint point_size,
+            long point_size,
             int degree,
-            Ref<nint> akerning
+            Ref<long> akerning
         )
         {
-            fixed (nint* __dsl_akerning = akerning)
+            fixed (long* __dsl_akerning = akerning)
             fixed (FaceRec* __dsl_face = face)
             {
                 return (int)GetTrackKerning(__dsl_face, point_size, degree, __dsl_akerning);
@@ -583,14 +583,14 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
 
         [NativeName("FT_Load_Char")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Load_Char")]
-        public static extern int LoadChar(FaceRec* face, nuint char_code, int load_flags);
+        public static extern int LoadChar(FaceRec* face, ulong char_code, int load_flags);
 
         [NativeName("FT_Load_Char")]
         [NativeFunction("freetype", EntryPoint = "FT_Load_Char")]
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static int LoadChar(Ref<FaceRec> face, nuint char_code, int load_flags)
+        public static int LoadChar(Ref<FaceRec> face, ulong char_code, int load_flags)
         {
             fixed (FaceRec* __dsl_face = face)
             {
@@ -617,18 +617,18 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
 
         [NativeName("FT_MulDiv")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_MulDiv")]
-        public static extern nint MulDiv(nint a, nint b, nint c);
+        public static extern long MulDiv(long a, long b, long c);
 
         [NativeName("FT_MulFix")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_MulFix")]
-        public static extern nint MulFix(nint a, nint b);
+        public static extern long MulFix(long a, long b);
 
         [NativeName("FT_New_Face")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_New_Face")]
         public static extern int NewFace(
             LibraryRecHandle library,
             sbyte* filepathname,
-            nint face_index,
+            long face_index,
             FaceRec** aface
         );
 
@@ -640,7 +640,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         public static int NewFace(
             LibraryRecHandle library,
             Ref<sbyte> filepathname,
-            nint face_index,
+            long face_index,
             Ref2D<FaceRec> aface
         )
         {
@@ -656,8 +656,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         public static extern int NewMemoryFace(
             LibraryRecHandle library,
             byte* file_base,
-            nint file_size,
-            nint face_index,
+            long file_size,
+            long face_index,
             FaceRec** aface
         );
 
@@ -669,8 +669,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         public static int NewMemoryFace(
             LibraryRecHandle library,
             Ref<byte> file_base,
-            nint file_size,
-            nint face_index,
+            long file_size,
+            long face_index,
             Ref2D<FaceRec> aface
         )
         {
@@ -692,7 +692,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         public static extern int OpenFace(
             LibraryRecHandle library,
             OpenArgs* args,
-            nint face_index,
+            long face_index,
             FaceRec** aface
         );
 
@@ -704,7 +704,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         public static int OpenFace(
             LibraryRecHandle library,
             Ref<OpenArgs> args,
-            nint face_index,
+            long face_index,
             Ref2D<FaceRec> aface
         )
         {
@@ -769,7 +769,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
 
         [NativeName("FT_RoundFix")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_RoundFix")]
-        public static extern nint RoundFix(nint a);
+        public static extern long RoundFix(long a);
 
         [NativeName("FT_Select_Charmap")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Select_Charmap")]
@@ -809,8 +809,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Set_Char_Size")]
         public static extern int SetCharSize(
             FaceRec* face,
-            nint char_width,
-            nint char_height,
+            long char_width,
+            long char_height,
             uint horz_resolution,
             uint vert_resolution
         );
@@ -822,8 +822,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         )]
         public static int SetCharSize(
             Ref<FaceRec> face,
-            nint char_width,
-            nint char_height,
+            long char_width,
+            long char_height,
             uint horz_resolution,
             uint vert_resolution
         )
@@ -953,14 +953,14 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public nint CeilFix(nint a) => T.CeilFix(a);
+        public long CeilFix(long a) => T.CeilFix(a);
 
         [NativeName("FT_DivFix")]
         [NativeFunction("freetype", EntryPoint = "FT_DivFix")]
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public nint DivFix(nint a, nint b) => T.DivFix(a, b);
+        public long DivFix(long a, long b) => T.DivFix(a, b);
 
         [NativeName("FT_Done_Face")]
         [NativeFunction("freetype", EntryPoint = "FT_Done_Face")]
@@ -1016,7 +1016,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public uint* FaceGetCharsOfVariant(FaceRec* face, nuint variantSelector) =>
+        public uint* FaceGetCharsOfVariant(FaceRec* face, ulong variantSelector) =>
             T.FaceGetCharsOfVariant(face, variantSelector);
 
         [NativeName("FT_Face_GetCharsOfVariant")]
@@ -1024,7 +1024,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public Ptr<uint> FaceGetCharsOfVariant(Ref<FaceRec> face, nuint variantSelector) =>
+        public Ptr<uint> FaceGetCharsOfVariant(Ref<FaceRec> face, ulong variantSelector) =>
             T.FaceGetCharsOfVariant(face, variantSelector);
 
         [NativeName("FT_Face_GetCharVariantIndex")]
@@ -1032,7 +1032,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public uint FaceGetCharVariantIndex(FaceRec* face, nuint charcode, nuint variantSelector) =>
+        public uint FaceGetCharVariantIndex(FaceRec* face, ulong charcode, ulong variantSelector) =>
             T.FaceGetCharVariantIndex(face, charcode, variantSelector);
 
         [NativeName("FT_Face_GetCharVariantIndex")]
@@ -1042,8 +1042,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         )]
         public uint FaceGetCharVariantIndex(
             Ref<FaceRec> face,
-            nuint charcode,
-            nuint variantSelector
+            ulong charcode,
+            ulong variantSelector
         ) => T.FaceGetCharVariantIndex(face, charcode, variantSelector);
 
         [NativeName("FT_Face_GetCharVariantIsDefault")]
@@ -1053,8 +1053,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         )]
         public int FaceGetCharVariantIsDefault(
             FaceRec* face,
-            nuint charcode,
-            nuint variantSelector
+            ulong charcode,
+            ulong variantSelector
         ) => T.FaceGetCharVariantIsDefault(face, charcode, variantSelector);
 
         [NativeName("FT_Face_GetCharVariantIsDefault")]
@@ -1064,8 +1064,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         )]
         public int FaceGetCharVariantIsDefault(
             Ref<FaceRec> face,
-            nuint charcode,
-            nuint variantSelector
+            ulong charcode,
+            ulong variantSelector
         ) => T.FaceGetCharVariantIsDefault(face, charcode, variantSelector);
 
         [NativeName("FT_Face_GetVariantSelectors")]
@@ -1088,7 +1088,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public uint* FaceGetVariantsOfChar(FaceRec* face, nuint charcode) =>
+        public uint* FaceGetVariantsOfChar(FaceRec* face, ulong charcode) =>
             T.FaceGetVariantsOfChar(face, charcode);
 
         [NativeName("FT_Face_GetVariantsOfChar")]
@@ -1096,7 +1096,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public Ptr<uint> FaceGetVariantsOfChar(Ref<FaceRec> face, nuint charcode) =>
+        public Ptr<uint> FaceGetVariantsOfChar(Ref<FaceRec> face, ulong charcode) =>
             T.FaceGetVariantsOfChar(face, charcode);
 
         [NativeName("FT_Face_Properties")]
@@ -1139,21 +1139,21 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public nint FloorFix(nint a) => T.FloorFix(a);
+        public long FloorFix(long a) => T.FloorFix(a);
 
         [NativeName("FT_Get_Char_Index")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Char_Index")]
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public uint GetCharIndex(FaceRec* face, nuint charcode) => T.GetCharIndex(face, charcode);
+        public uint GetCharIndex(FaceRec* face, ulong charcode) => T.GetCharIndex(face, charcode);
 
         [NativeName("FT_Get_Char_Index")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Char_Index")]
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public uint GetCharIndex(Ref<FaceRec> face, nuint charcode) =>
+        public uint GetCharIndex(Ref<FaceRec> face, ulong charcode) =>
             T.GetCharIndex(face, charcode);
 
         [NativeName("FT_Get_Charmap_Index")]
@@ -1175,14 +1175,14 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public nuint GetFirstChar(FaceRec* face, uint* agindex) => T.GetFirstChar(face, agindex);
+        public ulong GetFirstChar(FaceRec* face, uint* agindex) => T.GetFirstChar(face, agindex);
 
         [NativeName("FT_Get_First_Char")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_First_Char")]
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public nuint GetFirstChar(Ref<FaceRec> face, Ref<uint> agindex) =>
+        public ulong GetFirstChar(Ref<FaceRec> face, Ref<uint> agindex) =>
             T.GetFirstChar(face, agindex);
 
         [NativeName("FT_Get_FSType_Flags")]
@@ -1262,7 +1262,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public nuint GetNextChar(FaceRec* face, nuint char_code, uint* agindex) =>
+        public ulong GetNextChar(FaceRec* face, ulong char_code, uint* agindex) =>
             T.GetNextChar(face, char_code, agindex);
 
         [NativeName("FT_Get_Next_Char")]
@@ -1270,7 +1270,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public nuint GetNextChar(Ref<FaceRec> face, nuint char_code, Ref<uint> agindex) =>
+        public ulong GetNextChar(Ref<FaceRec> face, ulong char_code, Ref<uint> agindex) =>
             T.GetNextChar(face, char_code, agindex);
 
         [NativeName("FT_Get_Postscript_Name")]
@@ -1322,7 +1322,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public int GetTrackKerning(FaceRec* face, nint point_size, int degree, nint* akerning) =>
+        public int GetTrackKerning(FaceRec* face, long point_size, int degree, long* akerning) =>
             T.GetTrackKerning(face, point_size, degree, akerning);
 
         [NativeName("FT_Get_Track_Kerning")]
@@ -1332,9 +1332,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         )]
         public int GetTrackKerning(
             Ref<FaceRec> face,
-            nint point_size,
+            long point_size,
             int degree,
-            Ref<nint> akerning
+            Ref<long> akerning
         ) => T.GetTrackKerning(face, point_size, degree, akerning);
 
         [NativeName("FT_Get_Transform")]
@@ -1396,7 +1396,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public int LoadChar(FaceRec* face, nuint char_code, int load_flags) =>
+        public int LoadChar(FaceRec* face, ulong char_code, int load_flags) =>
             T.LoadChar(face, char_code, load_flags);
 
         [NativeName("FT_Load_Char")]
@@ -1404,7 +1404,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public int LoadChar(Ref<FaceRec> face, nuint char_code, int load_flags) =>
+        public int LoadChar(Ref<FaceRec> face, ulong char_code, int load_flags) =>
             T.LoadChar(face, char_code, load_flags);
 
         [NativeName("FT_Load_Glyph")]
@@ -1428,14 +1428,14 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public nint MulDiv(nint a, nint b, nint c) => T.MulDiv(a, b, c);
+        public long MulDiv(long a, long b, long c) => T.MulDiv(a, b, c);
 
         [NativeName("FT_MulFix")]
         [NativeFunction("freetype", EntryPoint = "FT_MulFix")]
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public nint MulFix(nint a, nint b) => T.MulFix(a, b);
+        public long MulFix(long a, long b) => T.MulFix(a, b);
 
         [NativeName("FT_New_Face")]
         [NativeFunction("freetype", EntryPoint = "FT_New_Face")]
@@ -1445,7 +1445,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         public int NewFace(
             LibraryRecHandle library,
             sbyte* filepathname,
-            nint face_index,
+            long face_index,
             FaceRec** aface
         ) => T.NewFace(library, filepathname, face_index, aface);
 
@@ -1457,7 +1457,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         public int NewFace(
             LibraryRecHandle library,
             Ref<sbyte> filepathname,
-            nint face_index,
+            long face_index,
             Ref2D<FaceRec> aface
         ) => T.NewFace(library, filepathname, face_index, aface);
 
@@ -1469,8 +1469,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         public int NewMemoryFace(
             LibraryRecHandle library,
             byte* file_base,
-            nint file_size,
-            nint face_index,
+            long file_size,
+            long face_index,
             FaceRec** aface
         ) => T.NewMemoryFace(library, file_base, file_size, face_index, aface);
 
@@ -1482,8 +1482,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         public int NewMemoryFace(
             LibraryRecHandle library,
             Ref<byte> file_base,
-            nint file_size,
-            nint face_index,
+            long file_size,
+            long face_index,
             Ref2D<FaceRec> aface
         ) => T.NewMemoryFace(library, file_base, file_size, face_index, aface);
 
@@ -1495,7 +1495,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         public int OpenFace(
             LibraryRecHandle library,
             OpenArgs* args,
-            nint face_index,
+            long face_index,
             FaceRec** aface
         ) => T.OpenFace(library, args, face_index, aface);
 
@@ -1507,7 +1507,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         public int OpenFace(
             LibraryRecHandle library,
             Ref<OpenArgs> args,
-            nint face_index,
+            long face_index,
             Ref2D<FaceRec> aface
         ) => T.OpenFace(library, args, face_index, aface);
 
@@ -1561,7 +1561,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public nint RoundFix(nint a) => T.RoundFix(a);
+        public long RoundFix(long a) => T.RoundFix(a);
 
         [NativeName("FT_Select_Charmap")]
         [NativeFunction("freetype", EntryPoint = "FT_Select_Charmap")]
@@ -1601,8 +1601,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         )]
         public int SetCharSize(
             FaceRec* face,
-            nint char_width,
-            nint char_height,
+            long char_width,
+            long char_height,
             uint horz_resolution,
             uint vert_resolution
         ) => T.SetCharSize(face, char_width, char_height, horz_resolution, vert_resolution);
@@ -1614,8 +1614,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         )]
         public int SetCharSize(
             Ref<FaceRec> face,
-            nint char_width,
-            nint char_height,
+            long char_width,
+            long char_height,
             uint horz_resolution,
             uint vert_resolution
         ) => T.SetCharSize(face, char_width, char_height, horz_resolution, vert_resolution);
@@ -1735,14 +1735,14 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static nint CeilFix(nint a) => Underlying.Value!.CeilFix(a);
+        public static long CeilFix(long a) => Underlying.Value!.CeilFix(a);
 
         [NativeName("FT_DivFix")]
         [NativeFunction("freetype", EntryPoint = "FT_DivFix")]
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static nint DivFix(nint a, nint b) => Underlying.Value!.DivFix(a, b);
+        public static long DivFix(long a, long b) => Underlying.Value!.DivFix(a, b);
 
         [NativeName("FT_Done_Face")]
         [NativeFunction("freetype", EntryPoint = "FT_Done_Face")]
@@ -1814,7 +1814,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static uint* FaceGetCharsOfVariant(FaceRec* face, nuint variantSelector) =>
+        public static uint* FaceGetCharsOfVariant(FaceRec* face, ulong variantSelector) =>
             Underlying.Value!.FaceGetCharsOfVariant(face, variantSelector);
 
         [NativeName("FT_Face_GetCharsOfVariant")]
@@ -1822,7 +1822,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static Ptr<uint> FaceGetCharsOfVariant(Ref<FaceRec> face, nuint variantSelector)
+        public static Ptr<uint> FaceGetCharsOfVariant(Ref<FaceRec> face, ulong variantSelector)
         {
             fixed (FaceRec* __dsl_face = face)
             {
@@ -1837,8 +1837,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         )]
         public static uint FaceGetCharVariantIndex(
             FaceRec* face,
-            nuint charcode,
-            nuint variantSelector
+            ulong charcode,
+            ulong variantSelector
         ) => Underlying.Value!.FaceGetCharVariantIndex(face, charcode, variantSelector);
 
         [NativeName("FT_Face_GetCharVariantIndex")]
@@ -1848,8 +1848,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         )]
         public static uint FaceGetCharVariantIndex(
             Ref<FaceRec> face,
-            nuint charcode,
-            nuint variantSelector
+            ulong charcode,
+            ulong variantSelector
         )
         {
             fixed (FaceRec* __dsl_face = face)
@@ -1865,8 +1865,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         )]
         public static int FaceGetCharVariantIsDefault(
             FaceRec* face,
-            nuint charcode,
-            nuint variantSelector
+            ulong charcode,
+            ulong variantSelector
         ) => Underlying.Value!.FaceGetCharVariantIsDefault(face, charcode, variantSelector);
 
         [NativeName("FT_Face_GetCharVariantIsDefault")]
@@ -1876,8 +1876,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         )]
         public static int FaceGetCharVariantIsDefault(
             Ref<FaceRec> face,
-            nuint charcode,
-            nuint variantSelector
+            ulong charcode,
+            ulong variantSelector
         )
         {
             fixed (FaceRec* __dsl_face = face)
@@ -1912,7 +1912,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static uint* FaceGetVariantsOfChar(FaceRec* face, nuint charcode) =>
+        public static uint* FaceGetVariantsOfChar(FaceRec* face, ulong charcode) =>
             Underlying.Value!.FaceGetVariantsOfChar(face, charcode);
 
         [NativeName("FT_Face_GetVariantsOfChar")]
@@ -1920,7 +1920,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static Ptr<uint> FaceGetVariantsOfChar(Ref<FaceRec> face, nuint charcode)
+        public static Ptr<uint> FaceGetVariantsOfChar(Ref<FaceRec> face, ulong charcode)
         {
             fixed (FaceRec* __dsl_face = face)
             {
@@ -1983,14 +1983,14 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static nint FloorFix(nint a) => Underlying.Value!.FloorFix(a);
+        public static long FloorFix(long a) => Underlying.Value!.FloorFix(a);
 
         [NativeName("FT_Get_Char_Index")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Char_Index")]
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static uint GetCharIndex(FaceRec* face, nuint charcode) =>
+        public static uint GetCharIndex(FaceRec* face, ulong charcode) =>
             Underlying.Value!.GetCharIndex(face, charcode);
 
         [NativeName("FT_Get_Char_Index")]
@@ -1998,7 +1998,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static uint GetCharIndex(Ref<FaceRec> face, nuint charcode)
+        public static uint GetCharIndex(Ref<FaceRec> face, ulong charcode)
         {
             fixed (FaceRec* __dsl_face = face)
             {
@@ -2032,7 +2032,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static nuint GetFirstChar(FaceRec* face, uint* agindex) =>
+        public static ulong GetFirstChar(FaceRec* face, uint* agindex) =>
             Underlying.Value!.GetFirstChar(face, agindex);
 
         [NativeName("FT_Get_First_Char")]
@@ -2040,12 +2040,12 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static nuint GetFirstChar(Ref<FaceRec> face, Ref<uint> agindex)
+        public static ulong GetFirstChar(Ref<FaceRec> face, Ref<uint> agindex)
         {
             fixed (uint* __dsl_agindex = agindex)
             fixed (FaceRec* __dsl_face = face)
             {
-                return (nuint)GetFirstChar(__dsl_face, __dsl_agindex);
+                return (ulong)GetFirstChar(__dsl_face, __dsl_agindex);
             }
         }
 
@@ -2167,7 +2167,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static nuint GetNextChar(FaceRec* face, nuint char_code, uint* agindex) =>
+        public static ulong GetNextChar(FaceRec* face, ulong char_code, uint* agindex) =>
             Underlying.Value!.GetNextChar(face, char_code, agindex);
 
         [NativeName("FT_Get_Next_Char")]
@@ -2175,12 +2175,12 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static nuint GetNextChar(Ref<FaceRec> face, nuint char_code, Ref<uint> agindex)
+        public static ulong GetNextChar(Ref<FaceRec> face, ulong char_code, Ref<uint> agindex)
         {
             fixed (uint* __dsl_agindex = agindex)
             fixed (FaceRec* __dsl_face = face)
             {
-                return (nuint)GetNextChar(__dsl_face, char_code, __dsl_agindex);
+                return (ulong)GetNextChar(__dsl_face, char_code, __dsl_agindex);
             }
         }
 
@@ -2270,9 +2270,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         )]
         public static int GetTrackKerning(
             FaceRec* face,
-            nint point_size,
+            long point_size,
             int degree,
-            nint* akerning
+            long* akerning
         ) => Underlying.Value!.GetTrackKerning(face, point_size, degree, akerning);
 
         [NativeName("FT_Get_Track_Kerning")]
@@ -2282,12 +2282,12 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         )]
         public static int GetTrackKerning(
             Ref<FaceRec> face,
-            nint point_size,
+            long point_size,
             int degree,
-            Ref<nint> akerning
+            Ref<long> akerning
         )
         {
-            fixed (nint* __dsl_akerning = akerning)
+            fixed (long* __dsl_akerning = akerning)
             fixed (FaceRec* __dsl_face = face)
             {
                 return (int)GetTrackKerning(__dsl_face, point_size, degree, __dsl_akerning);
@@ -2375,7 +2375,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static int LoadChar(FaceRec* face, nuint char_code, int load_flags) =>
+        public static int LoadChar(FaceRec* face, ulong char_code, int load_flags) =>
             Underlying.Value!.LoadChar(face, char_code, load_flags);
 
         [NativeName("FT_Load_Char")]
@@ -2383,7 +2383,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static int LoadChar(Ref<FaceRec> face, nuint char_code, int load_flags)
+        public static int LoadChar(Ref<FaceRec> face, ulong char_code, int load_flags)
         {
             fixed (FaceRec* __dsl_face = face)
             {
@@ -2417,14 +2417,14 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static nint MulDiv(nint a, nint b, nint c) => Underlying.Value!.MulDiv(a, b, c);
+        public static long MulDiv(long a, long b, long c) => Underlying.Value!.MulDiv(a, b, c);
 
         [NativeName("FT_MulFix")]
         [NativeFunction("freetype", EntryPoint = "FT_MulFix")]
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static nint MulFix(nint a, nint b) => Underlying.Value!.MulFix(a, b);
+        public static long MulFix(long a, long b) => Underlying.Value!.MulFix(a, b);
 
         [NativeName("FT_New_Face")]
         [NativeFunction("freetype", EntryPoint = "FT_New_Face")]
@@ -2434,7 +2434,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         public static int NewFace(
             LibraryRecHandle library,
             sbyte* filepathname,
-            nint face_index,
+            long face_index,
             FaceRec** aface
         ) => Underlying.Value!.NewFace(library, filepathname, face_index, aface);
 
@@ -2446,7 +2446,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         public static int NewFace(
             LibraryRecHandle library,
             Ref<sbyte> filepathname,
-            nint face_index,
+            long face_index,
             Ref2D<FaceRec> aface
         )
         {
@@ -2465,8 +2465,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         public static int NewMemoryFace(
             LibraryRecHandle library,
             byte* file_base,
-            nint file_size,
-            nint face_index,
+            long file_size,
+            long face_index,
             FaceRec** aface
         ) => Underlying.Value!.NewMemoryFace(library, file_base, file_size, face_index, aface);
 
@@ -2478,8 +2478,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         public static int NewMemoryFace(
             LibraryRecHandle library,
             Ref<byte> file_base,
-            nint file_size,
-            nint face_index,
+            long file_size,
+            long face_index,
             Ref2D<FaceRec> aface
         )
         {
@@ -2504,7 +2504,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         public static int OpenFace(
             LibraryRecHandle library,
             OpenArgs* args,
-            nint face_index,
+            long face_index,
             FaceRec** aface
         ) => Underlying.Value!.OpenFace(library, args, face_index, aface);
 
@@ -2516,7 +2516,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         public static int OpenFace(
             LibraryRecHandle library,
             Ref<OpenArgs> args,
-            nint face_index,
+            long face_index,
             Ref2D<FaceRec> aface
         )
         {
@@ -2595,7 +2595,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static nint RoundFix(nint a) => Underlying.Value!.RoundFix(a);
+        public static long RoundFix(long a) => Underlying.Value!.RoundFix(a);
 
         [NativeName("FT_Select_Charmap")]
         [NativeFunction("freetype", EntryPoint = "FT_Select_Charmap")]
@@ -2646,8 +2646,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         )]
         public static int SetCharSize(
             FaceRec* face,
-            nint char_width,
-            nint char_height,
+            long char_width,
+            long char_height,
             uint horz_resolution,
             uint vert_resolution
         ) =>
@@ -2666,8 +2666,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         )]
         public static int SetCharSize(
             Ref<FaceRec> face,
-            nint char_width,
-            nint char_height,
+            long char_width,
+            long char_height,
             uint horz_resolution,
             uint vert_resolution
         )
@@ -3765,9 +3765,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_CeilFix")]
     [NativeFunction("freetype", EntryPoint = "FT_CeilFix")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    nint IFreeType.CeilFix(nint a) =>
+    long IFreeType.CeilFix(long a) =>
         (
-            (delegate* unmanaged<nint, nint>)(
+            (delegate* unmanaged<long, long>)(
                 _slots[2] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[2] = nativeContext.LoadFunction("FT_CeilFix", "freetype")
@@ -3777,14 +3777,14 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_CeilFix")]
     [NativeFunction("freetype", EntryPoint = "FT_CeilFix")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static nint CeilFix(nint a) => DllImport.CeilFix(a);
+    public static long CeilFix(long a) => DllImport.CeilFix(a);
 
     [NativeName("FT_DivFix")]
     [NativeFunction("freetype", EntryPoint = "FT_DivFix")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    nint IFreeType.DivFix(nint a, nint b) =>
+    long IFreeType.DivFix(long a, long b) =>
         (
-            (delegate* unmanaged<nint, nint, nint>)(
+            (delegate* unmanaged<long, long, long>)(
                 _slots[3] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[3] = nativeContext.LoadFunction("FT_DivFix", "freetype")
@@ -3794,7 +3794,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_DivFix")]
     [NativeFunction("freetype", EntryPoint = "FT_DivFix")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static nint DivFix(nint a, nint b) => DllImport.DivFix(a, b);
+    public static long DivFix(long a, long b) => DllImport.DivFix(a, b);
 
     [NativeName("FT_Done_Face")]
     [NativeFunction("freetype", EntryPoint = "FT_Done_Face")]
@@ -3915,9 +3915,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_Face_GetCharsOfVariant")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharsOfVariant")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    uint* IFreeType.FaceGetCharsOfVariant(FaceRec* face, nuint variantSelector) =>
+    uint* IFreeType.FaceGetCharsOfVariant(FaceRec* face, ulong variantSelector) =>
         (
-            (delegate* unmanaged<FaceRec*, nuint, uint*>)(
+            (delegate* unmanaged<FaceRec*, ulong, uint*>)(
                 _slots[8] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[8] = nativeContext.LoadFunction(
@@ -3930,13 +3930,13 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_Face_GetCharsOfVariant")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharsOfVariant")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static uint* FaceGetCharsOfVariant(FaceRec* face, nuint variantSelector) =>
+    public static uint* FaceGetCharsOfVariant(FaceRec* face, ulong variantSelector) =>
         DllImport.FaceGetCharsOfVariant(face, variantSelector);
 
     [NativeName("FT_Face_GetCharsOfVariant")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharsOfVariant")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    Ptr<uint> IFreeType.FaceGetCharsOfVariant(Ref<FaceRec> face, nuint variantSelector)
+    Ptr<uint> IFreeType.FaceGetCharsOfVariant(Ref<FaceRec> face, ulong variantSelector)
     {
         fixed (FaceRec* __dsl_face = face)
         {
@@ -3947,15 +3947,15 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_Face_GetCharsOfVariant")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharsOfVariant")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static Ptr<uint> FaceGetCharsOfVariant(Ref<FaceRec> face, nuint variantSelector) =>
+    public static Ptr<uint> FaceGetCharsOfVariant(Ref<FaceRec> face, ulong variantSelector) =>
         DllImport.FaceGetCharsOfVariant(face, variantSelector);
 
     [NativeName("FT_Face_GetCharVariantIndex")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharVariantIndex")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    uint IFreeType.FaceGetCharVariantIndex(FaceRec* face, nuint charcode, nuint variantSelector) =>
+    uint IFreeType.FaceGetCharVariantIndex(FaceRec* face, ulong charcode, ulong variantSelector) =>
         (
-            (delegate* unmanaged<FaceRec*, nuint, nuint, uint>)(
+            (delegate* unmanaged<FaceRec*, ulong, ulong, uint>)(
                 _slots[9] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[9] = nativeContext.LoadFunction(
@@ -3970,14 +3970,14 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static uint FaceGetCharVariantIndex(
         FaceRec* face,
-        nuint charcode,
-        nuint variantSelector
+        ulong charcode,
+        ulong variantSelector
     ) => DllImport.FaceGetCharVariantIndex(face, charcode, variantSelector);
 
     [NativeName("FT_Face_GetCharVariantIndex")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharVariantIndex")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    uint IFreeType.FaceGetCharVariantIndex(Ref<FaceRec> face, nuint charcode, nuint variantSelector)
+    uint IFreeType.FaceGetCharVariantIndex(Ref<FaceRec> face, ulong charcode, ulong variantSelector)
     {
         fixed (FaceRec* __dsl_face = face)
         {
@@ -3991,8 +3991,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static uint FaceGetCharVariantIndex(
         Ref<FaceRec> face,
-        nuint charcode,
-        nuint variantSelector
+        ulong charcode,
+        ulong variantSelector
     ) => DllImport.FaceGetCharVariantIndex(face, charcode, variantSelector);
 
     [NativeName("FT_Face_GetCharVariantIsDefault")]
@@ -4000,11 +4000,11 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     int IFreeType.FaceGetCharVariantIsDefault(
         FaceRec* face,
-        nuint charcode,
-        nuint variantSelector
+        ulong charcode,
+        ulong variantSelector
     ) =>
         (
-            (delegate* unmanaged<FaceRec*, nuint, nuint, int>)(
+            (delegate* unmanaged<FaceRec*, ulong, ulong, int>)(
                 _slots[10] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[10] = nativeContext.LoadFunction(
@@ -4019,8 +4019,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static int FaceGetCharVariantIsDefault(
         FaceRec* face,
-        nuint charcode,
-        nuint variantSelector
+        ulong charcode,
+        ulong variantSelector
     ) => DllImport.FaceGetCharVariantIsDefault(face, charcode, variantSelector);
 
     [NativeName("FT_Face_GetCharVariantIsDefault")]
@@ -4028,8 +4028,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     int IFreeType.FaceGetCharVariantIsDefault(
         Ref<FaceRec> face,
-        nuint charcode,
-        nuint variantSelector
+        ulong charcode,
+        ulong variantSelector
     )
     {
         fixed (FaceRec* __dsl_face = face)
@@ -4048,8 +4048,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static int FaceGetCharVariantIsDefault(
         Ref<FaceRec> face,
-        nuint charcode,
-        nuint variantSelector
+        ulong charcode,
+        ulong variantSelector
     ) => DllImport.FaceGetCharVariantIsDefault(face, charcode, variantSelector);
 
     [NativeName("FT_Face_GetVariantSelectors")]
@@ -4093,9 +4093,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_Face_GetVariantsOfChar")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetVariantsOfChar")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    uint* IFreeType.FaceGetVariantsOfChar(FaceRec* face, nuint charcode) =>
+    uint* IFreeType.FaceGetVariantsOfChar(FaceRec* face, ulong charcode) =>
         (
-            (delegate* unmanaged<FaceRec*, nuint, uint*>)(
+            (delegate* unmanaged<FaceRec*, ulong, uint*>)(
                 _slots[12] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[12] = nativeContext.LoadFunction(
@@ -4108,13 +4108,13 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_Face_GetVariantsOfChar")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetVariantsOfChar")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static uint* FaceGetVariantsOfChar(FaceRec* face, nuint charcode) =>
+    public static uint* FaceGetVariantsOfChar(FaceRec* face, ulong charcode) =>
         DllImport.FaceGetVariantsOfChar(face, charcode);
 
     [NativeName("FT_Face_GetVariantsOfChar")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetVariantsOfChar")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    Ptr<uint> IFreeType.FaceGetVariantsOfChar(Ref<FaceRec> face, nuint charcode)
+    Ptr<uint> IFreeType.FaceGetVariantsOfChar(Ref<FaceRec> face, ulong charcode)
     {
         fixed (FaceRec* __dsl_face = face)
         {
@@ -4125,7 +4125,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_Face_GetVariantsOfChar")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetVariantsOfChar")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static Ptr<uint> FaceGetVariantsOfChar(Ref<FaceRec> face, nuint charcode) =>
+    public static Ptr<uint> FaceGetVariantsOfChar(Ref<FaceRec> face, ulong charcode) =>
         DllImport.FaceGetVariantsOfChar(face, charcode);
 
     [NativeName("FT_Face_Properties")]
@@ -4209,9 +4209,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_FloorFix")]
     [NativeFunction("freetype", EntryPoint = "FT_FloorFix")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    nint IFreeType.FloorFix(nint a) =>
+    long IFreeType.FloorFix(long a) =>
         (
-            (delegate* unmanaged<nint, nint>)(
+            (delegate* unmanaged<long, long>)(
                 _slots[15] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[15] = nativeContext.LoadFunction("FT_FloorFix", "freetype")
@@ -4221,14 +4221,14 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_FloorFix")]
     [NativeFunction("freetype", EntryPoint = "FT_FloorFix")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static nint FloorFix(nint a) => DllImport.FloorFix(a);
+    public static long FloorFix(long a) => DllImport.FloorFix(a);
 
     [NativeName("FT_Get_Char_Index")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Char_Index")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    uint IFreeType.GetCharIndex(FaceRec* face, nuint charcode) =>
+    uint IFreeType.GetCharIndex(FaceRec* face, ulong charcode) =>
         (
-            (delegate* unmanaged<FaceRec*, nuint, uint>)(
+            (delegate* unmanaged<FaceRec*, ulong, uint>)(
                 _slots[16] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[16] = nativeContext.LoadFunction("FT_Get_Char_Index", "freetype")
@@ -4238,13 +4238,13 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_Get_Char_Index")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Char_Index")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static uint GetCharIndex(FaceRec* face, nuint charcode) =>
+    public static uint GetCharIndex(FaceRec* face, ulong charcode) =>
         DllImport.GetCharIndex(face, charcode);
 
     [NativeName("FT_Get_Char_Index")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Char_Index")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    uint IFreeType.GetCharIndex(Ref<FaceRec> face, nuint charcode)
+    uint IFreeType.GetCharIndex(Ref<FaceRec> face, ulong charcode)
     {
         fixed (FaceRec* __dsl_face = face)
         {
@@ -4255,7 +4255,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_Get_Char_Index")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Char_Index")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static uint GetCharIndex(Ref<FaceRec> face, nuint charcode) =>
+    public static uint GetCharIndex(Ref<FaceRec> face, ulong charcode) =>
         DllImport.GetCharIndex(face, charcode);
 
     [NativeName("FT_Get_Charmap_Index")]
@@ -4295,9 +4295,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_Get_First_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_First_Char")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    nuint IFreeType.GetFirstChar(FaceRec* face, uint* agindex) =>
+    ulong IFreeType.GetFirstChar(FaceRec* face, uint* agindex) =>
         (
-            (delegate* unmanaged<FaceRec*, uint*, nuint>)(
+            (delegate* unmanaged<FaceRec*, uint*, ulong>)(
                 _slots[18] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[18] = nativeContext.LoadFunction("FT_Get_First_Char", "freetype")
@@ -4307,25 +4307,25 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_Get_First_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_First_Char")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static nuint GetFirstChar(FaceRec* face, uint* agindex) =>
+    public static ulong GetFirstChar(FaceRec* face, uint* agindex) =>
         DllImport.GetFirstChar(face, agindex);
 
     [NativeName("FT_Get_First_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_First_Char")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    nuint IFreeType.GetFirstChar(Ref<FaceRec> face, Ref<uint> agindex)
+    ulong IFreeType.GetFirstChar(Ref<FaceRec> face, Ref<uint> agindex)
     {
         fixed (uint* __dsl_agindex = agindex)
         fixed (FaceRec* __dsl_face = face)
         {
-            return (nuint)((IFreeType)this).GetFirstChar(__dsl_face, __dsl_agindex);
+            return (ulong)((IFreeType)this).GetFirstChar(__dsl_face, __dsl_agindex);
         }
     }
 
     [NativeName("FT_Get_First_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_First_Char")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static nuint GetFirstChar(Ref<FaceRec> face, Ref<uint> agindex) =>
+    public static ulong GetFirstChar(Ref<FaceRec> face, Ref<uint> agindex) =>
         DllImport.GetFirstChar(face, agindex);
 
     [NativeName("FT_Get_FSType_Flags")]
@@ -4510,9 +4510,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_Get_Next_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Next_Char")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    nuint IFreeType.GetNextChar(FaceRec* face, nuint char_code, uint* agindex) =>
+    ulong IFreeType.GetNextChar(FaceRec* face, ulong char_code, uint* agindex) =>
         (
-            (delegate* unmanaged<FaceRec*, nuint, uint*, nuint>)(
+            (delegate* unmanaged<FaceRec*, ulong, uint*, ulong>)(
                 _slots[23] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[23] = nativeContext.LoadFunction("FT_Get_Next_Char", "freetype")
@@ -4522,25 +4522,25 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_Get_Next_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Next_Char")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static nuint GetNextChar(FaceRec* face, nuint char_code, uint* agindex) =>
+    public static ulong GetNextChar(FaceRec* face, ulong char_code, uint* agindex) =>
         DllImport.GetNextChar(face, char_code, agindex);
 
     [NativeName("FT_Get_Next_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Next_Char")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    nuint IFreeType.GetNextChar(Ref<FaceRec> face, nuint char_code, Ref<uint> agindex)
+    ulong IFreeType.GetNextChar(Ref<FaceRec> face, ulong char_code, Ref<uint> agindex)
     {
         fixed (uint* __dsl_agindex = agindex)
         fixed (FaceRec* __dsl_face = face)
         {
-            return (nuint)((IFreeType)this).GetNextChar(__dsl_face, char_code, __dsl_agindex);
+            return (ulong)((IFreeType)this).GetNextChar(__dsl_face, char_code, __dsl_agindex);
         }
     }
 
     [NativeName("FT_Get_Next_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Next_Char")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static nuint GetNextChar(Ref<FaceRec> face, nuint char_code, Ref<uint> agindex) =>
+    public static ulong GetNextChar(Ref<FaceRec> face, ulong char_code, Ref<uint> agindex) =>
         DllImport.GetNextChar(face, char_code, agindex);
 
     [NativeName("FT_Get_Postscript_Name")]
@@ -4659,9 +4659,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_Get_Track_Kerning")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Track_Kerning")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    int IFreeType.GetTrackKerning(FaceRec* face, nint point_size, int degree, nint* akerning) =>
+    int IFreeType.GetTrackKerning(FaceRec* face, long point_size, int degree, long* akerning) =>
         (
-            (delegate* unmanaged<FaceRec*, nint, int, nint*, int>)(
+            (delegate* unmanaged<FaceRec*, long, int, long*, int>)(
                 _slots[26] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[26] = nativeContext.LoadFunction("FT_Get_Track_Kerning", "freetype")
@@ -4671,7 +4671,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_Get_Track_Kerning")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Track_Kerning")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static int GetTrackKerning(FaceRec* face, nint point_size, int degree, nint* akerning) =>
+    public static int GetTrackKerning(FaceRec* face, long point_size, int degree, long* akerning) =>
         DllImport.GetTrackKerning(face, point_size, degree, akerning);
 
     [NativeName("FT_Get_Track_Kerning")]
@@ -4679,12 +4679,12 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     int IFreeType.GetTrackKerning(
         Ref<FaceRec> face,
-        nint point_size,
+        long point_size,
         int degree,
-        Ref<nint> akerning
+        Ref<long> akerning
     )
     {
-        fixed (nint* __dsl_akerning = akerning)
+        fixed (long* __dsl_akerning = akerning)
         fixed (FaceRec* __dsl_face = face)
         {
             return (int)
@@ -4697,9 +4697,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static int GetTrackKerning(
         Ref<FaceRec> face,
-        nint point_size,
+        long point_size,
         int degree,
-        Ref<nint> akerning
+        Ref<long> akerning
     ) => DllImport.GetTrackKerning(face, point_size, degree, akerning);
 
     [NativeName("FT_Get_Transform")]
@@ -4831,9 +4831,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_Load_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Load_Char")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    int IFreeType.LoadChar(FaceRec* face, nuint char_code, int load_flags) =>
+    int IFreeType.LoadChar(FaceRec* face, ulong char_code, int load_flags) =>
         (
-            (delegate* unmanaged<FaceRec*, nuint, int, int>)(
+            (delegate* unmanaged<FaceRec*, ulong, int, int>)(
                 _slots[30] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[30] = nativeContext.LoadFunction("FT_Load_Char", "freetype")
@@ -4843,13 +4843,13 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_Load_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Load_Char")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static int LoadChar(FaceRec* face, nuint char_code, int load_flags) =>
+    public static int LoadChar(FaceRec* face, ulong char_code, int load_flags) =>
         DllImport.LoadChar(face, char_code, load_flags);
 
     [NativeName("FT_Load_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Load_Char")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    int IFreeType.LoadChar(Ref<FaceRec> face, nuint char_code, int load_flags)
+    int IFreeType.LoadChar(Ref<FaceRec> face, ulong char_code, int load_flags)
     {
         fixed (FaceRec* __dsl_face = face)
         {
@@ -4860,7 +4860,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_Load_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Load_Char")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static int LoadChar(Ref<FaceRec> face, nuint char_code, int load_flags) =>
+    public static int LoadChar(Ref<FaceRec> face, ulong char_code, int load_flags) =>
         DllImport.LoadChar(face, char_code, load_flags);
 
     [NativeName("FT_Load_Glyph")]
@@ -4901,9 +4901,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_MulDiv")]
     [NativeFunction("freetype", EntryPoint = "FT_MulDiv")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    nint IFreeType.MulDiv(nint a, nint b, nint c) =>
+    long IFreeType.MulDiv(long a, long b, long c) =>
         (
-            (delegate* unmanaged<nint, nint, nint, nint>)(
+            (delegate* unmanaged<long, long, long, long>)(
                 _slots[32] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[32] = nativeContext.LoadFunction("FT_MulDiv", "freetype")
@@ -4913,14 +4913,14 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_MulDiv")]
     [NativeFunction("freetype", EntryPoint = "FT_MulDiv")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static nint MulDiv(nint a, nint b, nint c) => DllImport.MulDiv(a, b, c);
+    public static long MulDiv(long a, long b, long c) => DllImport.MulDiv(a, b, c);
 
     [NativeName("FT_MulFix")]
     [NativeFunction("freetype", EntryPoint = "FT_MulFix")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    nint IFreeType.MulFix(nint a, nint b) =>
+    long IFreeType.MulFix(long a, long b) =>
         (
-            (delegate* unmanaged<nint, nint, nint>)(
+            (delegate* unmanaged<long, long, long>)(
                 _slots[33] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[33] = nativeContext.LoadFunction("FT_MulFix", "freetype")
@@ -4930,7 +4930,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_MulFix")]
     [NativeFunction("freetype", EntryPoint = "FT_MulFix")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static nint MulFix(nint a, nint b) => DllImport.MulFix(a, b);
+    public static long MulFix(long a, long b) => DllImport.MulFix(a, b);
 
     [NativeName("FT_New_Face")]
     [NativeFunction("freetype", EntryPoint = "FT_New_Face")]
@@ -4938,11 +4938,11 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.NewFace(
         LibraryRecHandle library,
         sbyte* filepathname,
-        nint face_index,
+        long face_index,
         FaceRec** aface
     ) =>
         (
-            (delegate* unmanaged<LibraryRecHandle, sbyte*, nint, FaceRec**, int>)(
+            (delegate* unmanaged<LibraryRecHandle, sbyte*, long, FaceRec**, int>)(
                 _slots[34] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[34] = nativeContext.LoadFunction("FT_New_Face", "freetype")
@@ -4955,7 +4955,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     public static int NewFace(
         LibraryRecHandle library,
         sbyte* filepathname,
-        nint face_index,
+        long face_index,
         FaceRec** aface
     ) => DllImport.NewFace(library, filepathname, face_index, aface);
 
@@ -4965,7 +4965,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.NewFace(
         LibraryRecHandle library,
         Ref<sbyte> filepathname,
-        nint face_index,
+        long face_index,
         Ref2D<FaceRec> aface
     )
     {
@@ -4983,7 +4983,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     public static int NewFace(
         LibraryRecHandle library,
         Ref<sbyte> filepathname,
-        nint face_index,
+        long face_index,
         Ref2D<FaceRec> aface
     ) => DllImport.NewFace(library, filepathname, face_index, aface);
 
@@ -4993,12 +4993,12 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.NewMemoryFace(
         LibraryRecHandle library,
         byte* file_base,
-        nint file_size,
-        nint face_index,
+        long file_size,
+        long face_index,
         FaceRec** aface
     ) =>
         (
-            (delegate* unmanaged<LibraryRecHandle, byte*, nint, nint, FaceRec**, int>)(
+            (delegate* unmanaged<LibraryRecHandle, byte*, long, long, FaceRec**, int>)(
                 _slots[35] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[35] = nativeContext.LoadFunction("FT_New_Memory_Face", "freetype")
@@ -5011,8 +5011,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     public static int NewMemoryFace(
         LibraryRecHandle library,
         byte* file_base,
-        nint file_size,
-        nint face_index,
+        long file_size,
+        long face_index,
         FaceRec** aface
     ) => DllImport.NewMemoryFace(library, file_base, file_size, face_index, aface);
 
@@ -5022,8 +5022,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.NewMemoryFace(
         LibraryRecHandle library,
         Ref<byte> file_base,
-        nint file_size,
-        nint face_index,
+        long file_size,
+        long face_index,
         Ref2D<FaceRec> aface
     )
     {
@@ -5047,8 +5047,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     public static int NewMemoryFace(
         LibraryRecHandle library,
         Ref<byte> file_base,
-        nint file_size,
-        nint face_index,
+        long file_size,
+        long face_index,
         Ref2D<FaceRec> aface
     ) => DllImport.NewMemoryFace(library, file_base, file_size, face_index, aface);
 
@@ -5058,11 +5058,11 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.OpenFace(
         LibraryRecHandle library,
         OpenArgs* args,
-        nint face_index,
+        long face_index,
         FaceRec** aface
     ) =>
         (
-            (delegate* unmanaged<LibraryRecHandle, OpenArgs*, nint, FaceRec**, int>)(
+            (delegate* unmanaged<LibraryRecHandle, OpenArgs*, long, FaceRec**, int>)(
                 _slots[36] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[36] = nativeContext.LoadFunction("FT_Open_Face", "freetype")
@@ -5075,7 +5075,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     public static int OpenFace(
         LibraryRecHandle library,
         OpenArgs* args,
-        nint face_index,
+        long face_index,
         FaceRec** aface
     ) => DllImport.OpenFace(library, args, face_index, aface);
 
@@ -5085,7 +5085,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.OpenFace(
         LibraryRecHandle library,
         Ref<OpenArgs> args,
-        nint face_index,
+        long face_index,
         Ref2D<FaceRec> aface
     )
     {
@@ -5102,7 +5102,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     public static int OpenFace(
         LibraryRecHandle library,
         Ref<OpenArgs> args,
-        nint face_index,
+        long face_index,
         Ref2D<FaceRec> aface
     ) => DllImport.OpenFace(library, args, face_index, aface);
 
@@ -5213,9 +5213,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_RoundFix")]
     [NativeFunction("freetype", EntryPoint = "FT_RoundFix")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    nint IFreeType.RoundFix(nint a) =>
+    long IFreeType.RoundFix(long a) =>
         (
-            (delegate* unmanaged<nint, nint>)(
+            (delegate* unmanaged<long, long>)(
                 _slots[40] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[40] = nativeContext.LoadFunction("FT_RoundFix", "freetype")
@@ -5225,7 +5225,7 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_RoundFix")]
     [NativeFunction("freetype", EntryPoint = "FT_RoundFix")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static nint RoundFix(nint a) => DllImport.RoundFix(a);
+    public static long RoundFix(long a) => DllImport.RoundFix(a);
 
     [NativeName("FT_Select_Charmap")]
     [NativeFunction("freetype", EntryPoint = "FT_Select_Charmap")]
@@ -5302,13 +5302,13 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     int IFreeType.SetCharSize(
         FaceRec* face,
-        nint char_width,
-        nint char_height,
+        long char_width,
+        long char_height,
         uint horz_resolution,
         uint vert_resolution
     ) =>
         (
-            (delegate* unmanaged<FaceRec*, nint, nint, uint, uint, int>)(
+            (delegate* unmanaged<FaceRec*, long, long, uint, uint, int>)(
                 _slots[43] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[43] = nativeContext.LoadFunction("FT_Set_Char_Size", "freetype")
@@ -5320,8 +5320,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static int SetCharSize(
         FaceRec* face,
-        nint char_width,
-        nint char_height,
+        long char_width,
+        long char_height,
         uint horz_resolution,
         uint vert_resolution
     ) => DllImport.SetCharSize(face, char_width, char_height, horz_resolution, vert_resolution);
@@ -5331,8 +5331,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     int IFreeType.SetCharSize(
         Ref<FaceRec> face,
-        nint char_width,
-        nint char_height,
+        long char_width,
+        long char_height,
         uint horz_resolution,
         uint vert_resolution
     )
@@ -5355,8 +5355,8 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static int SetCharSize(
         Ref<FaceRec> face,
-        nint char_width,
-        nint char_height,
+        long char_width,
+        long char_height,
         uint horz_resolution,
         uint vert_resolution
     ) => DllImport.SetCharSize(face, char_width, char_height, horz_resolution, vert_resolution);

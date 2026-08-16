@@ -10,14 +10,14 @@ namespace Silk.NET.FreeType;
 public partial struct BBox
 {
     [NativeName("xMin")]
-    public nint XMin;
+    public long XMin;
 
     [NativeName("yMin")]
-    public nint YMin;
+    public long YMin;
 
     [NativeName("xMax")]
-    public nint XMax;
+    public long XMax;
 
     [NativeName("yMax")]
-    public nint YMax;
+    public long YMax;
 }

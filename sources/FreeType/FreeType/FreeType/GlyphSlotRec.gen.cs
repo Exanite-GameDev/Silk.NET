@@ -28,10 +28,10 @@ public unsafe partial struct GlyphSlotRec
     public GlyphMetrics Metrics;
 
     [NativeName("linearHoriAdvance")]
-    public nint LinearHoriAdvance;
+    public long LinearHoriAdvance;
 
     [NativeName("linearVertAdvance")]
-    public nint LinearVertAdvance;
+    public long LinearVertAdvance;
 
     [NativeName("advance")]
     public Vector Advance;
@@ -64,10 +64,10 @@ public unsafe partial struct GlyphSlotRec
     public nint ControlLen;
 
     [NativeName("lsb_delta")]
-    public nint LsbDelta;
+    public long LsbDelta;
 
     [NativeName("rsb_delta")]
-    public nint RsbDelta;
+    public long RsbDelta;
 
     [NativeName("other")]
     public void* Other;

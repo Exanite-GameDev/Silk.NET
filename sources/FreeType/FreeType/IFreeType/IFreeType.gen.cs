@@ -29,11 +29,11 @@ public unsafe partial interface IFreeType
 
         [NativeName("FT_CeilFix")]
         [NativeFunction("freetype", EntryPoint = "FT_CeilFix")]
-        static abstract nint CeilFix(nint a);
+        static abstract long CeilFix(long a);
 
         [NativeName("FT_DivFix")]
         [NativeFunction("freetype", EntryPoint = "FT_DivFix")]
-        static abstract nint DivFix(nint a, nint b);
+        static abstract long DivFix(long a, long b);
 
         [NativeName("FT_Done_Face")]
         [NativeFunction("freetype", EntryPoint = "FT_Done_Face")]
@@ -65,42 +65,42 @@ public unsafe partial interface IFreeType
 
         [NativeName("FT_Face_GetCharsOfVariant")]
         [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharsOfVariant")]
-        static abstract uint* FaceGetCharsOfVariant(FaceRec* face, nuint variantSelector);
+        static abstract uint* FaceGetCharsOfVariant(FaceRec* face, ulong variantSelector);
 
         [NativeName("FT_Face_GetCharsOfVariant")]
         [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharsOfVariant")]
-        static abstract Ptr<uint> FaceGetCharsOfVariant(Ref<FaceRec> face, nuint variantSelector);
+        static abstract Ptr<uint> FaceGetCharsOfVariant(Ref<FaceRec> face, ulong variantSelector);
 
         [NativeName("FT_Face_GetCharVariantIndex")]
         [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharVariantIndex")]
         static abstract uint FaceGetCharVariantIndex(
             FaceRec* face,
-            nuint charcode,
-            nuint variantSelector
+            ulong charcode,
+            ulong variantSelector
         );
 
         [NativeName("FT_Face_GetCharVariantIndex")]
         [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharVariantIndex")]
         static abstract uint FaceGetCharVariantIndex(
             Ref<FaceRec> face,
-            nuint charcode,
-            nuint variantSelector
+            ulong charcode,
+            ulong variantSelector
         );
 
         [NativeName("FT_Face_GetCharVariantIsDefault")]
         [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharVariantIsDefault")]
         static abstract int FaceGetCharVariantIsDefault(
             FaceRec* face,
-            nuint charcode,
-            nuint variantSelector
+            ulong charcode,
+            ulong variantSelector
         );
 
         [NativeName("FT_Face_GetCharVariantIsDefault")]
         [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharVariantIsDefault")]
         static abstract int FaceGetCharVariantIsDefault(
             Ref<FaceRec> face,
-            nuint charcode,
-            nuint variantSelector
+            ulong charcode,
+            ulong variantSelector
         );
 
         [NativeName("FT_Face_GetVariantSelectors")]
@@ -113,11 +113,11 @@ public unsafe partial interface IFreeType
 
         [NativeName("FT_Face_GetVariantsOfChar")]
         [NativeFunction("freetype", EntryPoint = "FT_Face_GetVariantsOfChar")]
-        static abstract uint* FaceGetVariantsOfChar(FaceRec* face, nuint charcode);
+        static abstract uint* FaceGetVariantsOfChar(FaceRec* face, ulong charcode);
 
         [NativeName("FT_Face_GetVariantsOfChar")]
         [NativeFunction("freetype", EntryPoint = "FT_Face_GetVariantsOfChar")]
-        static abstract Ptr<uint> FaceGetVariantsOfChar(Ref<FaceRec> face, nuint charcode);
+        static abstract Ptr<uint> FaceGetVariantsOfChar(Ref<FaceRec> face, ulong charcode);
 
         [NativeName("FT_Face_Properties")]
         [NativeFunction("freetype", EntryPoint = "FT_Face_Properties")]
@@ -145,15 +145,15 @@ public unsafe partial interface IFreeType
 
         [NativeName("FT_FloorFix")]
         [NativeFunction("freetype", EntryPoint = "FT_FloorFix")]
-        static abstract nint FloorFix(nint a);
+        static abstract long FloorFix(long a);
 
         [NativeName("FT_Get_Char_Index")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Char_Index")]
-        static abstract uint GetCharIndex(FaceRec* face, nuint charcode);
+        static abstract uint GetCharIndex(FaceRec* face, ulong charcode);
 
         [NativeName("FT_Get_Char_Index")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Char_Index")]
-        static abstract uint GetCharIndex(Ref<FaceRec> face, nuint charcode);
+        static abstract uint GetCharIndex(Ref<FaceRec> face, ulong charcode);
 
         [NativeName("FT_Get_Charmap_Index")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Charmap_Index")]
@@ -165,11 +165,11 @@ public unsafe partial interface IFreeType
 
         [NativeName("FT_Get_First_Char")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_First_Char")]
-        static abstract nuint GetFirstChar(FaceRec* face, uint* agindex);
+        static abstract ulong GetFirstChar(FaceRec* face, uint* agindex);
 
         [NativeName("FT_Get_First_Char")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_First_Char")]
-        static abstract nuint GetFirstChar(Ref<FaceRec> face, Ref<uint> agindex);
+        static abstract ulong GetFirstChar(Ref<FaceRec> face, Ref<uint> agindex);
 
         [NativeName("FT_Get_FSType_Flags")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_FSType_Flags")]
@@ -227,11 +227,11 @@ public unsafe partial interface IFreeType
 
         [NativeName("FT_Get_Next_Char")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Next_Char")]
-        static abstract nuint GetNextChar(FaceRec* face, nuint char_code, uint* agindex);
+        static abstract ulong GetNextChar(FaceRec* face, ulong char_code, uint* agindex);
 
         [NativeName("FT_Get_Next_Char")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Next_Char")]
-        static abstract nuint GetNextChar(Ref<FaceRec> face, nuint char_code, Ref<uint> agindex);
+        static abstract ulong GetNextChar(Ref<FaceRec> face, ulong char_code, Ref<uint> agindex);
 
         [NativeName("FT_Get_Postscript_Name")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Postscript_Name")]
@@ -269,18 +269,18 @@ public unsafe partial interface IFreeType
         [NativeFunction("freetype", EntryPoint = "FT_Get_Track_Kerning")]
         static abstract int GetTrackKerning(
             FaceRec* face,
-            nint point_size,
+            long point_size,
             int degree,
-            nint* akerning
+            long* akerning
         );
 
         [NativeName("FT_Get_Track_Kerning")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Track_Kerning")]
         static abstract int GetTrackKerning(
             Ref<FaceRec> face,
-            nint point_size,
+            long point_size,
             int degree,
-            Ref<nint> akerning
+            Ref<long> akerning
         );
 
         [NativeName("FT_Get_Transform")]
@@ -319,11 +319,11 @@ public unsafe partial interface IFreeType
 
         [NativeName("FT_Load_Char")]
         [NativeFunction("freetype", EntryPoint = "FT_Load_Char")]
-        static abstract int LoadChar(FaceRec* face, nuint char_code, int load_flags);
+        static abstract int LoadChar(FaceRec* face, ulong char_code, int load_flags);
 
         [NativeName("FT_Load_Char")]
         [NativeFunction("freetype", EntryPoint = "FT_Load_Char")]
-        static abstract int LoadChar(Ref<FaceRec> face, nuint char_code, int load_flags);
+        static abstract int LoadChar(Ref<FaceRec> face, ulong char_code, int load_flags);
 
         [NativeName("FT_Load_Glyph")]
         [NativeFunction("freetype", EntryPoint = "FT_Load_Glyph")]
@@ -335,18 +335,18 @@ public unsafe partial interface IFreeType
 
         [NativeName("FT_MulDiv")]
         [NativeFunction("freetype", EntryPoint = "FT_MulDiv")]
-        static abstract nint MulDiv(nint a, nint b, nint c);
+        static abstract long MulDiv(long a, long b, long c);
 
         [NativeName("FT_MulFix")]
         [NativeFunction("freetype", EntryPoint = "FT_MulFix")]
-        static abstract nint MulFix(nint a, nint b);
+        static abstract long MulFix(long a, long b);
 
         [NativeName("FT_New_Face")]
         [NativeFunction("freetype", EntryPoint = "FT_New_Face")]
         static abstract int NewFace(
             LibraryRecHandle library,
             sbyte* filepathname,
-            nint face_index,
+            long face_index,
             FaceRec** aface
         );
 
@@ -355,7 +355,7 @@ public unsafe partial interface IFreeType
         static abstract int NewFace(
             LibraryRecHandle library,
             Ref<sbyte> filepathname,
-            nint face_index,
+            long face_index,
             Ref2D<FaceRec> aface
         );
 
@@ -364,8 +364,8 @@ public unsafe partial interface IFreeType
         static abstract int NewMemoryFace(
             LibraryRecHandle library,
             byte* file_base,
-            nint file_size,
-            nint face_index,
+            long file_size,
+            long face_index,
             FaceRec** aface
         );
 
@@ -374,8 +374,8 @@ public unsafe partial interface IFreeType
         static abstract int NewMemoryFace(
             LibraryRecHandle library,
             Ref<byte> file_base,
-            nint file_size,
-            nint face_index,
+            long file_size,
+            long face_index,
             Ref2D<FaceRec> aface
         );
 
@@ -384,7 +384,7 @@ public unsafe partial interface IFreeType
         static abstract int OpenFace(
             LibraryRecHandle library,
             OpenArgs* args,
-            nint face_index,
+            long face_index,
             FaceRec** aface
         );
 
@@ -393,7 +393,7 @@ public unsafe partial interface IFreeType
         static abstract int OpenFace(
             LibraryRecHandle library,
             Ref<OpenArgs> args,
-            nint face_index,
+            long face_index,
             Ref2D<FaceRec> aface
         );
 
@@ -423,7 +423,7 @@ public unsafe partial interface IFreeType
 
         [NativeName("FT_RoundFix")]
         [NativeFunction("freetype", EntryPoint = "FT_RoundFix")]
-        static abstract nint RoundFix(nint a);
+        static abstract long RoundFix(long a);
 
         [NativeName("FT_Select_Charmap")]
         [NativeFunction("freetype", EntryPoint = "FT_Select_Charmap")]
@@ -445,8 +445,8 @@ public unsafe partial interface IFreeType
         [NativeFunction("freetype", EntryPoint = "FT_Set_Char_Size")]
         static abstract int SetCharSize(
             FaceRec* face,
-            nint char_width,
-            nint char_height,
+            long char_width,
+            long char_height,
             uint horz_resolution,
             uint vert_resolution
         );
@@ -455,8 +455,8 @@ public unsafe partial interface IFreeType
         [NativeFunction("freetype", EntryPoint = "FT_Set_Char_Size")]
         static abstract int SetCharSize(
             Ref<FaceRec> face,
-            nint char_width,
-            nint char_height,
+            long char_width,
+            long char_height,
             uint horz_resolution,
             uint vert_resolution
         );
@@ -512,11 +512,11 @@ public unsafe partial interface IFreeType
 
     [NativeName("FT_CeilFix")]
     [NativeFunction("freetype", EntryPoint = "FT_CeilFix")]
-    nint CeilFix(nint a);
+    long CeilFix(long a);
 
     [NativeName("FT_DivFix")]
     [NativeFunction("freetype", EntryPoint = "FT_DivFix")]
-    nint DivFix(nint a, nint b);
+    long DivFix(long a, long b);
 
     [NativeName("FT_Done_Face")]
     [NativeFunction("freetype", EntryPoint = "FT_Done_Face")]
@@ -548,27 +548,27 @@ public unsafe partial interface IFreeType
 
     [NativeName("FT_Face_GetCharsOfVariant")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharsOfVariant")]
-    uint* FaceGetCharsOfVariant(FaceRec* face, nuint variantSelector);
+    uint* FaceGetCharsOfVariant(FaceRec* face, ulong variantSelector);
 
     [NativeName("FT_Face_GetCharsOfVariant")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharsOfVariant")]
-    Ptr<uint> FaceGetCharsOfVariant(Ref<FaceRec> face, nuint variantSelector);
+    Ptr<uint> FaceGetCharsOfVariant(Ref<FaceRec> face, ulong variantSelector);
 
     [NativeName("FT_Face_GetCharVariantIndex")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharVariantIndex")]
-    uint FaceGetCharVariantIndex(FaceRec* face, nuint charcode, nuint variantSelector);
+    uint FaceGetCharVariantIndex(FaceRec* face, ulong charcode, ulong variantSelector);
 
     [NativeName("FT_Face_GetCharVariantIndex")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharVariantIndex")]
-    uint FaceGetCharVariantIndex(Ref<FaceRec> face, nuint charcode, nuint variantSelector);
+    uint FaceGetCharVariantIndex(Ref<FaceRec> face, ulong charcode, ulong variantSelector);
 
     [NativeName("FT_Face_GetCharVariantIsDefault")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharVariantIsDefault")]
-    int FaceGetCharVariantIsDefault(FaceRec* face, nuint charcode, nuint variantSelector);
+    int FaceGetCharVariantIsDefault(FaceRec* face, ulong charcode, ulong variantSelector);
 
     [NativeName("FT_Face_GetCharVariantIsDefault")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharVariantIsDefault")]
-    int FaceGetCharVariantIsDefault(Ref<FaceRec> face, nuint charcode, nuint variantSelector);
+    int FaceGetCharVariantIsDefault(Ref<FaceRec> face, ulong charcode, ulong variantSelector);
 
     [NativeName("FT_Face_GetVariantSelectors")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetVariantSelectors")]
@@ -580,11 +580,11 @@ public unsafe partial interface IFreeType
 
     [NativeName("FT_Face_GetVariantsOfChar")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetVariantsOfChar")]
-    uint* FaceGetVariantsOfChar(FaceRec* face, nuint charcode);
+    uint* FaceGetVariantsOfChar(FaceRec* face, ulong charcode);
 
     [NativeName("FT_Face_GetVariantsOfChar")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetVariantsOfChar")]
-    Ptr<uint> FaceGetVariantsOfChar(Ref<FaceRec> face, nuint charcode);
+    Ptr<uint> FaceGetVariantsOfChar(Ref<FaceRec> face, ulong charcode);
 
     [NativeName("FT_Face_Properties")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_Properties")]
@@ -604,15 +604,15 @@ public unsafe partial interface IFreeType
 
     [NativeName("FT_FloorFix")]
     [NativeFunction("freetype", EntryPoint = "FT_FloorFix")]
-    nint FloorFix(nint a);
+    long FloorFix(long a);
 
     [NativeName("FT_Get_Char_Index")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Char_Index")]
-    uint GetCharIndex(FaceRec* face, nuint charcode);
+    uint GetCharIndex(FaceRec* face, ulong charcode);
 
     [NativeName("FT_Get_Char_Index")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Char_Index")]
-    uint GetCharIndex(Ref<FaceRec> face, nuint charcode);
+    uint GetCharIndex(Ref<FaceRec> face, ulong charcode);
 
     [NativeName("FT_Get_Charmap_Index")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Charmap_Index")]
@@ -624,11 +624,11 @@ public unsafe partial interface IFreeType
 
     [NativeName("FT_Get_First_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_First_Char")]
-    nuint GetFirstChar(FaceRec* face, uint* agindex);
+    ulong GetFirstChar(FaceRec* face, uint* agindex);
 
     [NativeName("FT_Get_First_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_First_Char")]
-    nuint GetFirstChar(Ref<FaceRec> face, Ref<uint> agindex);
+    ulong GetFirstChar(Ref<FaceRec> face, Ref<uint> agindex);
 
     [NativeName("FT_Get_FSType_Flags")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_FSType_Flags")]
@@ -676,11 +676,11 @@ public unsafe partial interface IFreeType
 
     [NativeName("FT_Get_Next_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Next_Char")]
-    nuint GetNextChar(FaceRec* face, nuint char_code, uint* agindex);
+    ulong GetNextChar(FaceRec* face, ulong char_code, uint* agindex);
 
     [NativeName("FT_Get_Next_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Next_Char")]
-    nuint GetNextChar(Ref<FaceRec> face, nuint char_code, Ref<uint> agindex);
+    ulong GetNextChar(Ref<FaceRec> face, ulong char_code, Ref<uint> agindex);
 
     [NativeName("FT_Get_Postscript_Name")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Postscript_Name")]
@@ -716,11 +716,11 @@ public unsafe partial interface IFreeType
 
     [NativeName("FT_Get_Track_Kerning")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Track_Kerning")]
-    int GetTrackKerning(FaceRec* face, nint point_size, int degree, nint* akerning);
+    int GetTrackKerning(FaceRec* face, long point_size, int degree, long* akerning);
 
     [NativeName("FT_Get_Track_Kerning")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Track_Kerning")]
-    int GetTrackKerning(Ref<FaceRec> face, nint point_size, int degree, Ref<nint> akerning);
+    int GetTrackKerning(Ref<FaceRec> face, long point_size, int degree, Ref<long> akerning);
 
     [NativeName("FT_Get_Transform")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Transform")]
@@ -753,11 +753,11 @@ public unsafe partial interface IFreeType
 
     [NativeName("FT_Load_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Load_Char")]
-    int LoadChar(FaceRec* face, nuint char_code, int load_flags);
+    int LoadChar(FaceRec* face, ulong char_code, int load_flags);
 
     [NativeName("FT_Load_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Load_Char")]
-    int LoadChar(Ref<FaceRec> face, nuint char_code, int load_flags);
+    int LoadChar(Ref<FaceRec> face, ulong char_code, int load_flags);
 
     [NativeName("FT_Load_Glyph")]
     [NativeFunction("freetype", EntryPoint = "FT_Load_Glyph")]
@@ -769,22 +769,22 @@ public unsafe partial interface IFreeType
 
     [NativeName("FT_MulDiv")]
     [NativeFunction("freetype", EntryPoint = "FT_MulDiv")]
-    nint MulDiv(nint a, nint b, nint c);
+    long MulDiv(long a, long b, long c);
 
     [NativeName("FT_MulFix")]
     [NativeFunction("freetype", EntryPoint = "FT_MulFix")]
-    nint MulFix(nint a, nint b);
+    long MulFix(long a, long b);
 
     [NativeName("FT_New_Face")]
     [NativeFunction("freetype", EntryPoint = "FT_New_Face")]
-    int NewFace(LibraryRecHandle library, sbyte* filepathname, nint face_index, FaceRec** aface);
+    int NewFace(LibraryRecHandle library, sbyte* filepathname, long face_index, FaceRec** aface);
 
     [NativeName("FT_New_Face")]
     [NativeFunction("freetype", EntryPoint = "FT_New_Face")]
     int NewFace(
         LibraryRecHandle library,
         Ref<sbyte> filepathname,
-        nint face_index,
+        long face_index,
         Ref2D<FaceRec> aface
     );
 
@@ -793,8 +793,8 @@ public unsafe partial interface IFreeType
     int NewMemoryFace(
         LibraryRecHandle library,
         byte* file_base,
-        nint file_size,
-        nint face_index,
+        long file_size,
+        long face_index,
         FaceRec** aface
     );
 
@@ -803,21 +803,21 @@ public unsafe partial interface IFreeType
     int NewMemoryFace(
         LibraryRecHandle library,
         Ref<byte> file_base,
-        nint file_size,
-        nint face_index,
+        long file_size,
+        long face_index,
         Ref2D<FaceRec> aface
     );
 
     [NativeName("FT_Open_Face")]
     [NativeFunction("freetype", EntryPoint = "FT_Open_Face")]
-    int OpenFace(LibraryRecHandle library, OpenArgs* args, nint face_index, FaceRec** aface);
+    int OpenFace(LibraryRecHandle library, OpenArgs* args, long face_index, FaceRec** aface);
 
     [NativeName("FT_Open_Face")]
     [NativeFunction("freetype", EntryPoint = "FT_Open_Face")]
     int OpenFace(
         LibraryRecHandle library,
         Ref<OpenArgs> args,
-        nint face_index,
+        long face_index,
         Ref2D<FaceRec> aface
     );
 
@@ -847,7 +847,7 @@ public unsafe partial interface IFreeType
 
     [NativeName("FT_RoundFix")]
     [NativeFunction("freetype", EntryPoint = "FT_RoundFix")]
-    nint RoundFix(nint a);
+    long RoundFix(long a);
 
     [NativeName("FT_Select_Charmap")]
     [NativeFunction("freetype", EntryPoint = "FT_Select_Charmap")]
@@ -869,8 +869,8 @@ public unsafe partial interface IFreeType
     [NativeFunction("freetype", EntryPoint = "FT_Set_Char_Size")]
     int SetCharSize(
         FaceRec* face,
-        nint char_width,
-        nint char_height,
+        long char_width,
+        long char_height,
         uint horz_resolution,
         uint vert_resolution
     );
@@ -879,8 +879,8 @@ public unsafe partial interface IFreeType
     [NativeFunction("freetype", EntryPoint = "FT_Set_Char_Size")]
     int SetCharSize(
         Ref<FaceRec> face,
-        nint char_width,
-        nint char_height,
+        long char_width,
+        long char_height,
         uint horz_resolution,
         uint vert_resolution
     );

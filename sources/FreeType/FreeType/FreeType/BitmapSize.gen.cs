@@ -16,11 +16,11 @@ public partial struct BitmapSize
     public short Width;
 
     [NativeName("size")]
-    public nint Size;
+    public long Size;
 
     [NativeName("x_ppem")]
-    public nint XPpem;
+    public long XPpem;
 
     [NativeName("y_ppem")]
-    public nint YPpem;
+    public long YPpem;
 }

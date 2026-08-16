@@ -11,26 +11,26 @@ namespace Silk.NET.FreeType;
 public partial struct GlyphMetrics
 {
     [NativeName("width")]
-    public nint Width;
+    public long Width;
 
     [NativeName("height")]
-    public nint Height;
+    public long Height;
 
     [NativeName("horiBearingX")]
-    public nint HoriBearingX;
+    public long HoriBearingX;
 
     [NativeName("horiBearingY")]
-    public nint HoriBearingY;
+    public long HoriBearingY;
 
     [NativeName("horiAdvance")]
-    public nint HoriAdvance;
+    public long HoriAdvance;
 
     [NativeName("vertBearingX")]
-    public nint VertBearingX;
+    public long VertBearingX;
 
     [NativeName("vertBearingY")]
-    public nint VertBearingY;
+    public long VertBearingY;
 
     [NativeName("vertAdvance")]
-    public nint VertAdvance;
+    public long VertAdvance;
 }

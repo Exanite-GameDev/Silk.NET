@@ -10,14 +10,14 @@ namespace Silk.NET.FreeType;
 public partial struct Matrix
 {
     [NativeName("xx")]
-    public nint Xx;
+    public long Xx;
 
     [NativeName("xy")]
-    public nint Xy;
+    public long Xy;
 
     [NativeName("yx")]
-    public nint Yx;
+    public long Yx;
 
     [NativeName("yy")]
-    public nint Yy;
+    public long Yy;
 }

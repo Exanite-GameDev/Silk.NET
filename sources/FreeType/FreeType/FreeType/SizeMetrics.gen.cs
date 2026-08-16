@@ -17,20 +17,20 @@ public partial struct SizeMetrics
     public ushort YPpem;
 
     [NativeName("x_scale")]
-    public nint XScale;
+    public long XScale;
 
     [NativeName("y_scale")]
-    public nint YScale;
+    public long YScale;
 
     [NativeName("ascender")]
-    public nint Ascender;
+    public long Ascender;
 
     [NativeName("descender")]
-    public nint Descender;
+    public long Descender;
 
     [NativeName("height")]
-    public nint Height;
+    public long Height;
 
     [NativeName("max_advance")]
-    public nint MaxAdvance;
+    public long MaxAdvance;
 }

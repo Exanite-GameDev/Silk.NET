@@ -10,7 +10,7 @@ namespace Silk.NET.FreeType;
 public unsafe partial struct Parameter
 {
     [NativeName("tag")]
-    public nuint Tag;
+    public ulong Tag;
 
     [NativeName("data")]
     public void* Data;

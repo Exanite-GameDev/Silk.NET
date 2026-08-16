@@ -11,19 +11,19 @@ namespace Silk.NET.FreeType;
 public unsafe partial struct FaceRec
 {
     [NativeName("num_faces")]
-    public nint NumFaces;
+    public long NumFaces;
 
     [NativeName("face_index")]
-    public nint FaceIndex;
+    public long FaceIndex;
 
     [NativeName("face_flags")]
-    public nint FaceFlags;
+    public long FaceFlags;
 
     [NativeName("style_flags")]
-    public nint StyleFlags;
+    public long StyleFlags;
 
     [NativeName("num_glyphs")]
-    public nint NumGlyphs;
+    public long NumGlyphs;
 
     [NativeName("family_name")]
     public sbyte* FamilyName;

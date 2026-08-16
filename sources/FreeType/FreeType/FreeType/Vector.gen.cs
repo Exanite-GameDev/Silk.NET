@@ -11,8 +11,8 @@ namespace Silk.NET.FreeType;
 public partial struct Vector
 {
     [NativeName("x")]
-    public nint X;
+    public long X;
 
     [NativeName("y")]
-    public nint Y;
+    public long Y;
 }
