@@ -851,7 +851,6 @@
         "MarkNativeNames",
         "ExtractHandles",
         "ExtractNestedTypes",
-        "ExtractEnumConstants",
         "ExtractFunctionPointers",
         "TransformHandles",
         "TransformFunctions",
@@ -896,7 +895,6 @@
         ]
       }
     },
-
     "HarfBuzz": {
       "SourceProject": "sources/HarfBuzz/HarfBuzz/Silk.NET.HarfBuzz.csproj",
       "Solution": "Silk.NET.slnx",
@@ -907,7 +905,6 @@
         "MarkNativeNames",
         "ExtractHandles",
         "ExtractNestedTypes",
-        "ExtractEnumConstants",
         "ExtractFunctionPointers",
         "TransformHandles",
         "TransformFunctions",

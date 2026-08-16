@@ -19,7 +19,7 @@ public unsafe partial struct GlyphSlotRec
     public GlyphSlotRec* Next;
 
     [NativeName("glyph_index")]
-    public UInt GlyphIndex;
+    public uint GlyphIndex;
 
     [NativeName("generic")]
     public Generic Generic;
@@ -43,16 +43,16 @@ public unsafe partial struct GlyphSlotRec
     public Bitmap Bitmap;
 
     [NativeName("bitmap_left")]
-    public Int BitmapLeft;
+    public int BitmapLeft;
 
     [NativeName("bitmap_top")]
-    public Int BitmapTop;
+    public int BitmapTop;
 
     [NativeName("outline")]
     public Outline Outline;
 
     [NativeName("num_subglyphs")]
-    public UInt NumSubglyphs;
+    public uint NumSubglyphs;
 
     [NativeName("subglyphs")]
     public SubGlyphRecHandle Subglyphs;

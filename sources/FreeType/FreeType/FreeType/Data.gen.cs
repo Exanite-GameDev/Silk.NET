@@ -13,5 +13,5 @@ public unsafe partial struct Data
     public byte* Pointer;
 
     [NativeName("length")]
-    public UInt Length;
+    public uint Length;
 }

@@ -73,7 +73,7 @@ public unsafe partial interface IFreeType
 
         [NativeName("FT_Face_GetCharVariantIndex")]
         [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharVariantIndex")]
-        static abstract UInt FaceGetCharVariantIndex(
+        static abstract uint FaceGetCharVariantIndex(
             FaceRec* face,
             nuint charcode,
             nuint variantSelector
@@ -81,7 +81,7 @@ public unsafe partial interface IFreeType
 
         [NativeName("FT_Face_GetCharVariantIndex")]
         [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharVariantIndex")]
-        static abstract UInt FaceGetCharVariantIndex(
+        static abstract uint FaceGetCharVariantIndex(
             Ref<FaceRec> face,
             nuint charcode,
             nuint variantSelector
@@ -89,7 +89,7 @@ public unsafe partial interface IFreeType
 
         [NativeName("FT_Face_GetCharVariantIsDefault")]
         [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharVariantIsDefault")]
-        static abstract Int FaceGetCharVariantIsDefault(
+        static abstract int FaceGetCharVariantIsDefault(
             FaceRec* face,
             nuint charcode,
             nuint variantSelector
@@ -97,7 +97,7 @@ public unsafe partial interface IFreeType
 
         [NativeName("FT_Face_GetCharVariantIsDefault")]
         [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharVariantIsDefault")]
-        static abstract Int FaceGetCharVariantIsDefault(
+        static abstract int FaceGetCharVariantIsDefault(
             Ref<FaceRec> face,
             nuint charcode,
             nuint variantSelector
@@ -123,7 +123,7 @@ public unsafe partial interface IFreeType
         [NativeFunction("freetype", EntryPoint = "FT_Face_Properties")]
         static abstract int FaceProperties(
             FaceRec* face,
-            UInt num_properties,
+            uint num_properties,
             Parameter* properties
         );
 
@@ -131,7 +131,7 @@ public unsafe partial interface IFreeType
         [NativeFunction("freetype", EntryPoint = "FT_Face_Properties")]
         static abstract int FaceProperties(
             Ref<FaceRec> face,
-            UInt num_properties,
+            uint num_properties,
             Ref<Parameter> properties
         );
 
@@ -149,61 +149,61 @@ public unsafe partial interface IFreeType
 
         [NativeName("FT_Get_Char_Index")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Char_Index")]
-        static abstract UInt GetCharIndex(FaceRec* face, nuint charcode);
+        static abstract uint GetCharIndex(FaceRec* face, nuint charcode);
 
         [NativeName("FT_Get_Char_Index")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Char_Index")]
-        static abstract UInt GetCharIndex(Ref<FaceRec> face, nuint charcode);
+        static abstract uint GetCharIndex(Ref<FaceRec> face, nuint charcode);
 
         [NativeName("FT_Get_Charmap_Index")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Charmap_Index")]
-        static abstract Int GetCharmapIndex(CharMapRec* charmap);
+        static abstract int GetCharmapIndex(CharMapRec* charmap);
 
         [NativeName("FT_Get_Charmap_Index")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Charmap_Index")]
-        static abstract Int GetCharmapIndex(Ref<CharMapRec> charmap);
+        static abstract int GetCharmapIndex(Ref<CharMapRec> charmap);
 
         [NativeName("FT_Get_First_Char")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_First_Char")]
-        static abstract nuint GetFirstChar(FaceRec* face, UInt* agindex);
+        static abstract nuint GetFirstChar(FaceRec* face, uint* agindex);
 
         [NativeName("FT_Get_First_Char")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_First_Char")]
-        static abstract nuint GetFirstChar(Ref<FaceRec> face, Ref<UInt> agindex);
+        static abstract nuint GetFirstChar(Ref<FaceRec> face, Ref<uint> agindex);
 
         [NativeName("FT_Get_FSType_Flags")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_FSType_Flags")]
-        static abstract UShort GetFSTypeFlags(FaceRec* face);
+        static abstract ushort GetFSTypeFlags(FaceRec* face);
 
         [NativeName("FT_Get_FSType_Flags")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_FSType_Flags")]
-        static abstract UShort GetFSTypeFlags(Ref<FaceRec> face);
+        static abstract ushort GetFSTypeFlags(Ref<FaceRec> face);
 
         [NativeName("FT_Get_Glyph_Name")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Glyph_Name")]
         static abstract int GetGlyphName(
             FaceRec* face,
-            UInt glyph_index,
+            uint glyph_index,
             void* buffer,
-            UInt buffer_max
+            uint buffer_max
         );
 
         [NativeName("FT_Get_Glyph_Name")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Glyph_Name")]
         static abstract int GetGlyphName(
             Ref<FaceRec> face,
-            UInt glyph_index,
+            uint glyph_index,
             Ref buffer,
-            UInt buffer_max
+            uint buffer_max
         );
 
         [NativeName("FT_Get_Kerning")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Kerning")]
         static abstract int GetKerning(
             FaceRec* face,
-            UInt left_glyph,
-            UInt right_glyph,
-            UInt kern_mode,
+            uint left_glyph,
+            uint right_glyph,
+            uint kern_mode,
             Vector* akerning
         );
 
@@ -211,27 +211,27 @@ public unsafe partial interface IFreeType
         [NativeFunction("freetype", EntryPoint = "FT_Get_Kerning")]
         static abstract int GetKerning(
             Ref<FaceRec> face,
-            UInt left_glyph,
-            UInt right_glyph,
-            UInt kern_mode,
+            uint left_glyph,
+            uint right_glyph,
+            uint kern_mode,
             Ref<Vector> akerning
         );
 
         [NativeName("FT_Get_Name_Index")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Name_Index")]
-        static abstract UInt GetNameIndex(FaceRec* face, sbyte* glyph_name);
+        static abstract uint GetNameIndex(FaceRec* face, sbyte* glyph_name);
 
         [NativeName("FT_Get_Name_Index")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Name_Index")]
-        static abstract UInt GetNameIndex(Ref<FaceRec> face, Ref<sbyte> glyph_name);
+        static abstract uint GetNameIndex(Ref<FaceRec> face, Ref<sbyte> glyph_name);
 
         [NativeName("FT_Get_Next_Char")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Next_Char")]
-        static abstract nuint GetNextChar(FaceRec* face, nuint char_code, UInt* agindex);
+        static abstract nuint GetNextChar(FaceRec* face, nuint char_code, uint* agindex);
 
         [NativeName("FT_Get_Next_Char")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Next_Char")]
-        static abstract nuint GetNextChar(Ref<FaceRec> face, nuint char_code, Ref<UInt> agindex);
+        static abstract nuint GetNextChar(Ref<FaceRec> face, nuint char_code, Ref<uint> agindex);
 
         [NativeName("FT_Get_Postscript_Name")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Postscript_Name")]
@@ -245,11 +245,11 @@ public unsafe partial interface IFreeType
         [NativeFunction("freetype", EntryPoint = "FT_Get_SubGlyph_Info")]
         static abstract int GetSubGlyphInfo(
             GlyphSlotRec* glyph,
-            UInt sub_index,
-            Int* p_index,
-            UInt* p_flags,
-            Int* p_arg1,
-            Int* p_arg2,
+            uint sub_index,
+            int* p_index,
+            uint* p_flags,
+            int* p_arg1,
+            int* p_arg2,
             Matrix* p_transform
         );
 
@@ -257,11 +257,11 @@ public unsafe partial interface IFreeType
         [NativeFunction("freetype", EntryPoint = "FT_Get_SubGlyph_Info")]
         static abstract int GetSubGlyphInfo(
             Ref<GlyphSlotRec> glyph,
-            UInt sub_index,
-            Ref<Int> p_index,
-            Ref<UInt> p_flags,
-            Ref<Int> p_arg1,
-            Ref<Int> p_arg2,
+            uint sub_index,
+            Ref<int> p_index,
+            Ref<uint> p_flags,
+            Ref<int> p_arg1,
+            Ref<int> p_arg2,
             Ref<Matrix> p_transform
         );
 
@@ -270,7 +270,7 @@ public unsafe partial interface IFreeType
         static abstract int GetTrackKerning(
             FaceRec* face,
             nint point_size,
-            Int degree,
+            int degree,
             nint* akerning
         );
 
@@ -279,7 +279,7 @@ public unsafe partial interface IFreeType
         static abstract int GetTrackKerning(
             Ref<FaceRec> face,
             nint point_size,
-            Int degree,
+            int degree,
             Ref<nint> akerning
         );
 
@@ -303,18 +303,18 @@ public unsafe partial interface IFreeType
         [NativeFunction("freetype", EntryPoint = "FT_Library_Version")]
         static abstract void LibraryVersion(
             LibraryRecHandle library,
-            Int* amajor,
-            Int* aminor,
-            Int* apatch
+            int* amajor,
+            int* aminor,
+            int* apatch
         );
 
         [NativeName("FT_Library_Version")]
         [NativeFunction("freetype", EntryPoint = "FT_Library_Version")]
         static abstract void LibraryVersion(
             LibraryRecHandle library,
-            Ref<Int> amajor,
-            Ref<Int> aminor,
-            Ref<Int> apatch
+            Ref<int> amajor,
+            Ref<int> aminor,
+            Ref<int> apatch
         );
 
         [NativeName("FT_Load_Char")]
@@ -327,11 +327,11 @@ public unsafe partial interface IFreeType
 
         [NativeName("FT_Load_Glyph")]
         [NativeFunction("freetype", EntryPoint = "FT_Load_Glyph")]
-        static abstract int LoadGlyph(FaceRec* face, UInt glyph_index, int load_flags);
+        static abstract int LoadGlyph(FaceRec* face, uint glyph_index, int load_flags);
 
         [NativeName("FT_Load_Glyph")]
         [NativeFunction("freetype", EntryPoint = "FT_Load_Glyph")]
-        static abstract int LoadGlyph(Ref<FaceRec> face, UInt glyph_index, int load_flags);
+        static abstract int LoadGlyph(Ref<FaceRec> face, uint glyph_index, int load_flags);
 
         [NativeName("FT_MulDiv")]
         [NativeFunction("freetype", EntryPoint = "FT_MulDiv")]
@@ -435,11 +435,11 @@ public unsafe partial interface IFreeType
 
         [NativeName("FT_Select_Size")]
         [NativeFunction("freetype", EntryPoint = "FT_Select_Size")]
-        static abstract int SelectSize(FaceRec* face, Int strike_index);
+        static abstract int SelectSize(FaceRec* face, int strike_index);
 
         [NativeName("FT_Select_Size")]
         [NativeFunction("freetype", EntryPoint = "FT_Select_Size")]
-        static abstract int SelectSize(Ref<FaceRec> face, Int strike_index);
+        static abstract int SelectSize(Ref<FaceRec> face, int strike_index);
 
         [NativeName("FT_Set_Char_Size")]
         [NativeFunction("freetype", EntryPoint = "FT_Set_Char_Size")]
@@ -447,8 +447,8 @@ public unsafe partial interface IFreeType
             FaceRec* face,
             nint char_width,
             nint char_height,
-            UInt horz_resolution,
-            UInt vert_resolution
+            uint horz_resolution,
+            uint vert_resolution
         );
 
         [NativeName("FT_Set_Char_Size")]
@@ -457,8 +457,8 @@ public unsafe partial interface IFreeType
             Ref<FaceRec> face,
             nint char_width,
             nint char_height,
-            UInt horz_resolution,
-            UInt vert_resolution
+            uint horz_resolution,
+            uint vert_resolution
         );
 
         [NativeName("FT_Set_Charmap")]
@@ -471,11 +471,11 @@ public unsafe partial interface IFreeType
 
         [NativeName("FT_Set_Pixel_Sizes")]
         [NativeFunction("freetype", EntryPoint = "FT_Set_Pixel_Sizes")]
-        static abstract int SetPixelSizes(FaceRec* face, UInt pixel_width, UInt pixel_height);
+        static abstract int SetPixelSizes(FaceRec* face, uint pixel_width, uint pixel_height);
 
         [NativeName("FT_Set_Pixel_Sizes")]
         [NativeFunction("freetype", EntryPoint = "FT_Set_Pixel_Sizes")]
-        static abstract int SetPixelSizes(Ref<FaceRec> face, UInt pixel_width, UInt pixel_height);
+        static abstract int SetPixelSizes(Ref<FaceRec> face, uint pixel_width, uint pixel_height);
 
         [NativeName("FT_Set_Transform")]
         [NativeFunction("freetype", EntryPoint = "FT_Set_Transform")]
@@ -556,19 +556,19 @@ public unsafe partial interface IFreeType
 
     [NativeName("FT_Face_GetCharVariantIndex")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharVariantIndex")]
-    UInt FaceGetCharVariantIndex(FaceRec* face, nuint charcode, nuint variantSelector);
+    uint FaceGetCharVariantIndex(FaceRec* face, nuint charcode, nuint variantSelector);
 
     [NativeName("FT_Face_GetCharVariantIndex")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharVariantIndex")]
-    UInt FaceGetCharVariantIndex(Ref<FaceRec> face, nuint charcode, nuint variantSelector);
+    uint FaceGetCharVariantIndex(Ref<FaceRec> face, nuint charcode, nuint variantSelector);
 
     [NativeName("FT_Face_GetCharVariantIsDefault")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharVariantIsDefault")]
-    Int FaceGetCharVariantIsDefault(FaceRec* face, nuint charcode, nuint variantSelector);
+    int FaceGetCharVariantIsDefault(FaceRec* face, nuint charcode, nuint variantSelector);
 
     [NativeName("FT_Face_GetCharVariantIsDefault")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetCharVariantIsDefault")]
-    Int FaceGetCharVariantIsDefault(Ref<FaceRec> face, nuint charcode, nuint variantSelector);
+    int FaceGetCharVariantIsDefault(Ref<FaceRec> face, nuint charcode, nuint variantSelector);
 
     [NativeName("FT_Face_GetVariantSelectors")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_GetVariantSelectors")]
@@ -588,11 +588,11 @@ public unsafe partial interface IFreeType
 
     [NativeName("FT_Face_Properties")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_Properties")]
-    int FaceProperties(FaceRec* face, UInt num_properties, Parameter* properties);
+    int FaceProperties(FaceRec* face, uint num_properties, Parameter* properties);
 
     [NativeName("FT_Face_Properties")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_Properties")]
-    int FaceProperties(Ref<FaceRec> face, UInt num_properties, Ref<Parameter> properties);
+    int FaceProperties(Ref<FaceRec> face, uint num_properties, Ref<Parameter> properties);
 
     [NativeName("FT_Face_SetUnpatentedHinting")]
     [NativeFunction("freetype", EntryPoint = "FT_Face_SetUnpatentedHinting")]
@@ -608,51 +608,51 @@ public unsafe partial interface IFreeType
 
     [NativeName("FT_Get_Char_Index")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Char_Index")]
-    UInt GetCharIndex(FaceRec* face, nuint charcode);
+    uint GetCharIndex(FaceRec* face, nuint charcode);
 
     [NativeName("FT_Get_Char_Index")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Char_Index")]
-    UInt GetCharIndex(Ref<FaceRec> face, nuint charcode);
+    uint GetCharIndex(Ref<FaceRec> face, nuint charcode);
 
     [NativeName("FT_Get_Charmap_Index")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Charmap_Index")]
-    Int GetCharmapIndex(CharMapRec* charmap);
+    int GetCharmapIndex(CharMapRec* charmap);
 
     [NativeName("FT_Get_Charmap_Index")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Charmap_Index")]
-    Int GetCharmapIndex(Ref<CharMapRec> charmap);
+    int GetCharmapIndex(Ref<CharMapRec> charmap);
 
     [NativeName("FT_Get_First_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_First_Char")]
-    nuint GetFirstChar(FaceRec* face, UInt* agindex);
+    nuint GetFirstChar(FaceRec* face, uint* agindex);
 
     [NativeName("FT_Get_First_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_First_Char")]
-    nuint GetFirstChar(Ref<FaceRec> face, Ref<UInt> agindex);
+    nuint GetFirstChar(Ref<FaceRec> face, Ref<uint> agindex);
 
     [NativeName("FT_Get_FSType_Flags")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_FSType_Flags")]
-    UShort GetFSTypeFlags(FaceRec* face);
+    ushort GetFSTypeFlags(FaceRec* face);
 
     [NativeName("FT_Get_FSType_Flags")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_FSType_Flags")]
-    UShort GetFSTypeFlags(Ref<FaceRec> face);
+    ushort GetFSTypeFlags(Ref<FaceRec> face);
 
     [NativeName("FT_Get_Glyph_Name")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Glyph_Name")]
-    int GetGlyphName(FaceRec* face, UInt glyph_index, void* buffer, UInt buffer_max);
+    int GetGlyphName(FaceRec* face, uint glyph_index, void* buffer, uint buffer_max);
 
     [NativeName("FT_Get_Glyph_Name")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Glyph_Name")]
-    int GetGlyphName(Ref<FaceRec> face, UInt glyph_index, Ref buffer, UInt buffer_max);
+    int GetGlyphName(Ref<FaceRec> face, uint glyph_index, Ref buffer, uint buffer_max);
 
     [NativeName("FT_Get_Kerning")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Kerning")]
     int GetKerning(
         FaceRec* face,
-        UInt left_glyph,
-        UInt right_glyph,
-        UInt kern_mode,
+        uint left_glyph,
+        uint right_glyph,
+        uint kern_mode,
         Vector* akerning
     );
 
@@ -660,27 +660,27 @@ public unsafe partial interface IFreeType
     [NativeFunction("freetype", EntryPoint = "FT_Get_Kerning")]
     int GetKerning(
         Ref<FaceRec> face,
-        UInt left_glyph,
-        UInt right_glyph,
-        UInt kern_mode,
+        uint left_glyph,
+        uint right_glyph,
+        uint kern_mode,
         Ref<Vector> akerning
     );
 
     [NativeName("FT_Get_Name_Index")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Name_Index")]
-    UInt GetNameIndex(FaceRec* face, sbyte* glyph_name);
+    uint GetNameIndex(FaceRec* face, sbyte* glyph_name);
 
     [NativeName("FT_Get_Name_Index")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Name_Index")]
-    UInt GetNameIndex(Ref<FaceRec> face, Ref<sbyte> glyph_name);
+    uint GetNameIndex(Ref<FaceRec> face, Ref<sbyte> glyph_name);
 
     [NativeName("FT_Get_Next_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Next_Char")]
-    nuint GetNextChar(FaceRec* face, nuint char_code, UInt* agindex);
+    nuint GetNextChar(FaceRec* face, nuint char_code, uint* agindex);
 
     [NativeName("FT_Get_Next_Char")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Next_Char")]
-    nuint GetNextChar(Ref<FaceRec> face, nuint char_code, Ref<UInt> agindex);
+    nuint GetNextChar(Ref<FaceRec> face, nuint char_code, Ref<uint> agindex);
 
     [NativeName("FT_Get_Postscript_Name")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Postscript_Name")]
@@ -694,11 +694,11 @@ public unsafe partial interface IFreeType
     [NativeFunction("freetype", EntryPoint = "FT_Get_SubGlyph_Info")]
     int GetSubGlyphInfo(
         GlyphSlotRec* glyph,
-        UInt sub_index,
-        Int* p_index,
-        UInt* p_flags,
-        Int* p_arg1,
-        Int* p_arg2,
+        uint sub_index,
+        int* p_index,
+        uint* p_flags,
+        int* p_arg1,
+        int* p_arg2,
         Matrix* p_transform
     );
 
@@ -706,21 +706,21 @@ public unsafe partial interface IFreeType
     [NativeFunction("freetype", EntryPoint = "FT_Get_SubGlyph_Info")]
     int GetSubGlyphInfo(
         Ref<GlyphSlotRec> glyph,
-        UInt sub_index,
-        Ref<Int> p_index,
-        Ref<UInt> p_flags,
-        Ref<Int> p_arg1,
-        Ref<Int> p_arg2,
+        uint sub_index,
+        Ref<int> p_index,
+        Ref<uint> p_flags,
+        Ref<int> p_arg1,
+        Ref<int> p_arg2,
         Ref<Matrix> p_transform
     );
 
     [NativeName("FT_Get_Track_Kerning")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Track_Kerning")]
-    int GetTrackKerning(FaceRec* face, nint point_size, Int degree, nint* akerning);
+    int GetTrackKerning(FaceRec* face, nint point_size, int degree, nint* akerning);
 
     [NativeName("FT_Get_Track_Kerning")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Track_Kerning")]
-    int GetTrackKerning(Ref<FaceRec> face, nint point_size, Int degree, Ref<nint> akerning);
+    int GetTrackKerning(Ref<FaceRec> face, nint point_size, int degree, Ref<nint> akerning);
 
     [NativeName("FT_Get_Transform")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Transform")]
@@ -740,15 +740,15 @@ public unsafe partial interface IFreeType
 
     [NativeName("FT_Library_Version")]
     [NativeFunction("freetype", EntryPoint = "FT_Library_Version")]
-    void LibraryVersion(LibraryRecHandle library, Int* amajor, Int* aminor, Int* apatch);
+    void LibraryVersion(LibraryRecHandle library, int* amajor, int* aminor, int* apatch);
 
     [NativeName("FT_Library_Version")]
     [NativeFunction("freetype", EntryPoint = "FT_Library_Version")]
     void LibraryVersion(
         LibraryRecHandle library,
-        Ref<Int> amajor,
-        Ref<Int> aminor,
-        Ref<Int> apatch
+        Ref<int> amajor,
+        Ref<int> aminor,
+        Ref<int> apatch
     );
 
     [NativeName("FT_Load_Char")]
@@ -761,11 +761,11 @@ public unsafe partial interface IFreeType
 
     [NativeName("FT_Load_Glyph")]
     [NativeFunction("freetype", EntryPoint = "FT_Load_Glyph")]
-    int LoadGlyph(FaceRec* face, UInt glyph_index, int load_flags);
+    int LoadGlyph(FaceRec* face, uint glyph_index, int load_flags);
 
     [NativeName("FT_Load_Glyph")]
     [NativeFunction("freetype", EntryPoint = "FT_Load_Glyph")]
-    int LoadGlyph(Ref<FaceRec> face, UInt glyph_index, int load_flags);
+    int LoadGlyph(Ref<FaceRec> face, uint glyph_index, int load_flags);
 
     [NativeName("FT_MulDiv")]
     [NativeFunction("freetype", EntryPoint = "FT_MulDiv")]
@@ -859,11 +859,11 @@ public unsafe partial interface IFreeType
 
     [NativeName("FT_Select_Size")]
     [NativeFunction("freetype", EntryPoint = "FT_Select_Size")]
-    int SelectSize(FaceRec* face, Int strike_index);
+    int SelectSize(FaceRec* face, int strike_index);
 
     [NativeName("FT_Select_Size")]
     [NativeFunction("freetype", EntryPoint = "FT_Select_Size")]
-    int SelectSize(Ref<FaceRec> face, Int strike_index);
+    int SelectSize(Ref<FaceRec> face, int strike_index);
 
     [NativeName("FT_Set_Char_Size")]
     [NativeFunction("freetype", EntryPoint = "FT_Set_Char_Size")]
@@ -871,8 +871,8 @@ public unsafe partial interface IFreeType
         FaceRec* face,
         nint char_width,
         nint char_height,
-        UInt horz_resolution,
-        UInt vert_resolution
+        uint horz_resolution,
+        uint vert_resolution
     );
 
     [NativeName("FT_Set_Char_Size")]
@@ -881,8 +881,8 @@ public unsafe partial interface IFreeType
         Ref<FaceRec> face,
         nint char_width,
         nint char_height,
-        UInt horz_resolution,
-        UInt vert_resolution
+        uint horz_resolution,
+        uint vert_resolution
     );
 
     [NativeName("FT_Set_Charmap")]
@@ -895,11 +895,11 @@ public unsafe partial interface IFreeType
 
     [NativeName("FT_Set_Pixel_Sizes")]
     [NativeFunction("freetype", EntryPoint = "FT_Set_Pixel_Sizes")]
-    int SetPixelSizes(FaceRec* face, UInt pixel_width, UInt pixel_height);
+    int SetPixelSizes(FaceRec* face, uint pixel_width, uint pixel_height);
 
     [NativeName("FT_Set_Pixel_Sizes")]
     [NativeFunction("freetype", EntryPoint = "FT_Set_Pixel_Sizes")]
-    int SetPixelSizes(Ref<FaceRec> face, UInt pixel_width, UInt pixel_height);
+    int SetPixelSizes(Ref<FaceRec> face, uint pixel_width, uint pixel_height);
 
     [NativeName("FT_Set_Transform")]
     [NativeFunction("freetype", EntryPoint = "FT_Set_Transform")]

@@ -11,10 +11,10 @@ namespace Silk.NET.FreeType;
 public partial struct SizeMetrics
 {
     [NativeName("x_ppem")]
-    public UShort XPpem;
+    public ushort XPpem;
 
     [NativeName("y_ppem")]
-    public UShort YPpem;
+    public ushort YPpem;
 
     [NativeName("x_scale")]
     public nint XScale;

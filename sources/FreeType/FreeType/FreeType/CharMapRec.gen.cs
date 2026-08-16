@@ -16,8 +16,8 @@ public unsafe partial struct CharMapRec
     public Encoding Encoding;
 
     [NativeName("platform_id")]
-    public UShort PlatformId;
+    public ushort PlatformId;
 
     [NativeName("encoding_id")]
-    public UShort EncodingId;
+    public ushort EncodingId;
 }

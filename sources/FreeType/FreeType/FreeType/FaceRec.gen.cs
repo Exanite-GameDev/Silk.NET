@@ -32,13 +32,13 @@ public unsafe partial struct FaceRec
     public sbyte* StyleName;
 
     [NativeName("num_fixed_sizes")]
-    public Int NumFixedSizes;
+    public int NumFixedSizes;
 
     [NativeName("available_sizes")]
     public BitmapSize* AvailableSizes;
 
     [NativeName("num_charmaps")]
-    public Int NumCharmaps;
+    public int NumCharmaps;
 
     [NativeName("charmaps")]
     public CharMapRec** Charmaps;
@@ -50,7 +50,7 @@ public unsafe partial struct FaceRec
     public BBox Bbox;
 
     [NativeName("units_per_EM")]
-    public UShort UnitsPerEM;
+    public ushort UnitsPerEM;
 
     [NativeName("ascender")]
     public short Ascender;

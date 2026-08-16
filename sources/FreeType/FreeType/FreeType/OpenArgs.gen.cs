@@ -10,7 +10,7 @@ namespace Silk.NET.FreeType;
 public unsafe partial struct OpenArgs
 {
     [NativeName("flags")]
-    public UInt Flags;
+    public uint Flags;
 
     [NativeName("memory_base")]
     public byte* MemoryBase;
@@ -28,7 +28,7 @@ public unsafe partial struct OpenArgs
     public ModuleRecHandle Driver;
 
     [NativeName("num_params")]
-    public Int NumParams;
+    public int NumParams;
 
     [NativeName("@params")]
     public Parameter* @params;

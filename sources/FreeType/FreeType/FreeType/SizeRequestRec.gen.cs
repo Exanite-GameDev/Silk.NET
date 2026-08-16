@@ -19,8 +19,8 @@ public partial struct SizeRequestRec
     public nint Height;
 
     [NativeName("horiResolution")]
-    public UInt HoriResolution;
+    public uint HoriResolution;
 
     [NativeName("vertResolution")]
-    public UInt VertResolution;
+    public uint VertResolution;
 }
