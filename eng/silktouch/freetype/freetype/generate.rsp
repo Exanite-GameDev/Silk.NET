@@ -1,0 +1,16 @@
+@../settings.rsp
+@../remap.rsp
+--exclude
+TODO
+--file
+freetype-freetype.h
+--methodClassName
+FreeType
+--namespace
+Silk.NET.FreeType
+--output
+../../../../sources/FreeType/FreeType
+--test-output
+../../../../tests/FreeType/FreeType
+--traverse
+../../../../Exanite.GameDev/native/freetype/include/TODO.h

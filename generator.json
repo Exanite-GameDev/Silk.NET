@@ -840,6 +840,61 @@
           "Transformed"
         ]
       }
+    },
+    "FreeType": {
+      "SourceProject": "sources/FreeType/FreeType/Silk.NET.FreeType.csproj",
+      "Solution": "Silk.NET.slnx",
+      "DefaultLicenseHeader": "eng/silktouch/header.txt",
+      "Mods": [
+        "AddIncludes",
+        "ClangScraper",
+        "MarkNativeNames",
+        "ExtractHandles",
+        "ExtractNestedTypes",
+        "ExtractEnumConstants",
+        "ExtractFunctionPointers",
+        "TransformHandles",
+        "TransformFunctions",
+        "TransformProperties",
+        "IdentifySharedPrefixes",
+        "PrettifyNames",
+        "TransformEnums",
+        "AddVTables",
+        "StripAttributes"
+      ],
+      "ClangScraper": {
+        "ClangSharpResponseFiles": [
+          "eng/silktouch/freetype/**/generate.rsp"
+        ],
+        "InputSourceRoot": "sources/FreeType",
+        "InputTestRoot": "tests/FreeType"
+      },
+      "TransformHandles": {
+        "UseDsl": true
+      },
+      "TransformFunctions": {},
+      "TransformProperties": {},
+      "IdentifySharedPrefixes": {
+        "GlobalPrefixHints": ["FT"]
+      },
+      "PrettifyNames": {
+        "Affixes": {
+          "SharedPrefix": {
+            "Remove": true
+          }
+        }
+      },
+      "TransformEnums": {
+        "AddNoneMemberToFlags": true,
+        "RewriteMemberValues": true
+      },
+      "StripAttributes": {
+        "Remove": [
+          "NativeTypeName",
+          "NameAffix",
+          "Transformed"
+        ]
+      }
     }
   }
 }
