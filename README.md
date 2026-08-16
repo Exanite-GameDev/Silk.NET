@@ -1,6 +1,6 @@
-<h1 align="center">⚠️ This is a fork of Silk.NET ⚠️</h1>
+<h1 align="center">⚠️ This is a fork of Silk.NET v2 ⚠️</h1>
 
-This is a fork of Silk.NET for use by Exanite.Engine. While changes to this repo will still be under the same license
+This is a fork of Silk.NET v2 for use by Exanite.Engine. While changes to this repo will still be under the same license
 as the official Silk.NET repo, the changes to this repo will be intended for use by Exanite.Engine only and no support
 will be given for any other use case.
 
