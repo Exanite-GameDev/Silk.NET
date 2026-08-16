@@ -10,6 +10,8 @@
     that is done by the file that imports us.
   -->
 
+  <Import Project="$(MSBuildThisFileDirectory)Exanite.Directory.Build.props"/>
+
   <!-- Default settings that are used by other settings -->
   <PropertyGroup>
     <BaseArtifactsPath>$(MSBuildThisFileDirectory)artifacts/</BaseArtifactsPath>

@@ -69,75 +69,6 @@
     </ItemGroup>
   </Target>
 
-  <UsingTask TaskName="SilkGetVersionInfoTask"
-             TaskFactory="RoslynCodeTaskFactory"
-             AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
-    <ParameterGroup>
-      <SilkChangelogLines Required="true" />
-      <SilkVersion Output="true" />
-      <SilkVersionSuffix Output="true" />
-      <SilkReleaseNotes Output="true" />
-    </ParameterGroup>
-    <Task>
-      <Using Namespace="System"/>
-      <Using Namespace="System.Text"/>
-      <Code Type="Fragment" Language="cs">
-        <![CDATA[
-        #nullable enable
-        var lines = SilkChangelogLines.Split(new string[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
-
-        var capturing = false;
-        var notes = new StringBuilder();
-        string? version = null;
-        string? versionSuffix = null;
-        foreach (var theLine in lines)
-        {
-            var line = theLine.Trim();
-            if (!line.StartsWith("##"))
-            {
-                if (capturing)
-                {
-                    notes.AppendLine(line);
-                }
-                continue;
-            }
-
-            if (capturing)
-            {
-                break;
-            }
-
-            version = line.Substring(2).Trim();
-            var versionStop = version.IndexOf(' ');
-            if (versionStop != -1)
-            {
-                version = version.Substring(0, versionStop);
-            }
-            versionSuffix = string.Empty;
-            var versionSuffixStart = version.IndexOf('-');
-            if (versionSuffixStart != -1)
-            {
-                versionSuffix = version.Substring(versionSuffixStart + 1);
-                version = version.Substring(0, versionSuffixStart);
-            }
-            versionSuffix = versionSuffix.Trim();
-            version = version.Trim();
-            capturing = true;
-        }
-
-        if (!capturing)
-        {
-            throw new Exception("Failed to determine version information.");
-        }
-
-        SilkVersion = version ?? "3.0.0";
-        SilkVersionSuffix = versionSuffix ?? "unknown";
-        SilkReleaseNotes = notes.ToString();
-        ]]>
-      </Code>
-    </Task>
-  </UsingTask>
-
   <Target Name="SilkShippingControl" BeforeTargets="BeforeBuild">
     <!-- Non-C# packages (i.e. metapackages, natives) -->
     <PropertyGroup Condition="'$(SilkNativePackage)' == 'true' or '$(SilkMetapackage)' == 'true'">
@@ -273,4 +204,6 @@
 
   <!-- DSL dogfooding -->
   <Import Project="$(MSBuildThisFileDirectory)sources/Core/Core/Silk.NET.Core.targets" Condition="'$(SilkDSLExempt)' != 'true' and '$(SilkNativePackage)' != 'true' and '$(SilkMetapackage)' != 'true'" />
+
+  <Import Project="$(MSBuildThisFileDirectory)Exanite.Directory.Build.targets"/>
 </Project>
