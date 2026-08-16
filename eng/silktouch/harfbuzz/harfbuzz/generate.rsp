@@ -1,7 +1,8 @@
 @../settings.rsp
 @../remap.rsp
 --exclude
-TODO
+# This generates as a cast to a handle type. Fixable, but not going to deal with it right now.
+HB_LANGUAGE_INVALID
 --file
 harfbuzz-harfbuzz.h
 --methodClassName

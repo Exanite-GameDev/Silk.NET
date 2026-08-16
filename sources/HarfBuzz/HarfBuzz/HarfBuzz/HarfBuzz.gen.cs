@@ -21445,9 +21445,6 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
         )
     );
 
-    [NativeName("HB_LANGUAGE_INVALID")]
-    public static LanguageImplTHandle LanguageInvalid => ((LanguageImplTHandle)(0));
-
     [NativeName("HB_FEATURE_GLOBAL_START")]
     public const int FeatureGlobalStart = 0;
 
