@@ -1,6 +1,8 @@
 @../../common.rsp
 --define-macro
-TODO_DEFINE_MACROS=HERE
+FT_REQUIRE_HARFBUZZ=ON
+FT2_BUILD_LIBRARY=ON
+DLL_EXPORT=ON
 --headerFile
 header.txt
 --include-directory
