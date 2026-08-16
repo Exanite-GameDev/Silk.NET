@@ -1,0 +1,14 @@
+@../../common.rsp
+--define-macro
+HB_HAVE_FREETYPE=ON
+--headerFile
+header.txt
+--include-directory
+../../../../../Exanite.GameDev/native/Exanite.FreeType/include/Exanite/FreeType/
+../../../../../Exanite.GameDev/cmake/external/FreeType/include/
+../../../../../Exanite.GameDev/native/freetype/include/
+../../../../../Exanite.GameDev/native/harfbuzz/src
+--with-callconv
+*=Winapi
+--with-librarypath
+*=freetype

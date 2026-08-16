@@ -895,6 +895,62 @@
           "Transformed"
         ]
       }
+    },
+
+    "HarfBuzz": {
+      "SourceProject": "sources/HarfBuzz/HarfBuzz/Silk.NET.HarfBuzz.csproj",
+      "Solution": "Silk.NET.slnx",
+      "DefaultLicenseHeader": "eng/silktouch/header.txt",
+      "Mods": [
+        "AddIncludes",
+        "ClangScraper",
+        "MarkNativeNames",
+        "ExtractHandles",
+        "ExtractNestedTypes",
+        "ExtractEnumConstants",
+        "ExtractFunctionPointers",
+        "TransformHandles",
+        "TransformFunctions",
+        "TransformProperties",
+        "IdentifySharedPrefixes",
+        "PrettifyNames",
+        "TransformEnums",
+        "AddVTables",
+        "StripAttributes"
+      ],
+      "ClangScraper": {
+        "ClangSharpResponseFiles": [
+          "eng/silktouch/harfbuzz/**/generate.rsp"
+        ],
+        "InputSourceRoot": "sources/HarfBuzz",
+        "InputTestRoot": "tests/HarfBuzz"
+      },
+      "TransformHandles": {
+        "UseDsl": true
+      },
+      "TransformFunctions": {},
+      "TransformProperties": {},
+      "IdentifySharedPrefixes": {
+        "GlobalPrefixHints": ["hb"]
+      },
+      "PrettifyNames": {
+        "Affixes": {
+          "SharedPrefix": {
+            "Remove": true
+          }
+        }
+      },
+      "TransformEnums": {
+        "AddNoneMemberToFlags": true,
+        "RewriteMemberValues": true
+      },
+      "StripAttributes": {
+        "Remove": [
+          "NativeTypeName",
+          "NameAffix",
+          "Transformed"
+        ]
+      }
     }
   }
 }
