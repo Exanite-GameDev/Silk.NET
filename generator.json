@@ -849,6 +849,7 @@
         "AddIncludes",
         "ClangScraper",
         "MarkNativeNames",
+        "AddOpaqueStructs",
         "ExtractHandles",
         "ExtractNestedTypes",
         "ExtractFunctionPointers",
@@ -867,6 +868,11 @@
         ],
         "InputSourceRoot": "sources/FreeType",
         "InputTestRoot": "tests/FreeType"
+      },
+      "AddOpaqueStructs": {
+        "Names": [
+          "FT_RasterRec_"
+        ]
       },
       "TransformHandles": {
         "UseDsl": true

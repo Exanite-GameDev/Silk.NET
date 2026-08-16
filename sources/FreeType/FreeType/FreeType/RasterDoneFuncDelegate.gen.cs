@@ -8,4 +8,4 @@ using System.Runtime.InteropServices;
 namespace Silk.NET.FreeType;
 
 [NativeName("FT_Raster_DoneFunc")]
-public unsafe delegate void RasterDoneFuncDelegate(FT_RasterRec_* arg0);
+public unsafe delegate void RasterDoneFuncDelegate(RasterRecHandle arg0);

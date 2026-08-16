@@ -11,18 +11,20 @@ namespace Silk.NET.FreeType;
 public readonly unsafe struct RasterDoneFunc : IDisposable
 {
     private readonly void* Pointer;
-    public delegate* unmanaged<FT_RasterRec_*, void> Handle =>
-        (delegate* unmanaged<FT_RasterRec_*, void>)Pointer;
+    public delegate* unmanaged<RasterRecHandle, void> Handle =>
+        (delegate* unmanaged<RasterRecHandle, void>)Pointer;
 
-    public RasterDoneFunc(delegate* unmanaged<FT_RasterRec_*, void> ptr) => Pointer = ptr;
+    public RasterDoneFunc(delegate* unmanaged<RasterRecHandle, void> ptr) => Pointer = ptr;
 
     public RasterDoneFunc(RasterDoneFuncDelegate proc) => Pointer = SilkMarshal.DelegateToPtr(proc);
 
     public void Dispose() => SilkMarshal.Free(Pointer);
 
-    public static implicit operator RasterDoneFunc(delegate* unmanaged<FT_RasterRec_*, void> pfn) =>
-        new(pfn);
+    public static implicit operator RasterDoneFunc(
+        delegate* unmanaged<RasterRecHandle, void> pfn
+    ) => new(pfn);
 
-    public static implicit operator delegate* unmanaged<FT_RasterRec_*, void>(RasterDoneFunc pfn) =>
-        (delegate* unmanaged<FT_RasterRec_*, void>)pfn.Pointer;
+    public static implicit operator delegate* unmanaged<RasterRecHandle, void>(
+        RasterDoneFunc pfn
+    ) => (delegate* unmanaged<RasterRecHandle, void>)pfn.Pointer;
 }

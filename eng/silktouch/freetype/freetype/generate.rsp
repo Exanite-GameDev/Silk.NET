@@ -1,6 +1,8 @@
 @../settings.rsp
 @../remap.rsp
 --exclude
+
+# Duplicate macros. These have uppercased variants.
 ft_outline_none
 ft_outline_owner
 ft_outline_even_odd_fill
@@ -22,6 +24,33 @@ ft_open_stream
 ft_open_pathname
 ft_open_driver
 ft_open_params
+
+# Standard library references
+ft_memcmp
+ft_memcpy
+ft_memmove
+ft_memset
+ft_strcat
+ft_strcmp
+ft_strcpy
+ft_strlen
+ft_strncmp
+ft_strncpy
+ft_fclose
+ft_fopen
+ft_fread
+ft_fseek
+ft_ftell
+ft_snprintf
+ft_qsort
+ft_scalloc
+ft_sfree
+ft_smalloc
+ft_srealloc
+ft_strtol
+ft_getenv
+ft_longjmp
+
 --file
 freetype-freetype.h
 --methodClassName

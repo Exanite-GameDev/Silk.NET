@@ -11,10 +11,10 @@ namespace Silk.NET.FreeType;
 public readonly unsafe struct RasterSetModeFunc : IDisposable
 {
     private readonly void* Pointer;
-    public delegate* unmanaged<FT_RasterRec_*, nuint, void*, int> Handle =>
-        (delegate* unmanaged<FT_RasterRec_*, nuint, void*, int>)Pointer;
+    public delegate* unmanaged<RasterRecHandle, nuint, void*, int> Handle =>
+        (delegate* unmanaged<RasterRecHandle, nuint, void*, int>)Pointer;
 
-    public RasterSetModeFunc(delegate* unmanaged<FT_RasterRec_*, nuint, void*, int> ptr) =>
+    public RasterSetModeFunc(delegate* unmanaged<RasterRecHandle, nuint, void*, int> ptr) =>
         Pointer = ptr;
 
     public RasterSetModeFunc(RasterSetModeFuncDelegate proc) =>
@@ -23,10 +23,10 @@ public readonly unsafe struct RasterSetModeFunc : IDisposable
     public void Dispose() => SilkMarshal.Free(Pointer);
 
     public static implicit operator RasterSetModeFunc(
-        delegate* unmanaged<FT_RasterRec_*, nuint, void*, int> pfn
+        delegate* unmanaged<RasterRecHandle, nuint, void*, int> pfn
     ) => new(pfn);
 
-    public static implicit operator delegate* unmanaged<FT_RasterRec_*, nuint, void*, int>(
+    public static implicit operator delegate* unmanaged<RasterRecHandle, nuint, void*, int>(
         RasterSetModeFunc pfn
-    ) => (delegate* unmanaged<FT_RasterRec_*, nuint, void*, int>)pfn.Pointer;
+    ) => (delegate* unmanaged<RasterRecHandle, nuint, void*, int>)pfn.Pointer;
 }
