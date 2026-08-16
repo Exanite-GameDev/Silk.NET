@@ -3309,27 +3309,6 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_OUTLINE_SINGLE_PASS")]
     public const int OutlineSinglePass = 0x200;
 
-    [NativeName("ft_outline_none")]
-    public const int OutlineNone = 0x0;
-
-    [NativeName("ft_outline_owner")]
-    public const int OutlineOwner = 0x1;
-
-    [NativeName("ft_outline_even_odd_fill")]
-    public const int OutlineEvenOddFill = 0x2;
-
-    [NativeName("ft_outline_reverse_fill")]
-    public const int OutlineReverseFill = 0x4;
-
-    [NativeName("ft_outline_ignore_dropouts")]
-    public const int OutlineIgnoreDropouts = 0x8;
-
-    [NativeName("ft_outline_high_precision")]
-    public const int OutlineHighPrecision = 0x100;
-
-    [NativeName("ft_outline_single_pass")]
-    public const int OutlineSinglePass = 0x200;
-
     [NativeName("FT_CURVE_TAG_ON")]
     public const int CurveTagOn = 0x01;
 
@@ -3350,21 +3329,6 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
 
     [NativeName("FT_CURVE_TAG_TOUCH_BOTH")]
     public const int CurveTagTouchBoth = (0x08 | 0x10);
-
-    [NativeName("FT_Curve_Tag_On")]
-    public const int CurveTagOn = 0x01;
-
-    [NativeName("FT_Curve_Tag_Conic")]
-    public const int CurveTagConic = 0x00;
-
-    [NativeName("FT_Curve_Tag_Cubic")]
-    public const int CurveTagCubic = 0x02;
-
-    [NativeName("FT_Curve_Tag_Touch_X")]
-    public const int CurveTagTouchX = 0x08;
-
-    [NativeName("FT_Curve_Tag_Touch_Y")]
-    public const int CurveTagTouchY = 0x10;
 
     [NativeName("ft_glyph_format_none")]
     public const GlyphFormat GlyphFormatNone = GlyphFormat.None;
@@ -3395,18 +3359,6 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
 
     [NativeName("FT_RASTER_FLAG_SDF")]
     public const int RasterFlagSdf = 0x8;
-
-    [NativeName("ft_raster_flag_default")]
-    public const int RasterFlagDefault = 0x0;
-
-    [NativeName("ft_raster_flag_aa")]
-    public const int RasterFlagAa = 0x1;
-
-    [NativeName("ft_raster_flag_direct")]
-    public const int RasterFlagDirect = 0x2;
-
-    [NativeName("ft_raster_flag_clip")]
-    public const int RasterFlagClip = 0x4;
 
     [NativeName("FT_ERR_BASE")]
     public const int ErrBase = 0;
@@ -3529,21 +3481,6 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     public const int OpenDriver = 0x8;
 
     [NativeName("FT_OPEN_PARAMS")]
-    public const int OpenParams = 0x10;
-
-    [NativeName("ft_open_memory")]
-    public const int OpenMemory = 0x1;
-
-    [NativeName("ft_open_stream")]
-    public const int OpenStream = 0x2;
-
-    [NativeName("ft_open_pathname")]
-    public const int OpenPathname = 0x4;
-
-    [NativeName("ft_open_driver")]
-    public const int OpenDriver = 0x8;
-
-    [NativeName("ft_open_params")]
     public const int OpenParams = 0x10;
 
     [NativeName("FT_LOAD_DEFAULT")]
