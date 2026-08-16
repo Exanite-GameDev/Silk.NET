@@ -18,34 +18,9 @@ Silk.NET is your one-stop-shop for high-speed .NET multimedia, graphics, and com
 
 Use Silk.NET to spruce up applications with cross-platform 3D graphics, audio, compute and haptics!
 
-Silk.NET works on any .NET Standard 2.0 compliant platform, including .NET 6.0, Xamarin, .NET Framework 4.6.1+, and .NET Core 2.0+.
-
 <!-- Package description inserted here automatically. -->
 
 <!-- Begin exclude from NuGet readme. -->
-
-<h1 align="center">Building from source</h1>
-
-**Prerequisites**
-
-- .NET 6 SDK and .NET 7 SDK
-- Android, iOS, and Mac Catalyst workloads (use `dotnet workload install android ios maccatalyst` to install them)
-    - On Linux, `ios` and `maccatalyst` should be omitted as they are not available
-- Android SDK versions 31, 33, and 34 with NDK tools installed
-    - On Windows, for best results, this should be installed into `C:\ProgramData\Android\android-sdk`
-- Java JDK 11+
-- Visual Studio 2022 Community version 17.0 or later (optional)
-
-**Instructions**
-
-- Clone the repository
-    - Note: Avoid performing a recursive clone as the submodules are not necessary for a normal build
-- Run `build.sh`, `build.cmd`, `build.ps1`, or `nuke compile`
-    - On Linux, you may need to pass `--msbuild-properties AndroidSdkDirectory=/path/to/android/sdk`
-- Use the built assemblies
-    - To get `.nupkg`s that you can use with NuGet instead, use `nuke pack`
-
-There are more advanced build actions you can do too, such as `FullBuild`, `Pack`, `FullPack`, among others which you can view by doing `nuke --plan`.
 
 <h1 align="center">Contributing</h1>
 
