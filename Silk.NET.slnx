@@ -1,4 +1,4 @@
-<Solution>
+﻿<Solution>
   <Folder Name="/docs/">
     <File Path="docs/CHANGELOG.md" />
     <File Path="docs/CODEOWNERS" />
@@ -75,6 +75,12 @@
   </Folder>
   <Folder Name="/sources/Vulkan/">
     <Project Path="sources/Vulkan/Vulkan/Silk.NET.Vulkan.csproj" />
+  </Folder>
+  <Folder Name="/sources/FreeType/">
+    <Project Path="sources/FreeType/FreeType/Silk.NET.FreeType.csproj" />
+  </Folder>
+  <Folder Name="/sources/HarfBuzz/">
+    <Project Path="sources/HarfBuzz/HarfBuzz/Silk.NET.HarfBuzz.csproj" />
   </Folder>
   <Folder Name="/sources/Win32/" />
   <Folder Name="/sources/Windowing/">

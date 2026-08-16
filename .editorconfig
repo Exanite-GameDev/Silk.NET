@@ -28,7 +28,7 @@ file_header_template = Licensed to the .NET Foundation under one or more agreeme
 # Set file behavior to:
 #   2 space indentation
 ###############################################################################
-[*.{cmd,config,csproj,json,props,ps1,resx,sh,targets,yml}]
+[*.{cmd,config,csproj,json,props,ps1,resx,sh,targets,yml,slnx}]
 indent_size = 2
 
 ###############################################################################
