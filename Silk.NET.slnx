@@ -90,9 +90,6 @@
     <File Path="tests/Directory.Build.props" />
     <File Path="tests/Directory.Build.targets" />
   </Folder>
-  <Folder Name="/tests/Core/">
-    <Project Path="tests/Core/Core/Silk.NET.Core.UnitTests.csproj" />
-  </Folder>
   <Folder Name="/tests/SDL/">
     <Project Path="tests/SDL/SDL/Silk.NET.SDL.UnitTests.csproj" />
   </Folder>
