@@ -52,7 +52,7 @@
       <Output TaskParameter="ConsoleOutput" PropertyName="ExaniteMinVerGitBranchNameRaw" />
     </Exec>
 
-    <PropertyGroup Condition="'$(ExaniteMinVerGitBranchNameRaw)' != 'silk2'">
+    <PropertyGroup Condition="'$(ExaniteMinVerGitBranchNameRaw)' != 'silk3'">
       <ExaniteMinVerGitBranchNameSanitized>$([System.Text.RegularExpressions.Regex]::Replace($(ExaniteMinVerGitBranchNameRaw), '[^0-9A-Za-z-]', '-'))</ExaniteMinVerGitBranchNameSanitized>
       <ExaniteMinVerGitBranchNameSanitized>$([System.Text.RegularExpressions.Regex]::Replace($(ExaniteMinVerGitBranchNameSanitized), '-+', '-'))</ExaniteMinVerGitBranchNameSanitized>
       <ExaniteMinVerGitBranchNameSanitized>$(ExaniteMinVerGitBranchNameSanitized.Trim('-'))</ExaniteMinVerGitBranchNameSanitized>
