@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <SilkNUnitExempt>true</SilkNUnitExempt>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <SilkDSLExempt>true</SilkDSLExempt>
+        <EnableXUnitRunner>true</EnableXUnitRunner>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\sources\Maths\Maths\Silk.NET.Maths.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.NET.Test.Sdk" />
+      <PackageReference Include="xunit.v3.mtp-v2" />
+      <PackageReference Include="xunit.runner.visualstudio">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
+
+</Project>
