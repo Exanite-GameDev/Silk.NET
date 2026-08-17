@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project InitialTargets="SilkAddIcon;SilkGenerateNuGetReadme;SilkShippingControl">
+<Project InitialTargets="SilkGenerateNuGetReadme;SilkShippingControl">
 
   <!--
     Directory.Build.targets is automatically picked up and imported by
@@ -14,18 +14,6 @@
   <PropertyGroup>
     <DefineConstants>$(DefineConstants);$(OS)</DefineConstants>
   </PropertyGroup>
-
-  <!-- Nuget Icon - done as a target so it doesn't appear in the IDE -->
-  <Target Name="SilkAddIcon" Condition="'$(SilkIconExempt)' == ''">
-    <ItemGroup>
-      <None Include="$(MSBuildThisFileDirectory)docs/readme/silkdotnet_v3.png"
-            Pack="true"
-            PackagePath="\" />
-    </ItemGroup>
-    <PropertyGroup>
-      <PackageIcon>silkdotnet_v3.png</PackageIcon>
-    </PropertyGroup>
-  </Target>
 
   <!-- NuGet README -->
   <Target Name="SilkGenerateNuGetReadme" Condition="'$(SilkReadmeExempt)' == ''">
