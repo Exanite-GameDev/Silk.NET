@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Files/">
+    <File Path=".editorconfig"/>
+    <File Path=".gitignore"/>
+    <File Path="global.json"/>
+  </Folder>
+  <Project Path="Exanite.Silk2.Cli/Exanite.Silk2.Cli.csproj"/>
+</Solution>

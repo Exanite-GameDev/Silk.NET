@@ -1,0 +1,4 @@
+*.DotSettings.user
+outputs
+.idea
+.env.local

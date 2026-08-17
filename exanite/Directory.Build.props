@@ -1,0 +1,11 @@
+<Project>
+  <!-- Builds -->
+  <PropertyGroup>
+    <!-- Store all project obj/bin folders in a central location -->
+    <BaseOutputPath>$(MSBuildThisFileDirectory)outputs/cache/dotnet/$(MSBuildProjectName)/bin/</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)outputs/cache/dotnet/$(MSBuildProjectName)/obj/</BaseIntermediateOutputPath>
+
+    <!-- Output nupkgs to a central location -->
+    <PackageOutputPath>$(MSBuildThisFileDirectory)outputs/nuget/$(Configuration)/</PackageOutputPath>
+  </PropertyGroup>
+</Project>
