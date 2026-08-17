@@ -10,13 +10,7 @@ The primary differences with this fork are the following:
 
 - Packages will be distributed under the `Exanite` NuGet prefix.
 - Bindings not used by Exanite.Engine are not maintained and will not be distributed.
-- Additional bindings required by Exanite.Engine are added (FreeType, HarfBuzz, Slang, VulkanMemoryAllocator).
-
-<h1 align="center">About Silk.NET 2.X</h1>
-
-Silk.NET is your one-stop-shop for high-speed .NET multimedia, graphics, and compute; providing bindings to popular low-level APIs such as OpenGL, OpenCL, OpenAL, OpenXR, GLFW, SDL, Vulkan, Assimp, WebGPU, and DirectX.
-
-Use Silk.NET to spruce up applications with cross-platform 3D graphics, audio, compute and haptics!
+- Additional bindings required by Exanite.Engine are added (FreeType, HarfBuzz, Slang, VulkanMemoryAllocator, Tracy).
 
 <!-- Package description inserted here automatically. -->
 
