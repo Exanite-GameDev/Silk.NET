@@ -12,18 +12,9 @@
 
   <Import Project="$(MSBuildThisFileDirectory)Exanite.Directory.Build.props"/>
 
-  <!-- Default settings that are used by other settings -->
-  <PropertyGroup>
-    <BaseArtifactsPath>$(MSBuildThisFileDirectory)artifacts/</BaseArtifactsPath>
-    <BaseArtifactsPathSuffix>$(ProjectCategory)/$(MSBuildProjectName)</BaseArtifactsPathSuffix>
-    <RepositoryUrl>https://github.com/dotnet/Silk.NET</RepositoryUrl>
-  </PropertyGroup>
-
   <!-- Default settings that explicitly differ from the Sdk.props defaults  -->
   <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <BaseIntermediateOutputPath>$(BaseArtifactsPath)obj/$(BaseArtifactsPathSuffix)/</BaseIntermediateOutputPath>
-    <DebugType>embedded</DebugType>
     <EnableDefaultNoneItems>false</EnableDefaultNoneItems>
     <Nullable>enable</Nullable>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
@@ -42,9 +33,7 @@
   <!-- Default settings that explicitly differ from the Sdk.targets defaults-->
   <PropertyGroup>
     <Authors>.NET Foundation and Contributors</Authors>
-    <BaseOutputPath>$(BaseArtifactsPath)bin/$(BaseArtifactsPathSuffix)/</BaseOutputPath>
     <Company>.NET Foundation</Company>
-    <PackageOutputPath>$(BaseArtifactsPath)pkg/$(BaseArtifactsPathSuffix)/$(Configuration)/</PackageOutputPath>
     <Product>Silk.NET</Product>
   </PropertyGroup>
 
@@ -72,19 +61,13 @@
     <UseMonoRuntime>false</UseMonoRuntime>
   </PropertyGroup>
 
-  <!-- SourceLink -->
-  <PropertyGroup Condition="'$(SilkSourceLinkExempt)' == '' and '$(SilkNativePackage)' != 'true' and '$(SilkMetapackage)' != 'true'">
-    <DebugType>portable</DebugType>
-    <EmbedAllSources>true</EmbedAllSources>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-  </PropertyGroup>
-
   <PropertyGroup>
     <SilkExcludedPlatforms />
     <SilkExcludedPlatforms Condition="Exists('$(MSBuildThisFileDirectory)excluded-platforms.txt')">$([System.IO.File]::ReadAllText("$(MSBuildThisFileDirectory)excluded-platforms.txt"))</SilkExcludedPlatforms>
     <SilkExcludedPlatforms Condition="$([MSBuild]::IsOSPlatform('Linux'))">$(SilkExcludedPlatforms) ios tvos mac maccatalyst</SilkExcludedPlatforms>
+
+    <SilkExcludedPlatforms>$(SilkExcludedPlatforms) android ios tvos mac maccatalyst</SilkExcludedPlatforms>
+
     <SilkAndroidDisabled Condition="$(SilkExcludedPlatforms.Contains('android'))">true</SilkAndroidDisabled>
     <SilkiOSDisabled Condition="$(SilkExcludedPlatforms.Contains('ios'))">true</SilkiOSDisabled>
     <SilkTvOSDisabled Condition="$(SilkExcludedPlatforms.Contains('tvos'))">true</SilkTvOSDisabled>

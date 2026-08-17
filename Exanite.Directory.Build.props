@@ -1,3 +1,63 @@
 <Project>
+  <!-- Override assembly/package names -->
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'Silk.NET.Core' OR '$(MSBuildProjectName)' == 'Silk.NET.FreeType' OR '$(MSBuildProjectName)' == 'Silk.NET.HarfBuzz'">
+    <AssemblyName>Exanite.$(MSBuildProjectName.Replace('Silk', 'Silk3'))</AssemblyName>
+    <PackageId>Exanite.$(MSBuildProjectName.Replace('Silk', 'Silk3'))</PackageId>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
 
+  <!-- Builds -->
+  <PropertyGroup>
+    <!-- Store all project obj/bin folders in a central location -->
+    <BaseOutputPath>$(MSBuildThisFileDirectory)outputs/cache/dotnet/$(MSBuildProjectName)/bin/</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)outputs/cache/dotnet/$(MSBuildProjectName)/obj/</BaseIntermediateOutputPath>
+
+    <!-- Output nupkgs to a central location -->
+    <PackageOutputPath>$(MSBuildThisFileDirectory)outputs/nuget/$(Configuration)/</PackageOutputPath>
+  </PropertyGroup>
+
+  <!-- Packages -->
+  <PropertyGroup>
+    <!-- Versioning -->
+    <!-- See: https://github.com/adamralph/minver -->
+    <MinVerTagPrefix>exa-silk3-v</MinVerTagPrefix>
+    <MinVerDefaultPreReleaseIdentifiers>preview</MinVerDefaultPreReleaseIdentifiers>
+
+    <RepositoryUrl>https://github.com/Exanite-GameDev/Silk.NET</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+
+    <DebugType>embedded</DebugType>
+    <EmbedAllSources>true</EmbedAllSources>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MinVer"/>
+  </ItemGroup>
+
+  <!-- Include branch name in preview versions -->
+  <Target Name="ExaniteIncludeBranchInPreviewVersions" BeforeTargets="MinVer" Condition="'$(ExaniteIncludeBranchInPreviewVersions)' != 'false'">
+    <!-- Github Actions -->
+    <PropertyGroup>
+      <ExaniteMinVerGitBranchNameRaw Condition="'$(GITHUB_HEAD_REF)' != ''">$(GITHUB_HEAD_REF)</ExaniteMinVerGitBranchNameRaw>
+      <ExaniteMinVerGitBranchNameRaw Condition="'$(ExaniteMinVerGitBranchNameRaw)' == '' AND '$(GITHUB_REF_NAME)' != ''">$(GITHUB_REF_NAME)</ExaniteMinVerGitBranchNameRaw>
+    </PropertyGroup>
+
+    <!-- Local/fallback -->
+    <Exec Command="git rev-parse --abbrev-ref HEAD" ConsoleToMSBuild="true" StandardOutputImportance="Low" Condition="'$(ExaniteMinVerGitBranchNameRaw)' == ''">
+      <Output TaskParameter="ConsoleOutput" PropertyName="ExaniteMinVerGitBranchNameRaw" />
+    </Exec>
+
+    <PropertyGroup Condition="'$(ExaniteMinVerGitBranchNameRaw)' != 'silk2'">
+      <ExaniteMinVerGitBranchNameSanitized>$([System.Text.RegularExpressions.Regex]::Replace($(ExaniteMinVerGitBranchNameRaw), '[^0-9A-Za-z-]', '-'))</ExaniteMinVerGitBranchNameSanitized>
+      <ExaniteMinVerGitBranchNameSanitized>$([System.Text.RegularExpressions.Regex]::Replace($(ExaniteMinVerGitBranchNameSanitized), '-+', '-'))</ExaniteMinVerGitBranchNameSanitized>
+      <ExaniteMinVerGitBranchNameSanitized>$(ExaniteMinVerGitBranchNameSanitized.Trim('-'))</ExaniteMinVerGitBranchNameSanitized>
+      <MinVerDefaultPreReleaseIdentifiers Condition="'$(MinVerDefaultPreReleaseIdentifiers)' != ''">$(MinVerDefaultPreReleaseIdentifiers)-</MinVerDefaultPreReleaseIdentifiers>
+      <MinVerDefaultPreReleaseIdentifiers>$(MinVerDefaultPreReleaseIdentifiers)$(ExaniteMinVerGitBranchNameSanitized)</MinVerDefaultPreReleaseIdentifiers>
+    </PropertyGroup>
+  </Target>
 </Project>

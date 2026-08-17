@@ -89,6 +89,7 @@
 
     <!-- SourceLink -->
     <ItemGroup Condition="'$(SilkSourceLinkExempt)' == '' and '$(SilkNativePackage)' != 'true' and '$(SilkMetapackage)' != 'true'">
+      <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All"/>
       <PackageReference Include="DotNet.ReproducibleBuilds" PrivateAssets="All"/>
       <PackageReference Include="DotNet.ReproducibleBuilds.Isolated" PrivateAssets="All"/>
     </ItemGroup>
@@ -103,45 +104,6 @@
     <WriteLinesToFile File="PublicAPI/$(TargetFramework)/PublicAPI.Unshipped.txt"
                       Lines="@(SilkNewPublicAPILines)"
                       Condition="'$(SilkTrackPublicAPI)' == 'true' and !Exists('PublicAPI/$(TargetFramework)/PublicAPI.Unshipped.txt')" />
-
-    <!-- Versioning -->
-    <PropertyGroup>
-      <SilkChangelog>$([System.IO.File]::ReadAllText("$(MSBuildThisFileDirectory)docs/CHANGELOG.md"))</SilkChangelog>
-    </PropertyGroup>
-    <SilkGetVersionInfoTask SilkChangelogLines="$(SilkChangelog)">
-      <Output PropertyName="SilkVersion" TaskParameter="SilkVersion" />
-      <Output PropertyName="SilkVersionSuffix" TaskParameter="SilkVersionSuffix" />
-      <Output PropertyName="SilkReleaseNotes" TaskParameter="SilkReleaseNotes" />
-    </SilkGetVersionInfoTask>
-    <PropertyGroup>
-      <SilkOriginalVersionSuffix>$(VersionSuffix)</SilkOriginalVersionSuffix>
-      <Version>$(SilkVersion)</Version>
-      <VersionSuffix Condition="'$(VersionSuffix)' == ''">$(SilkVersionSuffix)</VersionSuffix>
-      <PackageReleaseNotes>$(SilkReleaseNotes)</PackageReleaseNotes>
-      <PackageVersion Condition="'$(VersionSuffix)' == ''">$(SilkVersion)</PackageVersion>
-      <PackageVersion Condition="'$(VersionSuffix)' != ''">$(SilkVersion)-$(VersionSuffix)</PackageVersion>
-    </PropertyGroup>
-
-    <!-- Native Packaging -->
-    <PropertyGroup>
-      <SilkVersionTxtPath>$(MSBuildProjectDirectory)/version.txt</SilkVersionTxtPath>
-      <PackageVersion Condition="Exists('$(SilkVersionTxtPath)')">$([System.IO.File]::ReadAllText("$(SilkVersionTxtPath)").Trim())</PackageVersion>
-      <PackageVersion Condition="'$(SilkOriginalVersionSuffix)' != '' and Exists('$(SilkVersionTxtPath)') and $(PackageVersion.Contains('-'))">$(PackageVersion)$(SilkOriginalVersionSuffix)</PackageVersion>
-      <PackageVersion Condition="'$(SilkOriginalVersionSuffix)' != '' and Exists('$(SilkVersionTxtPath)') and !$(PackageVersion.Contains('-'))">$(PackageVersion)-$(SilkOriginalVersionSuffix)</PackageVersion>
-    </PropertyGroup>
-    <Error Text="Native packages should have a version.txt file! Read documentation/for-contributors/build-system.md for more info."
-           Condition="'$(SilkNativePackage)' == 'true' and !Exists('$(SilkVersionTxtPath)')" />
-    <ItemGroup Condition="'$(SilkNativePackage)' == 'true'">
-      <None Include="$(MSBuildProjectDirectory)/runtimes/**/*" Pack="true" PackagePath="runtimes" KeepMetadata="Link;CopyToOutputDirectory" CopyToOutputDirectory="PreserveNewest" />
-      <!-- bundled in the aar instead -->
-      <None Remove="$(MSBuildProjectDirectory)/runtimes/android*/**/*" Condition="'$(SilkNativeHasAndroidJars)' == 'true'" />
-    </ItemGroup>
-    <ItemGroup Condition="'$(SilkNativePackage)' == 'true' and $([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">
-      <AndroidNativeLibrary Include="$(MSBuildProjectDirectory)/runtimes/android*/native/*.so" />
-      <ProguardConfiguration Include="$(MSBuildProjectDirectory)/android/proguard.txt" Condition="Exists('$(MSBuildProjectDirectory)/android/proguard.txt')" />
-      <AndroidLibrary Include="$(MSBuildProjectDirectory)/android/*.jar" Bind="true" Pack="true" />
-      <TransformFile Include="$(MSBuildProjectDirectory)/android/*.xml" />
-    </ItemGroup>
 
     <!-- Trimming -->
     <PropertyGroup Condition="'$(SilkTrimmingExempt)' == ''">
