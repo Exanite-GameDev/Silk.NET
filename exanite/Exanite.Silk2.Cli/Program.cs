@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using Exanite.Silk2.Targets;
+using Exanite.Silk2.Cli.Targets;
 
-namespace Exanite.Silk2;
+namespace Exanite.Silk2.Cli;
 
 public static class Program
 {
