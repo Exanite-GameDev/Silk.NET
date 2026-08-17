@@ -50,6 +50,9 @@
     <Project Path="sources/Core/Core/Silk.NET.Core.csproj" />
     <Project Path="sources/Core/Silk.NET/Silk.NET.csproj" />
   </Folder>
+  <Folder Name="/sources/Maths/">
+    <Project Path="sources/Maths/Maths/Silk.NET.Maths.csproj" />
+  </Folder>
   <Folder Name="/sources/OpenAL/">
     <Project Path="sources/OpenAL/OpenAL/Silk.NET.OpenAL.csproj" />
     <Project Path="sources/OpenAL/Soft.Native/Silk.NET.OpenAL.Soft.Native.csproj" />
@@ -89,9 +92,6 @@
   </Folder>
   <Folder Name="/tests/Core/">
     <Project Path="tests/Core/Core/Silk.NET.Core.UnitTests.csproj" />
-  </Folder>
-  <Folder Name="/tests/Maths/">
-    <Project Path="tests/Maths/Maths/Silk.NET.Maths.Tests.csproj" />
   </Folder>
   <Folder Name="/tests/SDL/">
     <Project Path="tests/SDL/SDL/Silk.NET.SDL.UnitTests.csproj" />
