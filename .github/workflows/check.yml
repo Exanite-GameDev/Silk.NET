@@ -31,7 +31,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v7
         with:
-          submodules: recursive
           lfs: false
           fetch-depth: 0
           filter: tree:0
