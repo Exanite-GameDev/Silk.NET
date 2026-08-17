@@ -8,7 +8,7 @@ Please find the original repo here: https://github.com/dotnet/Silk.NET
 
 The primary differences with this fork are the following:
 
-- Packages will be distributed under the `Exanite` NuGet prefix.
+- Packages will be distributed under the `Exanite.Silk3` NuGet prefix.
 - Bindings not used by Exanite.Engine are not maintained and will not be distributed.
 - Additional bindings required by Exanite.Engine are added (FreeType, HarfBuzz).
 
