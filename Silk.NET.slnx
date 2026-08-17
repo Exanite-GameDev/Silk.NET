@@ -50,9 +50,6 @@
     <Project Path="sources/Core/Core/Silk.NET.Core.csproj" />
     <Project Path="sources/Core/Silk.NET/Silk.NET.csproj" />
   </Folder>
-  <Folder Name="/sources/Maths/">
-    <Project Path="sources/Maths/Maths/Silk.NET.Maths.csproj" />
-  </Folder>
   <Folder Name="/sources/OpenAL/">
     <Project Path="sources/OpenAL/OpenAL/Silk.NET.OpenAL.csproj" />
     <Project Path="sources/OpenAL/Soft.Native/Silk.NET.OpenAL.Soft.Native.csproj" />
