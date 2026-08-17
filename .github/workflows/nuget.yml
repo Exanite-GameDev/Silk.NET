@@ -32,7 +32,7 @@ jobs:
         uses: actions/cache@v6
         with:
           path: .git
-          key: git-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('**/.gitmodules') }}
+          key: git-silk2-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('**/.gitmodules') }}
 
       - name: Checkout repo
         uses: actions/checkout@v7
