@@ -1,8 +1,8 @@
 <Project>
   <!-- Override assembly/package names -->
   <PropertyGroup>
-    <AssemblyName>Exanite.$(MSBuildProjectName)</AssemblyName>
-    <PackageId>Exanite.$(MSBuildProjectName)</PackageId>
+    <AssemblyName>Exanite.$(MSBuildProjectName.Replace('Silk', 'Silk2'))</AssemblyName>
+    <PackageId>Exanite.$(MSBuildProjectName.Replace('Silk', 'Silk2'))</PackageId>
   </PropertyGroup>
   
   <!-- Builds -->

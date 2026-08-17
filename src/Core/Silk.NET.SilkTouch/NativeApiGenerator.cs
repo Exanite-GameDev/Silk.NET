@@ -31,7 +31,7 @@ namespace Silk.NET.SilkTouch
         public void Execute(GeneratorExecutionContext context)
         {
             if (!context.Compilation.ReferencedAssemblyNames.Any
-                (ai => ai.Name.Equals("Exanite.Silk.NET.Core", StringComparison.OrdinalIgnoreCase)))
+                (ai => ai.Name.Equals("Exanite.Silk2.NET.Core", StringComparison.OrdinalIgnoreCase)))
             {
                 context.ReportDiagnostic(Diagnostic.Create(Diagnostics.SilkNetCoreMissing, Location.None));
                 return;
