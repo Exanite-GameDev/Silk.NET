@@ -43,3 +43,12 @@ jobs:
 
       - name: Test
         run: dotnet test --configuration Release --no-build
+
+      - name: Pack
+        run: dotnet pack --configuration Release --no-build
+
+      - name: Save packages as artifact
+        uses: actions/upload-artifact@v5
+        with:
+          name: Packages
+          path: ./outputs/nuget/Release/
