@@ -50,15 +50,17 @@ public class RenameNamespacesTarget
         "Updating string references to Silk.NET in SilkTouch (naively)".Dump();
 
         var silkTouchProject = solution.Projects.First(x => x.Name == "Silk.NET.SilkTouch");
-        var silkTouchProjectPath = new AbsolutePath(GuardUtility.NotNull(silkTouchProject.FilePath));
+        var silkTouchProjectPath = new AbsolutePath(GuardUtility.NotNull(silkTouchProject.FilePath)).Parent;
         foreach (var file in silkTouchProjectPath.GlobFiles("**/*.cs"))
         {
+            $"Rewriting {file}".Dump();
+
             var contents = file.ReadAllText();
             var newContents = contents.Replace("\"Silk.NET", "\"Silk2.NET");
 
             if (contents != newContents)
             {
-                file.WriteAllText(contents);
+                file.WriteAllText(newContents);
             }
         }
 
