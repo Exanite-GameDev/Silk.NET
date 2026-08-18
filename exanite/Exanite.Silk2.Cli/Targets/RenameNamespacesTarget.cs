@@ -25,12 +25,12 @@ public class RenameNamespacesTarget
     {
         MSBuildLocator.RegisterDefaults();
 
-        GuardUtility.IsTrue(AbsolutePath.WorkingDirectory.TryFindFileUpwards(SolutionName, out var solutionPath), $"Failed to find solution: {SolutionName}");
+        GuardUtility.IsTrue(AbsolutePath.WorkingDirectory.TryFindFileUpwards(SolutionName, out var solutionFilePath), $"Failed to find solution: {SolutionName}");
 
-        logger.Information("Found solution: {SolutionPath}", solutionPath);
+        logger.Information("Found solution: {FilePath}", solutionFilePath);
 
         using var workspace = MSBuildWorkspace.Create();
-        var solution = await workspace.OpenSolutionAsync(solutionPath);
+        var solution = await workspace.OpenSolutionAsync(solutionFilePath);
         var originalSolution = solution;
 
         logger.Information("Opened solution with {ProjectCount} projects", solution.ProjectIds.Count);
@@ -55,11 +55,10 @@ public class RenameNamespacesTarget
 
         logger.Information("Symbol rename completed");
 
-        logger.Information("Updating string references to Silk.NET in SilkTouch (naively)");
+        logger.Information("Updating remaining string references to Silk.NET (naively)");
 
-        var silkTouchProject = solution.Projects.First(x => x.Name == "Silk.NET.SilkTouch");
-        var silkTouchProjectPath = new AbsolutePath(GuardUtility.NotNull(silkTouchProject.FilePath)).Parent;
-        foreach (var file in silkTouchProjectPath.GlobFiles("**/*.cs"))
+        var coreProjectsRootPath = solutionFilePath.Parent / "src" / "Core";
+        foreach (var file in coreProjectsRootPath.GlobFiles("**/*.cs"))
         {
             logger.Debug("Rewriting {File}", file);
 
@@ -72,7 +71,7 @@ public class RenameNamespacesTarget
             }
         }
 
-        logger.Information("Naive SilkTouch rename completed");
+        logger.Information("Naive rename completed");
         logger.Information("Target completed");
     }
 }
