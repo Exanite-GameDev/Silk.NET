@@ -63,7 +63,12 @@ public class RenameNamespacesTarget
             logger.Debug("Rewriting {File}", file);
 
             var contents = file.ReadAllText();
-            var newContents = contents.Replace("\"Silk.NET", "\"Silk2.NET");
+            var newContents = contents
+                .Replace("\"Silk.NET", "\"Silk2.NET")
+                .Replace("using Silk.NET", "using Silk2.NET")
+                .Replace("using static Silk.NET", "using static Silk2.NET")
+                .Replace("Flow(Silk.NET", "Flow(Silk2.NET")
+                .Replace("IdentifierName(\"Silk\")", "IdentifierName(\"Silk2\")");
 
             if (contents != newContents)
             {
