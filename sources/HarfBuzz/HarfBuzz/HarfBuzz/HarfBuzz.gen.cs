@@ -4244,13 +4244,42 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
         [NativeName("hb_ft_face_create")]
         [DllImport("harfbuzz", ExactSpelling = true, EntryPoint = "hb_ft_face_create")]
         public static extern FaceTHandle FtFaceCreate(
-            FTFaceRecHandle ft_face,
+            Silk.NET.FreeType.FaceRec* ft_face,
             DestroyFuncT destroy
         );
 
+        [NativeName("hb_ft_face_create")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static FaceTHandle FtFaceCreate(
+            Ref<Silk.NET.FreeType.FaceRec> ft_face,
+            DestroyFuncT destroy
+        )
+        {
+            fixed (Silk.NET.FreeType.FaceRec* __dsl_ft_face = ft_face)
+            {
+                return (FaceTHandle)FtFaceCreate(__dsl_ft_face, destroy);
+            }
+        }
+
         [NativeName("hb_ft_face_create_cached")]
         [DllImport("harfbuzz", ExactSpelling = true, EntryPoint = "hb_ft_face_create_cached")]
-        public static extern FaceTHandle FtFaceCreateCached(FTFaceRecHandle ft_face);
+        public static extern FaceTHandle FtFaceCreateCached(Silk.NET.FreeType.FaceRec* ft_face);
+
+        [NativeName("hb_ft_face_create_cached")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_cached")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static FaceTHandle FtFaceCreateCached(Ref<Silk.NET.FreeType.FaceRec> ft_face)
+        {
+            fixed (Silk.NET.FreeType.FaceRec* __dsl_ft_face = ft_face)
+            {
+                return (FaceTHandle)FtFaceCreateCached(__dsl_ft_face);
+            }
+        }
 
         [NativeName("hb_ft_face_create_from_blob_or_fail")]
         [DllImport(
@@ -4283,7 +4312,20 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
 
         [NativeName("hb_ft_face_create_referenced")]
         [DllImport("harfbuzz", ExactSpelling = true, EntryPoint = "hb_ft_face_create_referenced")]
-        public static extern FaceTHandle FtFaceCreateReferenced(FTFaceRecHandle ft_face);
+        public static extern FaceTHandle FtFaceCreateReferenced(Silk.NET.FreeType.FaceRec* ft_face);
+
+        [NativeName("hb_ft_face_create_referenced")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_referenced")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static FaceTHandle FtFaceCreateReferenced(Ref<Silk.NET.FreeType.FaceRec> ft_face)
+        {
+            fixed (Silk.NET.FreeType.FaceRec* __dsl_ft_face = ft_face)
+            {
+                return (FaceTHandle)FtFaceCreateReferenced(__dsl_ft_face);
+            }
+        }
 
         [NativeName("hb_ft_font_changed")]
         [DllImport("harfbuzz", ExactSpelling = true, EntryPoint = "hb_ft_font_changed")]
@@ -4292,30 +4334,84 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
         [NativeName("hb_ft_font_create")]
         [DllImport("harfbuzz", ExactSpelling = true, EntryPoint = "hb_ft_font_create")]
         public static extern FontTHandle FtFontCreate(
-            FTFaceRecHandle ft_face,
+            Silk.NET.FreeType.FaceRec* ft_face,
             DestroyFuncT destroy
         );
 
+        [NativeName("hb_ft_font_create")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static FontTHandle FtFontCreate(
+            Ref<Silk.NET.FreeType.FaceRec> ft_face,
+            DestroyFuncT destroy
+        )
+        {
+            fixed (Silk.NET.FreeType.FaceRec* __dsl_ft_face = ft_face)
+            {
+                return (FontTHandle)FtFontCreate(__dsl_ft_face, destroy);
+            }
+        }
+
         [NativeName("hb_ft_font_create_referenced")]
         [DllImport("harfbuzz", ExactSpelling = true, EntryPoint = "hb_ft_font_create_referenced")]
-        public static extern FontTHandle FtFontCreateReferenced(FTFaceRecHandle ft_face);
+        public static extern FontTHandle FtFontCreateReferenced(Silk.NET.FreeType.FaceRec* ft_face);
+
+        [NativeName("hb_ft_font_create_referenced")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create_referenced")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static FontTHandle FtFontCreateReferenced(Ref<Silk.NET.FreeType.FaceRec> ft_face)
+        {
+            fixed (Silk.NET.FreeType.FaceRec* __dsl_ft_face = ft_face)
+            {
+                return (FontTHandle)FtFontCreateReferenced(__dsl_ft_face);
+            }
+        }
+
+        [NativeName("hb_ft_font_get_face")]
+        [Obsolete]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_face")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static Ptr<Silk.NET.FreeType.FaceRec> FtFontGetFace(FontTHandle font) =>
+            (Silk.NET.FreeType.FaceRec*)FtFontGetFaceRaw(font);
 
         [NativeName("hb_ft_font_get_face")]
         [DllImport("harfbuzz", ExactSpelling = true, EntryPoint = "hb_ft_font_get_face")]
         [Obsolete]
-        public static extern FTFaceRecHandle FtFontGetFace(FontTHandle font);
+        public static extern Silk.NET.FreeType.FaceRec* FtFontGetFaceRaw(FontTHandle font);
+
+        [NativeName("hb_ft_font_get_ft_face")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_ft_face")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static Ptr<Silk.NET.FreeType.FaceRec> FtFontGetFtFace(FontTHandle font) =>
+            (Silk.NET.FreeType.FaceRec*)FtFontGetFtFaceRaw(font);
 
         [NativeName("hb_ft_font_get_ft_face")]
         [DllImport("harfbuzz", ExactSpelling = true, EntryPoint = "hb_ft_font_get_ft_face")]
-        public static extern FTFaceRecHandle FtFontGetFtFace(FontTHandle font);
+        public static extern Silk.NET.FreeType.FaceRec* FtFontGetFtFaceRaw(FontTHandle font);
 
         [NativeName("hb_ft_font_get_load_flags")]
         [DllImport("harfbuzz", ExactSpelling = true, EntryPoint = "hb_ft_font_get_load_flags")]
         public static extern int FtFontGetLoadFlags(FontTHandle font);
 
         [NativeName("hb_ft_font_lock_face")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_lock_face")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static Ptr<Silk.NET.FreeType.FaceRec> FtFontLockFace(FontTHandle font) =>
+            (Silk.NET.FreeType.FaceRec*)FtFontLockFaceRaw(font);
+
+        [NativeName("hb_ft_font_lock_face")]
         [DllImport("harfbuzz", ExactSpelling = true, EntryPoint = "hb_ft_font_lock_face")]
-        public static extern FTFaceRecHandle FtFontLockFace(FontTHandle font);
+        public static extern Silk.NET.FreeType.FaceRec* FtFontLockFaceRaw(FontTHandle font);
 
         [NativeName("hb_ft_font_set_funcs")]
         [DllImport("harfbuzz", ExactSpelling = true, EntryPoint = "hb_ft_font_set_funcs")]
@@ -10830,15 +10926,33 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public FaceTHandle FtFaceCreate(FTFaceRecHandle ft_face, DestroyFuncT destroy) =>
+        public FaceTHandle FtFaceCreate(Silk.NET.FreeType.FaceRec* ft_face, DestroyFuncT destroy) =>
             T.FtFaceCreate(ft_face, destroy);
+
+        [NativeName("hb_ft_face_create")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public FaceTHandle FtFaceCreate(
+            Ref<Silk.NET.FreeType.FaceRec> ft_face,
+            DestroyFuncT destroy
+        ) => T.FtFaceCreate(ft_face, destroy);
 
         [NativeName("hb_ft_face_create_cached")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_cached")]
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public FaceTHandle FtFaceCreateCached(FTFaceRecHandle ft_face) =>
+        public FaceTHandle FtFaceCreateCached(Silk.NET.FreeType.FaceRec* ft_face) =>
+            T.FtFaceCreateCached(ft_face);
+
+        [NativeName("hb_ft_face_create_cached")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_cached")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public FaceTHandle FtFaceCreateCached(Ref<Silk.NET.FreeType.FaceRec> ft_face) =>
             T.FtFaceCreateCached(ft_face);
 
         [NativeName("hb_ft_face_create_from_blob_or_fail")]
@@ -10870,7 +10984,15 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public FaceTHandle FtFaceCreateReferenced(FTFaceRecHandle ft_face) =>
+        public FaceTHandle FtFaceCreateReferenced(Silk.NET.FreeType.FaceRec* ft_face) =>
+            T.FtFaceCreateReferenced(ft_face);
+
+        [NativeName("hb_ft_face_create_referenced")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_referenced")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public FaceTHandle FtFaceCreateReferenced(Ref<Silk.NET.FreeType.FaceRec> ft_face) =>
             T.FtFaceCreateReferenced(ft_face);
 
         [NativeName("hb_ft_font_changed")]
@@ -10885,15 +11007,33 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public FontTHandle FtFontCreate(FTFaceRecHandle ft_face, DestroyFuncT destroy) =>
+        public FontTHandle FtFontCreate(Silk.NET.FreeType.FaceRec* ft_face, DestroyFuncT destroy) =>
             T.FtFontCreate(ft_face, destroy);
+
+        [NativeName("hb_ft_font_create")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public FontTHandle FtFontCreate(
+            Ref<Silk.NET.FreeType.FaceRec> ft_face,
+            DestroyFuncT destroy
+        ) => T.FtFontCreate(ft_face, destroy);
 
         [NativeName("hb_ft_font_create_referenced")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create_referenced")]
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public FontTHandle FtFontCreateReferenced(FTFaceRecHandle ft_face) =>
+        public FontTHandle FtFontCreateReferenced(Silk.NET.FreeType.FaceRec* ft_face) =>
+            T.FtFontCreateReferenced(ft_face);
+
+        [NativeName("hb_ft_font_create_referenced")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create_referenced")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public FontTHandle FtFontCreateReferenced(Ref<Silk.NET.FreeType.FaceRec> ft_face) =>
             T.FtFontCreateReferenced(ft_face);
 
         [NativeName("hb_ft_font_get_face")]
@@ -10902,14 +11042,33 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public FTFaceRecHandle FtFontGetFace(FontTHandle font) => T.FtFontGetFace(font);
+        public Ptr<Silk.NET.FreeType.FaceRec> FtFontGetFace(FontTHandle font) =>
+            T.FtFontGetFace(font);
+
+        [NativeName("hb_ft_font_get_face")]
+        [Obsolete]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_face")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public Silk.NET.FreeType.FaceRec* FtFontGetFaceRaw(FontTHandle font) =>
+            T.FtFontGetFaceRaw(font);
 
         [NativeName("hb_ft_font_get_ft_face")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_ft_face")]
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public FTFaceRecHandle FtFontGetFtFace(FontTHandle font) => T.FtFontGetFtFace(font);
+        public Ptr<Silk.NET.FreeType.FaceRec> FtFontGetFtFace(FontTHandle font) =>
+            T.FtFontGetFtFace(font);
+
+        [NativeName("hb_ft_font_get_ft_face")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_ft_face")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public Silk.NET.FreeType.FaceRec* FtFontGetFtFaceRaw(FontTHandle font) =>
+            T.FtFontGetFtFaceRaw(font);
 
         [NativeName("hb_ft_font_get_load_flags")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_load_flags")]
@@ -10923,7 +11082,16 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public FTFaceRecHandle FtFontLockFace(FontTHandle font) => T.FtFontLockFace(font);
+        public Ptr<Silk.NET.FreeType.FaceRec> FtFontLockFace(FontTHandle font) =>
+            T.FtFontLockFace(font);
+
+        [NativeName("hb_ft_font_lock_face")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_lock_face")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public Silk.NET.FreeType.FaceRec* FtFontLockFaceRaw(FontTHandle font) =>
+            T.FtFontLockFaceRaw(font);
 
         [NativeName("hb_ft_font_set_funcs")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_set_funcs")]
@@ -18278,16 +18446,47 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static FaceTHandle FtFaceCreate(FTFaceRecHandle ft_face, DestroyFuncT destroy) =>
-            Underlying.Value!.FtFaceCreate(ft_face, destroy);
+        public static FaceTHandle FtFaceCreate(
+            Silk.NET.FreeType.FaceRec* ft_face,
+            DestroyFuncT destroy
+        ) => Underlying.Value!.FtFaceCreate(ft_face, destroy);
+
+        [NativeName("hb_ft_face_create")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static FaceTHandle FtFaceCreate(
+            Ref<Silk.NET.FreeType.FaceRec> ft_face,
+            DestroyFuncT destroy
+        )
+        {
+            fixed (Silk.NET.FreeType.FaceRec* __dsl_ft_face = ft_face)
+            {
+                return (FaceTHandle)FtFaceCreate(__dsl_ft_face, destroy);
+            }
+        }
 
         [NativeName("hb_ft_face_create_cached")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_cached")]
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static FaceTHandle FtFaceCreateCached(FTFaceRecHandle ft_face) =>
+        public static FaceTHandle FtFaceCreateCached(Silk.NET.FreeType.FaceRec* ft_face) =>
             Underlying.Value!.FtFaceCreateCached(ft_face);
+
+        [NativeName("hb_ft_face_create_cached")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_cached")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static FaceTHandle FtFaceCreateCached(Ref<Silk.NET.FreeType.FaceRec> ft_face)
+        {
+            fixed (Silk.NET.FreeType.FaceRec* __dsl_ft_face = ft_face)
+            {
+                return (FaceTHandle)FtFaceCreateCached(__dsl_ft_face);
+            }
+        }
 
         [NativeName("hb_ft_face_create_from_blob_or_fail")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_from_blob_or_fail")]
@@ -18323,8 +18522,21 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static FaceTHandle FtFaceCreateReferenced(FTFaceRecHandle ft_face) =>
+        public static FaceTHandle FtFaceCreateReferenced(Silk.NET.FreeType.FaceRec* ft_face) =>
             Underlying.Value!.FtFaceCreateReferenced(ft_face);
+
+        [NativeName("hb_ft_face_create_referenced")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_referenced")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static FaceTHandle FtFaceCreateReferenced(Ref<Silk.NET.FreeType.FaceRec> ft_face)
+        {
+            fixed (Silk.NET.FreeType.FaceRec* __dsl_ft_face = ft_face)
+            {
+                return (FaceTHandle)FtFaceCreateReferenced(__dsl_ft_face);
+            }
+        }
 
         [NativeName("hb_ft_font_changed")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_changed")]
@@ -18338,16 +18550,47 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static FontTHandle FtFontCreate(FTFaceRecHandle ft_face, DestroyFuncT destroy) =>
-            Underlying.Value!.FtFontCreate(ft_face, destroy);
+        public static FontTHandle FtFontCreate(
+            Silk.NET.FreeType.FaceRec* ft_face,
+            DestroyFuncT destroy
+        ) => Underlying.Value!.FtFontCreate(ft_face, destroy);
+
+        [NativeName("hb_ft_font_create")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static FontTHandle FtFontCreate(
+            Ref<Silk.NET.FreeType.FaceRec> ft_face,
+            DestroyFuncT destroy
+        )
+        {
+            fixed (Silk.NET.FreeType.FaceRec* __dsl_ft_face = ft_face)
+            {
+                return (FontTHandle)FtFontCreate(__dsl_ft_face, destroy);
+            }
+        }
 
         [NativeName("hb_ft_font_create_referenced")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create_referenced")]
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static FontTHandle FtFontCreateReferenced(FTFaceRecHandle ft_face) =>
+        public static FontTHandle FtFontCreateReferenced(Silk.NET.FreeType.FaceRec* ft_face) =>
             Underlying.Value!.FtFontCreateReferenced(ft_face);
+
+        [NativeName("hb_ft_font_create_referenced")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create_referenced")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static FontTHandle FtFontCreateReferenced(Ref<Silk.NET.FreeType.FaceRec> ft_face)
+        {
+            fixed (Silk.NET.FreeType.FaceRec* __dsl_ft_face = ft_face)
+            {
+                return (FontTHandle)FtFontCreateReferenced(__dsl_ft_face);
+            }
+        }
 
         [NativeName("hb_ft_font_get_face")]
         [Obsolete]
@@ -18355,16 +18598,33 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static FTFaceRecHandle FtFontGetFace(FontTHandle font) =>
+        public static Ptr<Silk.NET.FreeType.FaceRec> FtFontGetFace(FontTHandle font) =>
             Underlying.Value!.FtFontGetFace(font);
+
+        [NativeName("hb_ft_font_get_face")]
+        [Obsolete]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_face")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static Silk.NET.FreeType.FaceRec* FtFontGetFaceRaw(FontTHandle font) =>
+            Underlying.Value!.FtFontGetFaceRaw(font);
 
         [NativeName("hb_ft_font_get_ft_face")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_ft_face")]
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static FTFaceRecHandle FtFontGetFtFace(FontTHandle font) =>
+        public static Ptr<Silk.NET.FreeType.FaceRec> FtFontGetFtFace(FontTHandle font) =>
             Underlying.Value!.FtFontGetFtFace(font);
+
+        [NativeName("hb_ft_font_get_ft_face")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_ft_face")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static Silk.NET.FreeType.FaceRec* FtFontGetFtFaceRaw(FontTHandle font) =>
+            Underlying.Value!.FtFontGetFtFaceRaw(font);
 
         [NativeName("hb_ft_font_get_load_flags")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_load_flags")]
@@ -18379,8 +18639,16 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
         [MethodImpl(
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
-        public static FTFaceRecHandle FtFontLockFace(FontTHandle font) =>
+        public static Ptr<Silk.NET.FreeType.FaceRec> FtFontLockFace(FontTHandle font) =>
             Underlying.Value!.FtFontLockFace(font);
+
+        [NativeName("hb_ft_font_lock_face")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_lock_face")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static Silk.NET.FreeType.FaceRec* FtFontLockFaceRaw(FontTHandle font) =>
+            Underlying.Value!.FtFontLockFaceRaw(font);
 
         [NativeName("hb_ft_font_set_funcs")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_set_funcs")]
@@ -31152,9 +31420,9 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
     [NativeName("hb_ft_face_create")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    FaceTHandle IHarfBuzz.FtFaceCreate(FTFaceRecHandle ft_face, DestroyFuncT destroy) =>
+    FaceTHandle IHarfBuzz.FtFaceCreate(Silk.NET.FreeType.FaceRec* ft_face, DestroyFuncT destroy) =>
         (
-            (delegate* unmanaged<FTFaceRecHandle, DestroyFuncT, FaceTHandle>)(
+            (delegate* unmanaged<Silk.NET.FreeType.FaceRec*, DestroyFuncT, FaceTHandle>)(
                 _slots[249] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[249] = nativeContext.LoadFunction("hb_ft_face_create", "harfbuzz")
@@ -31164,15 +31432,36 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
     [NativeName("hb_ft_face_create")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static FaceTHandle FtFaceCreate(FTFaceRecHandle ft_face, DestroyFuncT destroy) =>
-        DllImport.FtFaceCreate(ft_face, destroy);
+    public static FaceTHandle FtFaceCreate(
+        Silk.NET.FreeType.FaceRec* ft_face,
+        DestroyFuncT destroy
+    ) => DllImport.FtFaceCreate(ft_face, destroy);
+
+    [NativeName("hb_ft_face_create")]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    FaceTHandle IHarfBuzz.FtFaceCreate(Ref<Silk.NET.FreeType.FaceRec> ft_face, DestroyFuncT destroy)
+    {
+        fixed (Silk.NET.FreeType.FaceRec* __dsl_ft_face = ft_face)
+        {
+            return (FaceTHandle)((IHarfBuzz)this).FtFaceCreate(__dsl_ft_face, destroy);
+        }
+    }
+
+    [NativeName("hb_ft_face_create")]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static FaceTHandle FtFaceCreate(
+        Ref<Silk.NET.FreeType.FaceRec> ft_face,
+        DestroyFuncT destroy
+    ) => DllImport.FtFaceCreate(ft_face, destroy);
 
     [NativeName("hb_ft_face_create_cached")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_cached")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    FaceTHandle IHarfBuzz.FtFaceCreateCached(FTFaceRecHandle ft_face) =>
+    FaceTHandle IHarfBuzz.FtFaceCreateCached(Silk.NET.FreeType.FaceRec* ft_face) =>
         (
-            (delegate* unmanaged<FTFaceRecHandle, FaceTHandle>)(
+            (delegate* unmanaged<Silk.NET.FreeType.FaceRec*, FaceTHandle>)(
                 _slots[250] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[250] = nativeContext.LoadFunction(
@@ -31185,7 +31474,24 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
     [NativeName("hb_ft_face_create_cached")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_cached")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static FaceTHandle FtFaceCreateCached(FTFaceRecHandle ft_face) =>
+    public static FaceTHandle FtFaceCreateCached(Silk.NET.FreeType.FaceRec* ft_face) =>
+        DllImport.FtFaceCreateCached(ft_face);
+
+    [NativeName("hb_ft_face_create_cached")]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_cached")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    FaceTHandle IHarfBuzz.FtFaceCreateCached(Ref<Silk.NET.FreeType.FaceRec> ft_face)
+    {
+        fixed (Silk.NET.FreeType.FaceRec* __dsl_ft_face = ft_face)
+        {
+            return (FaceTHandle)((IHarfBuzz)this).FtFaceCreateCached(__dsl_ft_face);
+        }
+    }
+
+    [NativeName("hb_ft_face_create_cached")]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_cached")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static FaceTHandle FtFaceCreateCached(Ref<Silk.NET.FreeType.FaceRec> ft_face) =>
         DllImport.FtFaceCreateCached(ft_face);
 
     [NativeName("hb_ft_face_create_from_blob_or_fail")]
@@ -31251,9 +31557,9 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
     [NativeName("hb_ft_face_create_referenced")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_referenced")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    FaceTHandle IHarfBuzz.FtFaceCreateReferenced(FTFaceRecHandle ft_face) =>
+    FaceTHandle IHarfBuzz.FtFaceCreateReferenced(Silk.NET.FreeType.FaceRec* ft_face) =>
         (
-            (delegate* unmanaged<FTFaceRecHandle, FaceTHandle>)(
+            (delegate* unmanaged<Silk.NET.FreeType.FaceRec*, FaceTHandle>)(
                 _slots[253] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[253] = nativeContext.LoadFunction(
@@ -31266,7 +31572,24 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
     [NativeName("hb_ft_face_create_referenced")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_referenced")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static FaceTHandle FtFaceCreateReferenced(FTFaceRecHandle ft_face) =>
+    public static FaceTHandle FtFaceCreateReferenced(Silk.NET.FreeType.FaceRec* ft_face) =>
+        DllImport.FtFaceCreateReferenced(ft_face);
+
+    [NativeName("hb_ft_face_create_referenced")]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_referenced")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    FaceTHandle IHarfBuzz.FtFaceCreateReferenced(Ref<Silk.NET.FreeType.FaceRec> ft_face)
+    {
+        fixed (Silk.NET.FreeType.FaceRec* __dsl_ft_face = ft_face)
+        {
+            return (FaceTHandle)((IHarfBuzz)this).FtFaceCreateReferenced(__dsl_ft_face);
+        }
+    }
+
+    [NativeName("hb_ft_face_create_referenced")]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_referenced")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static FaceTHandle FtFaceCreateReferenced(Ref<Silk.NET.FreeType.FaceRec> ft_face) =>
         DllImport.FtFaceCreateReferenced(ft_face);
 
     [NativeName("hb_ft_font_changed")]
@@ -31289,9 +31612,9 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
     [NativeName("hb_ft_font_create")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    FontTHandle IHarfBuzz.FtFontCreate(FTFaceRecHandle ft_face, DestroyFuncT destroy) =>
+    FontTHandle IHarfBuzz.FtFontCreate(Silk.NET.FreeType.FaceRec* ft_face, DestroyFuncT destroy) =>
         (
-            (delegate* unmanaged<FTFaceRecHandle, DestroyFuncT, FontTHandle>)(
+            (delegate* unmanaged<Silk.NET.FreeType.FaceRec*, DestroyFuncT, FontTHandle>)(
                 _slots[255] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[255] = nativeContext.LoadFunction("hb_ft_font_create", "harfbuzz")
@@ -31301,15 +31624,36 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
     [NativeName("hb_ft_font_create")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static FontTHandle FtFontCreate(FTFaceRecHandle ft_face, DestroyFuncT destroy) =>
-        DllImport.FtFontCreate(ft_face, destroy);
+    public static FontTHandle FtFontCreate(
+        Silk.NET.FreeType.FaceRec* ft_face,
+        DestroyFuncT destroy
+    ) => DllImport.FtFontCreate(ft_face, destroy);
+
+    [NativeName("hb_ft_font_create")]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    FontTHandle IHarfBuzz.FtFontCreate(Ref<Silk.NET.FreeType.FaceRec> ft_face, DestroyFuncT destroy)
+    {
+        fixed (Silk.NET.FreeType.FaceRec* __dsl_ft_face = ft_face)
+        {
+            return (FontTHandle)((IHarfBuzz)this).FtFontCreate(__dsl_ft_face, destroy);
+        }
+    }
+
+    [NativeName("hb_ft_font_create")]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static FontTHandle FtFontCreate(
+        Ref<Silk.NET.FreeType.FaceRec> ft_face,
+        DestroyFuncT destroy
+    ) => DllImport.FtFontCreate(ft_face, destroy);
 
     [NativeName("hb_ft_font_create_referenced")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create_referenced")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    FontTHandle IHarfBuzz.FtFontCreateReferenced(FTFaceRecHandle ft_face) =>
+    FontTHandle IHarfBuzz.FtFontCreateReferenced(Silk.NET.FreeType.FaceRec* ft_face) =>
         (
-            (delegate* unmanaged<FTFaceRecHandle, FontTHandle>)(
+            (delegate* unmanaged<Silk.NET.FreeType.FaceRec*, FontTHandle>)(
                 _slots[256] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[256] = nativeContext.LoadFunction(
@@ -31322,16 +31666,47 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
     [NativeName("hb_ft_font_create_referenced")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create_referenced")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static FontTHandle FtFontCreateReferenced(FTFaceRecHandle ft_face) =>
+    public static FontTHandle FtFontCreateReferenced(Silk.NET.FreeType.FaceRec* ft_face) =>
+        DllImport.FtFontCreateReferenced(ft_face);
+
+    [NativeName("hb_ft_font_create_referenced")]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create_referenced")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    FontTHandle IHarfBuzz.FtFontCreateReferenced(Ref<Silk.NET.FreeType.FaceRec> ft_face)
+    {
+        fixed (Silk.NET.FreeType.FaceRec* __dsl_ft_face = ft_face)
+        {
+            return (FontTHandle)((IHarfBuzz)this).FtFontCreateReferenced(__dsl_ft_face);
+        }
+    }
+
+    [NativeName("hb_ft_font_create_referenced")]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create_referenced")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static FontTHandle FtFontCreateReferenced(Ref<Silk.NET.FreeType.FaceRec> ft_face) =>
         DllImport.FtFontCreateReferenced(ft_face);
 
     [NativeName("hb_ft_font_get_face")]
     [Obsolete]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_face")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    FTFaceRecHandle IHarfBuzz.FtFontGetFace(FontTHandle font) =>
+    Ptr<Silk.NET.FreeType.FaceRec> IHarfBuzz.FtFontGetFace(FontTHandle font) =>
+        (Silk.NET.FreeType.FaceRec*)((IHarfBuzz)this).FtFontGetFaceRaw(font);
+
+    [NativeName("hb_ft_font_get_face")]
+    [Obsolete]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_face")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static Ptr<Silk.NET.FreeType.FaceRec> FtFontGetFace(FontTHandle font) =>
+        DllImport.FtFontGetFace(font);
+
+    [NativeName("hb_ft_font_get_face")]
+    [Obsolete]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_face")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    Silk.NET.FreeType.FaceRec* IHarfBuzz.FtFontGetFaceRaw(FontTHandle font) =>
         (
-            (delegate* unmanaged<FontTHandle, FTFaceRecHandle>)(
+            (delegate* unmanaged<FontTHandle, Silk.NET.FreeType.FaceRec*>)(
                 _slots[257] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[257] = nativeContext.LoadFunction("hb_ft_font_get_face", "harfbuzz")
@@ -31342,14 +31717,27 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
     [Obsolete]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_face")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static FTFaceRecHandle FtFontGetFace(FontTHandle font) => DllImport.FtFontGetFace(font);
+    public static Silk.NET.FreeType.FaceRec* FtFontGetFaceRaw(FontTHandle font) =>
+        DllImport.FtFontGetFaceRaw(font);
 
     [NativeName("hb_ft_font_get_ft_face")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_ft_face")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    FTFaceRecHandle IHarfBuzz.FtFontGetFtFace(FontTHandle font) =>
+    Ptr<Silk.NET.FreeType.FaceRec> IHarfBuzz.FtFontGetFtFace(FontTHandle font) =>
+        (Silk.NET.FreeType.FaceRec*)((IHarfBuzz)this).FtFontGetFtFaceRaw(font);
+
+    [NativeName("hb_ft_font_get_ft_face")]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_ft_face")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static Ptr<Silk.NET.FreeType.FaceRec> FtFontGetFtFace(FontTHandle font) =>
+        DllImport.FtFontGetFtFace(font);
+
+    [NativeName("hb_ft_font_get_ft_face")]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_ft_face")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    Silk.NET.FreeType.FaceRec* IHarfBuzz.FtFontGetFtFaceRaw(FontTHandle font) =>
         (
-            (delegate* unmanaged<FontTHandle, FTFaceRecHandle>)(
+            (delegate* unmanaged<FontTHandle, Silk.NET.FreeType.FaceRec*>)(
                 _slots[258] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[258] = nativeContext.LoadFunction("hb_ft_font_get_ft_face", "harfbuzz")
@@ -31359,8 +31747,8 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
     [NativeName("hb_ft_font_get_ft_face")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_ft_face")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static FTFaceRecHandle FtFontGetFtFace(FontTHandle font) =>
-        DllImport.FtFontGetFtFace(font);
+    public static Silk.NET.FreeType.FaceRec* FtFontGetFtFaceRaw(FontTHandle font) =>
+        DllImport.FtFontGetFtFaceRaw(font);
 
     [NativeName("hb_ft_font_get_load_flags")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_load_flags")]
@@ -31385,9 +31773,21 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
     [NativeName("hb_ft_font_lock_face")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_lock_face")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    FTFaceRecHandle IHarfBuzz.FtFontLockFace(FontTHandle font) =>
+    Ptr<Silk.NET.FreeType.FaceRec> IHarfBuzz.FtFontLockFace(FontTHandle font) =>
+        (Silk.NET.FreeType.FaceRec*)((IHarfBuzz)this).FtFontLockFaceRaw(font);
+
+    [NativeName("hb_ft_font_lock_face")]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_lock_face")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static Ptr<Silk.NET.FreeType.FaceRec> FtFontLockFace(FontTHandle font) =>
+        DllImport.FtFontLockFace(font);
+
+    [NativeName("hb_ft_font_lock_face")]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_lock_face")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    Silk.NET.FreeType.FaceRec* IHarfBuzz.FtFontLockFaceRaw(FontTHandle font) =>
         (
-            (delegate* unmanaged<FontTHandle, FTFaceRecHandle>)(
+            (delegate* unmanaged<FontTHandle, Silk.NET.FreeType.FaceRec*>)(
                 _slots[260] is not null and var loadedFnPtr
                     ? loadedFnPtr
                     : _slots[260] = nativeContext.LoadFunction("hb_ft_font_lock_face", "harfbuzz")
@@ -31397,8 +31797,8 @@ public unsafe partial class HarfBuzz : IHarfBuzz, IHarfBuzz.Static
     [NativeName("hb_ft_font_lock_face")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_lock_face")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static FTFaceRecHandle FtFontLockFace(FontTHandle font) =>
-        DllImport.FtFontLockFace(font);
+    public static Silk.NET.FreeType.FaceRec* FtFontLockFaceRaw(FontTHandle font) =>
+        DllImport.FtFontLockFaceRaw(font);
 
     [NativeName("hb_ft_font_set_funcs")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_set_funcs")]

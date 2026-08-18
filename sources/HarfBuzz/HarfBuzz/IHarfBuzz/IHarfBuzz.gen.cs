@@ -2673,11 +2673,25 @@ public unsafe partial interface IHarfBuzz
 
         [NativeName("hb_ft_face_create")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create")]
-        static abstract FaceTHandle FtFaceCreate(FTFaceRecHandle ft_face, DestroyFuncT destroy);
+        static abstract FaceTHandle FtFaceCreate(
+            Silk.NET.FreeType.FaceRec* ft_face,
+            DestroyFuncT destroy
+        );
+
+        [NativeName("hb_ft_face_create")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create")]
+        static abstract FaceTHandle FtFaceCreate(
+            Ref<Silk.NET.FreeType.FaceRec> ft_face,
+            DestroyFuncT destroy
+        );
 
         [NativeName("hb_ft_face_create_cached")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_cached")]
-        static abstract FaceTHandle FtFaceCreateCached(FTFaceRecHandle ft_face);
+        static abstract FaceTHandle FtFaceCreateCached(Silk.NET.FreeType.FaceRec* ft_face);
+
+        [NativeName("hb_ft_face_create_cached")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_cached")]
+        static abstract FaceTHandle FtFaceCreateCached(Ref<Silk.NET.FreeType.FaceRec> ft_face);
 
         [NativeName("hb_ft_face_create_from_blob_or_fail")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_from_blob_or_fail")]
@@ -2693,7 +2707,11 @@ public unsafe partial interface IHarfBuzz
 
         [NativeName("hb_ft_face_create_referenced")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_referenced")]
-        static abstract FaceTHandle FtFaceCreateReferenced(FTFaceRecHandle ft_face);
+        static abstract FaceTHandle FtFaceCreateReferenced(Silk.NET.FreeType.FaceRec* ft_face);
+
+        [NativeName("hb_ft_face_create_referenced")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_referenced")]
+        static abstract FaceTHandle FtFaceCreateReferenced(Ref<Silk.NET.FreeType.FaceRec> ft_face);
 
         [NativeName("hb_ft_font_changed")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_changed")]
@@ -2701,20 +2719,43 @@ public unsafe partial interface IHarfBuzz
 
         [NativeName("hb_ft_font_create")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create")]
-        static abstract FontTHandle FtFontCreate(FTFaceRecHandle ft_face, DestroyFuncT destroy);
+        static abstract FontTHandle FtFontCreate(
+            Silk.NET.FreeType.FaceRec* ft_face,
+            DestroyFuncT destroy
+        );
+
+        [NativeName("hb_ft_font_create")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create")]
+        static abstract FontTHandle FtFontCreate(
+            Ref<Silk.NET.FreeType.FaceRec> ft_face,
+            DestroyFuncT destroy
+        );
 
         [NativeName("hb_ft_font_create_referenced")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create_referenced")]
-        static abstract FontTHandle FtFontCreateReferenced(FTFaceRecHandle ft_face);
+        static abstract FontTHandle FtFontCreateReferenced(Silk.NET.FreeType.FaceRec* ft_face);
+
+        [NativeName("hb_ft_font_create_referenced")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create_referenced")]
+        static abstract FontTHandle FtFontCreateReferenced(Ref<Silk.NET.FreeType.FaceRec> ft_face);
 
         [NativeName("hb_ft_font_get_face")]
         [Obsolete]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_face")]
-        static abstract FTFaceRecHandle FtFontGetFace(FontTHandle font);
+        static abstract Ptr<Silk.NET.FreeType.FaceRec> FtFontGetFace(FontTHandle font);
+
+        [NativeName("hb_ft_font_get_face")]
+        [Obsolete]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_face")]
+        static abstract Silk.NET.FreeType.FaceRec* FtFontGetFaceRaw(FontTHandle font);
 
         [NativeName("hb_ft_font_get_ft_face")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_ft_face")]
-        static abstract FTFaceRecHandle FtFontGetFtFace(FontTHandle font);
+        static abstract Ptr<Silk.NET.FreeType.FaceRec> FtFontGetFtFace(FontTHandle font);
+
+        [NativeName("hb_ft_font_get_ft_face")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_ft_face")]
+        static abstract Silk.NET.FreeType.FaceRec* FtFontGetFtFaceRaw(FontTHandle font);
 
         [NativeName("hb_ft_font_get_load_flags")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_load_flags")]
@@ -2722,7 +2763,11 @@ public unsafe partial interface IHarfBuzz
 
         [NativeName("hb_ft_font_lock_face")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_lock_face")]
-        static abstract FTFaceRecHandle FtFontLockFace(FontTHandle font);
+        static abstract Ptr<Silk.NET.FreeType.FaceRec> FtFontLockFace(FontTHandle font);
+
+        [NativeName("hb_ft_font_lock_face")]
+        [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_lock_face")]
+        static abstract Silk.NET.FreeType.FaceRec* FtFontLockFaceRaw(FontTHandle font);
 
         [NativeName("hb_ft_font_set_funcs")]
         [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_set_funcs")]
@@ -6729,11 +6774,19 @@ public unsafe partial interface IHarfBuzz
 
     [NativeName("hb_ft_face_create")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create")]
-    FaceTHandle FtFaceCreate(FTFaceRecHandle ft_face, DestroyFuncT destroy);
+    FaceTHandle FtFaceCreate(Silk.NET.FreeType.FaceRec* ft_face, DestroyFuncT destroy);
+
+    [NativeName("hb_ft_face_create")]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create")]
+    FaceTHandle FtFaceCreate(Ref<Silk.NET.FreeType.FaceRec> ft_face, DestroyFuncT destroy);
 
     [NativeName("hb_ft_face_create_cached")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_cached")]
-    FaceTHandle FtFaceCreateCached(FTFaceRecHandle ft_face);
+    FaceTHandle FtFaceCreateCached(Silk.NET.FreeType.FaceRec* ft_face);
+
+    [NativeName("hb_ft_face_create_cached")]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_cached")]
+    FaceTHandle FtFaceCreateCached(Ref<Silk.NET.FreeType.FaceRec> ft_face);
 
     [NativeName("hb_ft_face_create_from_blob_or_fail")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_from_blob_or_fail")]
@@ -6749,7 +6802,11 @@ public unsafe partial interface IHarfBuzz
 
     [NativeName("hb_ft_face_create_referenced")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_referenced")]
-    FaceTHandle FtFaceCreateReferenced(FTFaceRecHandle ft_face);
+    FaceTHandle FtFaceCreateReferenced(Silk.NET.FreeType.FaceRec* ft_face);
+
+    [NativeName("hb_ft_face_create_referenced")]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_face_create_referenced")]
+    FaceTHandle FtFaceCreateReferenced(Ref<Silk.NET.FreeType.FaceRec> ft_face);
 
     [NativeName("hb_ft_font_changed")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_changed")]
@@ -6757,20 +6814,37 @@ public unsafe partial interface IHarfBuzz
 
     [NativeName("hb_ft_font_create")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create")]
-    FontTHandle FtFontCreate(FTFaceRecHandle ft_face, DestroyFuncT destroy);
+    FontTHandle FtFontCreate(Silk.NET.FreeType.FaceRec* ft_face, DestroyFuncT destroy);
+
+    [NativeName("hb_ft_font_create")]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create")]
+    FontTHandle FtFontCreate(Ref<Silk.NET.FreeType.FaceRec> ft_face, DestroyFuncT destroy);
 
     [NativeName("hb_ft_font_create_referenced")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create_referenced")]
-    FontTHandle FtFontCreateReferenced(FTFaceRecHandle ft_face);
+    FontTHandle FtFontCreateReferenced(Silk.NET.FreeType.FaceRec* ft_face);
+
+    [NativeName("hb_ft_font_create_referenced")]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_create_referenced")]
+    FontTHandle FtFontCreateReferenced(Ref<Silk.NET.FreeType.FaceRec> ft_face);
 
     [NativeName("hb_ft_font_get_face")]
     [Obsolete]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_face")]
-    FTFaceRecHandle FtFontGetFace(FontTHandle font);
+    Ptr<Silk.NET.FreeType.FaceRec> FtFontGetFace(FontTHandle font);
+
+    [NativeName("hb_ft_font_get_face")]
+    [Obsolete]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_face")]
+    Silk.NET.FreeType.FaceRec* FtFontGetFaceRaw(FontTHandle font);
 
     [NativeName("hb_ft_font_get_ft_face")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_ft_face")]
-    FTFaceRecHandle FtFontGetFtFace(FontTHandle font);
+    Ptr<Silk.NET.FreeType.FaceRec> FtFontGetFtFace(FontTHandle font);
+
+    [NativeName("hb_ft_font_get_ft_face")]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_ft_face")]
+    Silk.NET.FreeType.FaceRec* FtFontGetFtFaceRaw(FontTHandle font);
 
     [NativeName("hb_ft_font_get_load_flags")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_get_load_flags")]
@@ -6778,7 +6852,11 @@ public unsafe partial interface IHarfBuzz
 
     [NativeName("hb_ft_font_lock_face")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_lock_face")]
-    FTFaceRecHandle FtFontLockFace(FontTHandle font);
+    Ptr<Silk.NET.FreeType.FaceRec> FtFontLockFace(FontTHandle font);
+
+    [NativeName("hb_ft_font_lock_face")]
+    [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_lock_face")]
+    Silk.NET.FreeType.FaceRec* FtFontLockFaceRaw(FontTHandle font);
 
     [NativeName("hb_ft_font_set_funcs")]
     [NativeFunction("harfbuzz", EntryPoint = "hb_ft_font_set_funcs")]

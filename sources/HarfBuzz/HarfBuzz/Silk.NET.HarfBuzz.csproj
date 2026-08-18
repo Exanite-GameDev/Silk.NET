@@ -7,5 +7,6 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Core\Silk.NET.Core.csproj" />
+    <ProjectReference Include="..\..\FreeType\FreeType\Silk.NET.FreeType.csproj" />
   </ItemGroup>
 </Project>
