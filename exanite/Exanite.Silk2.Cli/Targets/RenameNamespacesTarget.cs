@@ -31,7 +31,7 @@ public class RenameNamespacesTarget
         var compilation = GuardUtility.NotNull(await coreProject.GetCompilationAsync());
         var silkNamespaceSymbol = compilation.GlobalNamespace.GetNamespaceMembers().First(x => x.Name == "Silk");
 
-        $"Renaming Silk namespace to Silk2, this might take a while".Dump();
+        "Renaming Silk namespace to Silk2, this might take a while".Dump();
 
         solution = await Renamer.RenameSymbolAsync(solution, silkNamespaceSymbol, new SymbolRenameOptions()
         {
@@ -45,6 +45,24 @@ public class RenameNamespacesTarget
 
         await RoslynUtility.ApplyChanges(originalSolution, solution);
 
-        "Rename completed".Dump();
+        "Symbol rename completed".Dump();
+
+        "Updating string references to Silk.NET in SilkTouch (naively)".Dump();
+
+        var silkTouchProject = solution.Projects.First(x => x.Name == "Silk.NET.SilkTouch");
+        var silkTouchProjectPath = new AbsolutePath(GuardUtility.NotNull(silkTouchProject.FilePath));
+        foreach (var file in silkTouchProjectPath.GlobFiles("**/*.cs"))
+        {
+            var contents = file.ReadAllText();
+            var newContents = contents.Replace("\"Silk.NET", "\"Silk2.NET");
+
+            if (contents != newContents)
+            {
+                file.WriteAllText(contents);
+            }
+        }
+
+        "Naive SilkTouch rename completed".Dump();
+        "Target completed".Dump();
     }
 }
