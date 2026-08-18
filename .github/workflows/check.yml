@@ -12,9 +12,6 @@ jobs:
     name: Check
     runs-on: ubuntu-24.04
 
-    env:
-      BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-
     steps:
 
       - name: Setup .NET
