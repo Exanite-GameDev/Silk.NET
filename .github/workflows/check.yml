@@ -37,6 +37,9 @@ jobs:
 
       - name: Rewrite namespaces
         run: dotnet run --project exanite/Exanite.Silk2.Cli/Exanite.Silk2.Cli.csproj --configuration Release
+        
+      - name: Log diff
+        run: git diff
 
       - name: Build
         run: dotnet build --configuration Release
