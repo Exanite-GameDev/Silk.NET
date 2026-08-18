@@ -54,4 +54,4 @@ jobs:
           path: ./outputs/nuget/Release/
 
       - name: Publish
-        run: dotnet nuget push ./outputs/nuget/Release/**/*.nupkg --skip-duplicate --api-key ${{steps.nuget.outputs.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
+        run: dotnet nuget push ./outputs/nuget/Release/**/*.nupkg --skip-duplicate --api-key ${{ steps.nuget.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
