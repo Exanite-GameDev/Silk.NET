@@ -41,6 +41,9 @@ jobs:
           fetch-depth: 0
           filter: tree:0
 
+      - name: Rewrite namespaces
+        run: dotnet run --project exanite/Exanite.Silk2.Cli/Exanite.Silk2.Cli.csproj --configuration Release
+
       - name: Build
         run: dotnet build --configuration Release
 
