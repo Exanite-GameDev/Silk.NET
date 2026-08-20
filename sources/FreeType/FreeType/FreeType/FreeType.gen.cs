@@ -11,6 +11,27 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
 {
     public partial class DllImport : IFreeType.Static
     {
+        [NativeName("FT_Add_Default_Modules")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Add_Default_Modules")]
+        public static extern void AddDefaultModules(LibraryRecHandle library);
+
+        [NativeName("FT_Add_Module")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Add_Module")]
+        public static extern int AddModule(LibraryRecHandle library, ModuleClass* clazz);
+
+        [NativeName("FT_Add_Module")]
+        [NativeFunction("freetype", EntryPoint = "FT_Add_Module")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int AddModule(LibraryRecHandle library, Ref<ModuleClass> clazz)
+        {
+            fixed (ModuleClass* __dsl_clazz = clazz)
+            {
+                return (int)AddModule(library, __dsl_clazz);
+            }
+        }
+
         [NativeName("FT_Attach_File")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Attach_File")]
         public static extern int AttachFile(FaceRec* face, sbyte* filepathname);
@@ -75,6 +96,10 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         [NativeName("FT_Done_FreeType")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Done_FreeType")]
         public static extern int DoneFreeType(LibraryRecHandle library);
+
+        [NativeName("FT_Done_Library")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Done_Library")]
+        public static extern int DoneLibrary(LibraryRecHandle library);
 
         [NativeName("FT_Error_String")]
         [NativeFunction("freetype", EntryPoint = "FT_Error_String")]
@@ -389,6 +414,26 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
             }
         }
 
+        [NativeName("FT_Get_Module")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Get_Module")]
+        public static extern ModuleRecHandle GetModule(
+            LibraryRecHandle library,
+            sbyte* module_name
+        );
+
+        [NativeName("FT_Get_Module")]
+        [NativeFunction("freetype", EntryPoint = "FT_Get_Module")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static ModuleRecHandle GetModule(LibraryRecHandle library, Ref<sbyte> module_name)
+        {
+            fixed (sbyte* __dsl_module_name = module_name)
+            {
+                return (ModuleRecHandle)GetModule(library, __dsl_module_name);
+            }
+        }
+
         [NativeName("FT_Get_Name_Index")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Get_Name_Index")]
         public static extern uint GetNameIndex(FaceRec* face, sbyte* glyph_name);
@@ -535,6 +580,10 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
             }
         }
 
+        [NativeName("FT_Get_TrueType_Engine_Type")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Get_TrueType_Engine_Type")]
+        public static extern TrueTypeEngineType GetTrueTypeEngineType(LibraryRecHandle library);
+
         [NativeName("FT_Init_FreeType")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Init_FreeType")]
         public static extern int InitFreeType(LibraryRecHandle* alibrary);
@@ -651,6 +700,24 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
             }
         }
 
+        [NativeName("FT_New_Library")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_New_Library")]
+        public static extern int NewLibrary(MemoryRec* memory, LibraryRecHandle* alibrary);
+
+        [NativeName("FT_New_Library")]
+        [NativeFunction("freetype", EntryPoint = "FT_New_Library")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int NewLibrary(Ref<MemoryRec> memory, Ref<LibraryRecHandle> alibrary)
+        {
+            fixed (LibraryRecHandle* __dsl_alibrary = alibrary)
+            fixed (MemoryRec* __dsl_memory = memory)
+            {
+                return (int)NewLibrary(__dsl_memory, __dsl_alibrary);
+            }
+        }
+
         [NativeName("FT_New_Memory_Face")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_New_Memory_Face")]
         public static extern int NewMemoryFace(
@@ -715,6 +782,74 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
             }
         }
 
+        [NativeName("FT_Property_Get")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Property_Get")]
+        public static extern int PropertyGet(
+            LibraryRecHandle library,
+            sbyte* module_name,
+            sbyte* property_name,
+            void* value
+        );
+
+        [NativeName("FT_Property_Get")]
+        [NativeFunction("freetype", EntryPoint = "FT_Property_Get")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int PropertyGet(
+            LibraryRecHandle library,
+            Ref<sbyte> module_name,
+            Ref<sbyte> property_name,
+            Ref value
+        )
+        {
+            fixed (void* __dsl_value = value)
+            fixed (sbyte* __dsl_property_name = property_name)
+            fixed (sbyte* __dsl_module_name = module_name)
+            {
+                return (int)PropertyGet(
+                    library,
+                    __dsl_module_name,
+                    __dsl_property_name,
+                    __dsl_value
+                );
+            }
+        }
+
+        [NativeName("FT_Property_Set")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Property_Set")]
+        public static extern int PropertySet(
+            LibraryRecHandle library,
+            sbyte* module_name,
+            sbyte* property_name,
+            void* value
+        );
+
+        [NativeName("FT_Property_Set")]
+        [NativeFunction("freetype", EntryPoint = "FT_Property_Set")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int PropertySet(
+            LibraryRecHandle library,
+            Ref<sbyte> module_name,
+            Ref<sbyte> property_name,
+            Ref value
+        )
+        {
+            fixed (void* __dsl_value = value)
+            fixed (sbyte* __dsl_property_name = property_name)
+            fixed (sbyte* __dsl_module_name = module_name)
+            {
+                return (int)PropertySet(
+                    library,
+                    __dsl_module_name,
+                    __dsl_property_name,
+                    __dsl_value
+                );
+            }
+        }
+
         [NativeName("FT_Reference_Face")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Reference_Face")]
         public static extern int ReferenceFace(FaceRec* face);
@@ -731,6 +866,14 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
                 return (int)ReferenceFace(__dsl_face);
             }
         }
+
+        [NativeName("FT_Reference_Library")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Reference_Library")]
+        public static extern int ReferenceLibrary(LibraryRecHandle library);
+
+        [NativeName("FT_Remove_Module")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Remove_Module")]
+        public static extern int RemoveModule(LibraryRecHandle library, ModuleRecHandle module);
 
         [NativeName("FT_Render_Glyph")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Render_Glyph")]
@@ -858,6 +1001,18 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
             }
         }
 
+        [NativeName("FT_Set_Debug_Hook")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Set_Debug_Hook")]
+        public static extern void SetDebugHook(
+            LibraryRecHandle library,
+            uint hook_index,
+            DebugHookFunc debug_hook
+        );
+
+        [NativeName("FT_Set_Default_Properties")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Set_Default_Properties")]
+        public static extern void SetDefaultProperties(LibraryRecHandle library);
+
         [NativeName("FT_Set_Pixel_Sizes")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Set_Pixel_Sizes")]
         public static extern int SetPixelSizes(FaceRec* face, uint pixel_width, uint pixel_height);
@@ -916,6 +1071,29 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     public partial class StaticWrapper<T> : IFreeType
         where T : IFreeType.Static
     {
+        [NativeName("FT_Add_Default_Modules")]
+        [NativeFunction("freetype", EntryPoint = "FT_Add_Default_Modules")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public void AddDefaultModules(LibraryRecHandle library) => T.AddDefaultModules(library);
+
+        [NativeName("FT_Add_Module")]
+        [NativeFunction("freetype", EntryPoint = "FT_Add_Module")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int AddModule(LibraryRecHandle library, ModuleClass* clazz) =>
+            T.AddModule(library, clazz);
+
+        [NativeName("FT_Add_Module")]
+        [NativeFunction("freetype", EntryPoint = "FT_Add_Module")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int AddModule(LibraryRecHandle library, Ref<ModuleClass> clazz) =>
+            T.AddModule(library, clazz);
+
         [NativeName("FT_Attach_File")]
         [NativeFunction("freetype", EntryPoint = "FT_Attach_File")]
         [MethodImpl(
@@ -982,6 +1160,13 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
         public int DoneFreeType(LibraryRecHandle library) => T.DoneFreeType(library);
+
+        [NativeName("FT_Done_Library")]
+        [NativeFunction("freetype", EntryPoint = "FT_Done_Library")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int DoneLibrary(LibraryRecHandle library) => T.DoneLibrary(library);
 
         [NativeName("FT_Error_String")]
         [NativeFunction("freetype", EntryPoint = "FT_Error_String")]
@@ -1241,6 +1426,22 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
             Ref<Vector> akerning
         ) => T.GetKerning(face, left_glyph, right_glyph, kern_mode, akerning);
 
+        [NativeName("FT_Get_Module")]
+        [NativeFunction("freetype", EntryPoint = "FT_Get_Module")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public ModuleRecHandle GetModule(LibraryRecHandle library, sbyte* module_name) =>
+            T.GetModule(library, module_name);
+
+        [NativeName("FT_Get_Module")]
+        [NativeFunction("freetype", EntryPoint = "FT_Get_Module")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public ModuleRecHandle GetModule(LibraryRecHandle library, Ref<sbyte> module_name) =>
+            T.GetModule(library, module_name);
+
         [NativeName("FT_Get_Name_Index")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Name_Index")]
         [MethodImpl(
@@ -1353,6 +1554,14 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         public void GetTransform(Ref<FaceRec> face, Ref<Matrix> matrix, Ref<Vector> delta) =>
             T.GetTransform(face, matrix, delta);
 
+        [NativeName("FT_Get_TrueType_Engine_Type")]
+        [NativeFunction("freetype", EntryPoint = "FT_Get_TrueType_Engine_Type")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public TrueTypeEngineType GetTrueTypeEngineType(LibraryRecHandle library) =>
+            T.GetTrueTypeEngineType(library);
+
         [NativeName("FT_Init_FreeType")]
         [NativeFunction("freetype", EntryPoint = "FT_Init_FreeType")]
         [MethodImpl(
@@ -1461,6 +1670,22 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
             Ref2D<FaceRec> aface
         ) => T.NewFace(library, filepathname, face_index, aface);
 
+        [NativeName("FT_New_Library")]
+        [NativeFunction("freetype", EntryPoint = "FT_New_Library")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int NewLibrary(MemoryRec* memory, LibraryRecHandle* alibrary) =>
+            T.NewLibrary(memory, alibrary);
+
+        [NativeName("FT_New_Library")]
+        [NativeFunction("freetype", EntryPoint = "FT_New_Library")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int NewLibrary(Ref<MemoryRec> memory, Ref<LibraryRecHandle> alibrary) =>
+            T.NewLibrary(memory, alibrary);
+
         [NativeName("FT_New_Memory_Face")]
         [NativeFunction("freetype", EntryPoint = "FT_New_Memory_Face")]
         [MethodImpl(
@@ -1511,6 +1736,54 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
             Ref2D<FaceRec> aface
         ) => T.OpenFace(library, args, face_index, aface);
 
+        [NativeName("FT_Property_Get")]
+        [NativeFunction("freetype", EntryPoint = "FT_Property_Get")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int PropertyGet(
+            LibraryRecHandle library,
+            sbyte* module_name,
+            sbyte* property_name,
+            void* value
+        ) => T.PropertyGet(library, module_name, property_name, value);
+
+        [NativeName("FT_Property_Get")]
+        [NativeFunction("freetype", EntryPoint = "FT_Property_Get")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int PropertyGet(
+            LibraryRecHandle library,
+            Ref<sbyte> module_name,
+            Ref<sbyte> property_name,
+            Ref value
+        ) => T.PropertyGet(library, module_name, property_name, value);
+
+        [NativeName("FT_Property_Set")]
+        [NativeFunction("freetype", EntryPoint = "FT_Property_Set")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int PropertySet(
+            LibraryRecHandle library,
+            sbyte* module_name,
+            sbyte* property_name,
+            void* value
+        ) => T.PropertySet(library, module_name, property_name, value);
+
+        [NativeName("FT_Property_Set")]
+        [NativeFunction("freetype", EntryPoint = "FT_Property_Set")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int PropertySet(
+            LibraryRecHandle library,
+            Ref<sbyte> module_name,
+            Ref<sbyte> property_name,
+            Ref value
+        ) => T.PropertySet(library, module_name, property_name, value);
+
         [NativeName("FT_Reference_Face")]
         [NativeFunction("freetype", EntryPoint = "FT_Reference_Face")]
         [MethodImpl(
@@ -1524,6 +1797,21 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
             MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
         )]
         public int ReferenceFace(Ref<FaceRec> face) => T.ReferenceFace(face);
+
+        [NativeName("FT_Reference_Library")]
+        [NativeFunction("freetype", EntryPoint = "FT_Reference_Library")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int ReferenceLibrary(LibraryRecHandle library) => T.ReferenceLibrary(library);
+
+        [NativeName("FT_Remove_Module")]
+        [NativeFunction("freetype", EntryPoint = "FT_Remove_Module")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int RemoveModule(LibraryRecHandle library, ModuleRecHandle module) =>
+            T.RemoveModule(library, module);
 
         [NativeName("FT_Render_Glyph")]
         [NativeFunction("freetype", EntryPoint = "FT_Render_Glyph")]
@@ -1635,6 +1923,25 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         public int SetCharmap(Ref<FaceRec> face, Ref<CharMapRec> charmap) =>
             T.SetCharmap(face, charmap);
 
+        [NativeName("FT_Set_Debug_Hook")]
+        [NativeFunction("freetype", EntryPoint = "FT_Set_Debug_Hook")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public void SetDebugHook(
+            LibraryRecHandle library,
+            uint hook_index,
+            DebugHookFunc debug_hook
+        ) => T.SetDebugHook(library, hook_index, debug_hook);
+
+        [NativeName("FT_Set_Default_Properties")]
+        [NativeFunction("freetype", EntryPoint = "FT_Set_Default_Properties")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public void SetDefaultProperties(LibraryRecHandle library) =>
+            T.SetDefaultProperties(library);
+
         [NativeName("FT_Set_Pixel_Sizes")]
         [NativeFunction("freetype", EntryPoint = "FT_Set_Pixel_Sizes")]
         [MethodImpl(
@@ -1686,6 +1993,35 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
 
     public partial class ThisThread
     {
+        [NativeName("FT_Add_Default_Modules")]
+        [NativeFunction("freetype", EntryPoint = "FT_Add_Default_Modules")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static void AddDefaultModules(LibraryRecHandle library) =>
+            Underlying.Value!.AddDefaultModules(library);
+
+        [NativeName("FT_Add_Module")]
+        [NativeFunction("freetype", EntryPoint = "FT_Add_Module")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int AddModule(LibraryRecHandle library, ModuleClass* clazz) =>
+            Underlying.Value!.AddModule(library, clazz);
+
+        [NativeName("FT_Add_Module")]
+        [NativeFunction("freetype", EntryPoint = "FT_Add_Module")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int AddModule(LibraryRecHandle library, Ref<ModuleClass> clazz)
+        {
+            fixed (ModuleClass* __dsl_clazz = clazz)
+            {
+                return (int)AddModule(library, __dsl_clazz);
+            }
+        }
+
         [NativeName("FT_Attach_File")]
         [NativeFunction("freetype", EntryPoint = "FT_Attach_File")]
         [MethodImpl(
@@ -1771,6 +2107,14 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         )]
         public static int DoneFreeType(LibraryRecHandle library) =>
             Underlying.Value!.DoneFreeType(library);
+
+        [NativeName("FT_Done_Library")]
+        [NativeFunction("freetype", EntryPoint = "FT_Done_Library")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int DoneLibrary(LibraryRecHandle library) =>
+            Underlying.Value!.DoneLibrary(library);
 
         [NativeName("FT_Error_String")]
         [NativeFunction("freetype", EntryPoint = "FT_Error_String")]
@@ -2140,6 +2484,27 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
             }
         }
 
+        [NativeName("FT_Get_Module")]
+        [NativeFunction("freetype", EntryPoint = "FT_Get_Module")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static ModuleRecHandle GetModule(LibraryRecHandle library, sbyte* module_name) =>
+            Underlying.Value!.GetModule(library, module_name);
+
+        [NativeName("FT_Get_Module")]
+        [NativeFunction("freetype", EntryPoint = "FT_Get_Module")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static ModuleRecHandle GetModule(LibraryRecHandle library, Ref<sbyte> module_name)
+        {
+            fixed (sbyte* __dsl_module_name = module_name)
+            {
+                return (ModuleRecHandle)GetModule(library, __dsl_module_name);
+            }
+        }
+
         [NativeName("FT_Get_Name_Index")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Name_Index")]
         [MethodImpl(
@@ -2317,6 +2682,14 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
             }
         }
 
+        [NativeName("FT_Get_TrueType_Engine_Type")]
+        [NativeFunction("freetype", EntryPoint = "FT_Get_TrueType_Engine_Type")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static TrueTypeEngineType GetTrueTypeEngineType(LibraryRecHandle library) =>
+            Underlying.Value!.GetTrueTypeEngineType(library);
+
         [NativeName("FT_Init_FreeType")]
         [NativeFunction("freetype", EntryPoint = "FT_Init_FreeType")]
         [MethodImpl(
@@ -2457,6 +2830,28 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
             }
         }
 
+        [NativeName("FT_New_Library")]
+        [NativeFunction("freetype", EntryPoint = "FT_New_Library")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int NewLibrary(MemoryRec* memory, LibraryRecHandle* alibrary) =>
+            Underlying.Value!.NewLibrary(memory, alibrary);
+
+        [NativeName("FT_New_Library")]
+        [NativeFunction("freetype", EntryPoint = "FT_New_Library")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int NewLibrary(Ref<MemoryRec> memory, Ref<LibraryRecHandle> alibrary)
+        {
+            fixed (LibraryRecHandle* __dsl_alibrary = alibrary)
+            fixed (MemoryRec* __dsl_memory = memory)
+            {
+                return (int)NewLibrary(__dsl_memory, __dsl_alibrary);
+            }
+        }
+
         [NativeName("FT_New_Memory_Face")]
         [NativeFunction("freetype", EntryPoint = "FT_New_Memory_Face")]
         [MethodImpl(
@@ -2527,6 +2922,80 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
             }
         }
 
+        [NativeName("FT_Property_Get")]
+        [NativeFunction("freetype", EntryPoint = "FT_Property_Get")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int PropertyGet(
+            LibraryRecHandle library,
+            sbyte* module_name,
+            sbyte* property_name,
+            void* value
+        ) => Underlying.Value!.PropertyGet(library, module_name, property_name, value);
+
+        [NativeName("FT_Property_Get")]
+        [NativeFunction("freetype", EntryPoint = "FT_Property_Get")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int PropertyGet(
+            LibraryRecHandle library,
+            Ref<sbyte> module_name,
+            Ref<sbyte> property_name,
+            Ref value
+        )
+        {
+            fixed (void* __dsl_value = value)
+            fixed (sbyte* __dsl_property_name = property_name)
+            fixed (sbyte* __dsl_module_name = module_name)
+            {
+                return (int)PropertyGet(
+                    library,
+                    __dsl_module_name,
+                    __dsl_property_name,
+                    __dsl_value
+                );
+            }
+        }
+
+        [NativeName("FT_Property_Set")]
+        [NativeFunction("freetype", EntryPoint = "FT_Property_Set")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int PropertySet(
+            LibraryRecHandle library,
+            sbyte* module_name,
+            sbyte* property_name,
+            void* value
+        ) => Underlying.Value!.PropertySet(library, module_name, property_name, value);
+
+        [NativeName("FT_Property_Set")]
+        [NativeFunction("freetype", EntryPoint = "FT_Property_Set")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int PropertySet(
+            LibraryRecHandle library,
+            Ref<sbyte> module_name,
+            Ref<sbyte> property_name,
+            Ref value
+        )
+        {
+            fixed (void* __dsl_value = value)
+            fixed (sbyte* __dsl_property_name = property_name)
+            fixed (sbyte* __dsl_module_name = module_name)
+            {
+                return (int)PropertySet(
+                    library,
+                    __dsl_module_name,
+                    __dsl_property_name,
+                    __dsl_value
+                );
+            }
+        }
+
         [NativeName("FT_Reference_Face")]
         [NativeFunction("freetype", EntryPoint = "FT_Reference_Face")]
         [MethodImpl(
@@ -2546,6 +3015,22 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
                 return (int)ReferenceFace(__dsl_face);
             }
         }
+
+        [NativeName("FT_Reference_Library")]
+        [NativeFunction("freetype", EntryPoint = "FT_Reference_Library")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int ReferenceLibrary(LibraryRecHandle library) =>
+            Underlying.Value!.ReferenceLibrary(library);
+
+        [NativeName("FT_Remove_Module")]
+        [NativeFunction("freetype", EntryPoint = "FT_Remove_Module")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int RemoveModule(LibraryRecHandle library, ModuleRecHandle module) =>
+            Underlying.Value!.RemoveModule(library, module);
 
         [NativeName("FT_Render_Glyph")]
         [NativeFunction("freetype", EntryPoint = "FT_Render_Glyph")]
@@ -2705,6 +3190,25 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
                 return (int)SetCharmap(__dsl_face, __dsl_charmap);
             }
         }
+
+        [NativeName("FT_Set_Debug_Hook")]
+        [NativeFunction("freetype", EntryPoint = "FT_Set_Debug_Hook")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static void SetDebugHook(
+            LibraryRecHandle library,
+            uint hook_index,
+            DebugHookFunc debug_hook
+        ) => Underlying.Value!.SetDebugHook(library, hook_index, debug_hook);
+
+        [NativeName("FT_Set_Default_Properties")]
+        [NativeFunction("freetype", EntryPoint = "FT_Set_Default_Properties")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static void SetDefaultProperties(LibraryRecHandle library) =>
+            Underlying.Value!.SetDefaultProperties(library);
 
         [NativeName("FT_Set_Pixel_Sizes")]
         [NativeFunction("freetype", EntryPoint = "FT_Set_Pixel_Sizes")]
@@ -3550,15 +4054,119 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FREETYPE_PATCH")]
     public const int FreetypePatch = 1;
 
+    [NativeName("FT_MODULE_FONT_DRIVER")]
+    public const int ModuleFontDriver = 1;
+
+    [NativeName("FT_MODULE_RENDERER")]
+    public const int ModuleRenderer = 2;
+
+    [NativeName("FT_MODULE_HINTER")]
+    public const int ModuleHinter = 4;
+
+    [NativeName("FT_MODULE_STYLER")]
+    public const int ModuleStyler = 8;
+
+    [NativeName("FT_MODULE_DRIVER_SCALABLE")]
+    public const int ModuleDriverScalable = 0x100;
+
+    [NativeName("FT_MODULE_DRIVER_NO_OUTLINES")]
+    public const int ModuleDriverNoOutlines = 0x200;
+
+    [NativeName("FT_MODULE_DRIVER_HAS_HINTER")]
+    public const int ModuleDriverHasHinter = 0x400;
+
+    [NativeName("FT_MODULE_DRIVER_HINTS_LIGHTLY")]
+    public const int ModuleDriverHintsLightly = 0x800;
+
+    [NativeName("ft_module_font_driver")]
+    public const int ModuleFontDriver = 1;
+
+    [NativeName("ft_module_renderer")]
+    public const int ModuleRenderer = 2;
+
+    [NativeName("ft_module_hinter")]
+    public const int ModuleHinter = 4;
+
+    [NativeName("ft_module_styler")]
+    public const int ModuleStyler = 8;
+
+    [NativeName("ft_module_driver_scalable")]
+    public const int ModuleDriverScalable = 0x100;
+
+    [NativeName("ft_module_driver_no_outlines")]
+    public const int ModuleDriverNoOutlines = 0x200;
+
+    [NativeName("ft_module_driver_has_hinter")]
+    public const int ModuleDriverHasHinter = 0x400;
+
+    [NativeName("ft_module_driver_hints_lightly")]
+    public const int ModuleDriverHintsLightly = 0x800;
+
+    [NativeName("FT_DEBUG_HOOK_TRUETYPE")]
+    public const int DebugHookTruetype = 0;
+
+    [NativeName("FT_Add_Default_Modules")]
+    [NativeFunction("freetype", EntryPoint = "FT_Add_Default_Modules")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    void IFreeType.AddDefaultModules(LibraryRecHandle library) =>
+        (
+            (delegate* unmanaged<LibraryRecHandle, void>)(
+                _slots[0] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[0] = nativeContext.LoadFunction("FT_Add_Default_Modules", "freetype")
+            )
+        )(library);
+
+    [NativeName("FT_Add_Default_Modules")]
+    [NativeFunction("freetype", EntryPoint = "FT_Add_Default_Modules")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static void AddDefaultModules(LibraryRecHandle library) =>
+        DllImport.AddDefaultModules(library);
+
+    [NativeName("FT_Add_Module")]
+    [NativeFunction("freetype", EntryPoint = "FT_Add_Module")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.AddModule(LibraryRecHandle library, ModuleClass* clazz) =>
+        (
+            (delegate* unmanaged<LibraryRecHandle, ModuleClass*, int>)(
+                _slots[1] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[1] = nativeContext.LoadFunction("FT_Add_Module", "freetype")
+            )
+        )(library, clazz);
+
+    [NativeName("FT_Add_Module")]
+    [NativeFunction("freetype", EntryPoint = "FT_Add_Module")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int AddModule(LibraryRecHandle library, ModuleClass* clazz) =>
+        DllImport.AddModule(library, clazz);
+
+    [NativeName("FT_Add_Module")]
+    [NativeFunction("freetype", EntryPoint = "FT_Add_Module")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.AddModule(LibraryRecHandle library, Ref<ModuleClass> clazz)
+    {
+        fixed (ModuleClass* __dsl_clazz = clazz)
+        {
+            return (int)((IFreeType)this).AddModule(library, __dsl_clazz);
+        }
+    }
+
+    [NativeName("FT_Add_Module")]
+    [NativeFunction("freetype", EntryPoint = "FT_Add_Module")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int AddModule(LibraryRecHandle library, Ref<ModuleClass> clazz) =>
+        DllImport.AddModule(library, clazz);
+
     [NativeName("FT_Attach_File")]
     [NativeFunction("freetype", EntryPoint = "FT_Attach_File")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     int IFreeType.AttachFile(FaceRec* face, sbyte* filepathname) =>
         (
             (delegate* unmanaged<FaceRec*, sbyte*, int>)(
-                _slots[0] is not null and var loadedFnPtr
+                _slots[2] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[0] = nativeContext.LoadFunction("FT_Attach_File", "freetype")
+                    : _slots[2] = nativeContext.LoadFunction("FT_Attach_File", "freetype")
             )
         )(face, filepathname);
 
@@ -3592,9 +4200,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.AttachStream(FaceRec* face, OpenArgs* parameters) =>
         (
             (delegate* unmanaged<FaceRec*, OpenArgs*, int>)(
-                _slots[1] is not null and var loadedFnPtr
+                _slots[3] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[1] = nativeContext.LoadFunction("FT_Attach_Stream", "freetype")
+                    : _slots[3] = nativeContext.LoadFunction("FT_Attach_Stream", "freetype")
             )
         )(face, parameters);
 
@@ -3628,9 +4236,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     long IFreeType.CeilFix(long a) =>
         (
             (delegate* unmanaged<long, long>)(
-                _slots[2] is not null and var loadedFnPtr
+                _slots[4] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[2] = nativeContext.LoadFunction("FT_CeilFix", "freetype")
+                    : _slots[4] = nativeContext.LoadFunction("FT_CeilFix", "freetype")
             )
         )(a);
 
@@ -3645,9 +4253,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     long IFreeType.DivFix(long a, long b) =>
         (
             (delegate* unmanaged<long, long, long>)(
-                _slots[3] is not null and var loadedFnPtr
+                _slots[5] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[3] = nativeContext.LoadFunction("FT_DivFix", "freetype")
+                    : _slots[5] = nativeContext.LoadFunction("FT_DivFix", "freetype")
             )
         )(a, b);
 
@@ -3662,9 +4270,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.DoneFace(FaceRec* face) =>
         (
             (delegate* unmanaged<FaceRec*, int>)(
-                _slots[4] is not null and var loadedFnPtr
+                _slots[6] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[4] = nativeContext.LoadFunction("FT_Done_Face", "freetype")
+                    : _slots[6] = nativeContext.LoadFunction("FT_Done_Face", "freetype")
             )
         )(face);
 
@@ -3695,9 +4303,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.DoneFreeType(LibraryRecHandle library) =>
         (
             (delegate* unmanaged<LibraryRecHandle, int>)(
-                _slots[5] is not null and var loadedFnPtr
+                _slots[7] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[5] = nativeContext.LoadFunction("FT_Done_FreeType", "freetype")
+                    : _slots[7] = nativeContext.LoadFunction("FT_Done_FreeType", "freetype")
             )
         )(library);
 
@@ -3705,6 +4313,23 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeFunction("freetype", EntryPoint = "FT_Done_FreeType")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static int DoneFreeType(LibraryRecHandle library) => DllImport.DoneFreeType(library);
+
+    [NativeName("FT_Done_Library")]
+    [NativeFunction("freetype", EntryPoint = "FT_Done_Library")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.DoneLibrary(LibraryRecHandle library) =>
+        (
+            (delegate* unmanaged<LibraryRecHandle, int>)(
+                _slots[8] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[8] = nativeContext.LoadFunction("FT_Done_Library", "freetype")
+            )
+        )(library);
+
+    [NativeName("FT_Done_Library")]
+    [NativeFunction("freetype", EntryPoint = "FT_Done_Library")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int DoneLibrary(LibraryRecHandle library) => DllImport.DoneLibrary(library);
 
     [NativeName("FT_Error_String")]
     [NativeFunction("freetype", EntryPoint = "FT_Error_String")]
@@ -3723,9 +4348,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     sbyte* IFreeType.ErrorStringRaw(int error_code) =>
         (
             (delegate* unmanaged<int, sbyte*>)(
-                _slots[6] is not null and var loadedFnPtr
+                _slots[9] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[6] = nativeContext.LoadFunction("FT_Error_String", "freetype")
+                    : _slots[9] = nativeContext.LoadFunction("FT_Error_String", "freetype")
             )
         )(error_code);
 
@@ -3740,9 +4365,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     byte IFreeType.FaceCheckTrueTypePatents(FaceRec* face) =>
         (
             (delegate* unmanaged<FaceRec*, byte>)(
-                _slots[7] is not null and var loadedFnPtr
+                _slots[10] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[7] = nativeContext.LoadFunction(
+                    : _slots[10] = nativeContext.LoadFunction(
                         "FT_Face_CheckTrueTypePatents",
                         "freetype"
                     )
@@ -3778,9 +4403,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     uint* IFreeType.FaceGetCharsOfVariant(FaceRec* face, ulong variantSelector) =>
         (
             (delegate* unmanaged<FaceRec*, ulong, uint*>)(
-                _slots[8] is not null and var loadedFnPtr
+                _slots[11] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[8] = nativeContext.LoadFunction(
+                    : _slots[11] = nativeContext.LoadFunction(
                         "FT_Face_GetCharsOfVariant",
                         "freetype"
                     )
@@ -3816,9 +4441,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     uint IFreeType.FaceGetCharVariantIndex(FaceRec* face, ulong charcode, ulong variantSelector) =>
         (
             (delegate* unmanaged<FaceRec*, ulong, ulong, uint>)(
-                _slots[9] is not null and var loadedFnPtr
+                _slots[12] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[9] = nativeContext.LoadFunction(
+                    : _slots[12] = nativeContext.LoadFunction(
                         "FT_Face_GetCharVariantIndex",
                         "freetype"
                     )
@@ -3865,9 +4490,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     ) =>
         (
             (delegate* unmanaged<FaceRec*, ulong, ulong, int>)(
-                _slots[10] is not null and var loadedFnPtr
+                _slots[13] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[10] = nativeContext.LoadFunction(
+                    : _slots[13] = nativeContext.LoadFunction(
                         "FT_Face_GetCharVariantIsDefault",
                         "freetype"
                     )
@@ -3918,9 +4543,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     uint* IFreeType.FaceGetVariantSelectors(FaceRec* face) =>
         (
             (delegate* unmanaged<FaceRec*, uint*>)(
-                _slots[11] is not null and var loadedFnPtr
+                _slots[14] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[11] = nativeContext.LoadFunction(
+                    : _slots[14] = nativeContext.LoadFunction(
                         "FT_Face_GetVariantSelectors",
                         "freetype"
                     )
@@ -3956,9 +4581,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     uint* IFreeType.FaceGetVariantsOfChar(FaceRec* face, ulong charcode) =>
         (
             (delegate* unmanaged<FaceRec*, ulong, uint*>)(
-                _slots[12] is not null and var loadedFnPtr
+                _slots[15] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[12] = nativeContext.LoadFunction(
+                    : _slots[15] = nativeContext.LoadFunction(
                         "FT_Face_GetVariantsOfChar",
                         "freetype"
                     )
@@ -3994,9 +4619,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.FaceProperties(FaceRec* face, uint num_properties, Parameter* properties) =>
         (
             (delegate* unmanaged<FaceRec*, uint, Parameter*, int>)(
-                _slots[13] is not null and var loadedFnPtr
+                _slots[16] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[13] = nativeContext.LoadFunction("FT_Face_Properties", "freetype")
+                    : _slots[16] = nativeContext.LoadFunction("FT_Face_Properties", "freetype")
             )
         )(face, num_properties, properties);
 
@@ -4034,9 +4659,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     byte IFreeType.FaceSetUnpatentedHinting(FaceRec* face, byte value) =>
         (
             (delegate* unmanaged<FaceRec*, byte, byte>)(
-                _slots[14] is not null and var loadedFnPtr
+                _slots[17] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[14] = nativeContext.LoadFunction(
+                    : _slots[17] = nativeContext.LoadFunction(
                         "FT_Face_SetUnpatentedHinting",
                         "freetype"
                     )
@@ -4072,9 +4697,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     long IFreeType.FloorFix(long a) =>
         (
             (delegate* unmanaged<long, long>)(
-                _slots[15] is not null and var loadedFnPtr
+                _slots[18] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[15] = nativeContext.LoadFunction("FT_FloorFix", "freetype")
+                    : _slots[18] = nativeContext.LoadFunction("FT_FloorFix", "freetype")
             )
         )(a);
 
@@ -4089,9 +4714,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     uint IFreeType.GetCharIndex(FaceRec* face, ulong charcode) =>
         (
             (delegate* unmanaged<FaceRec*, ulong, uint>)(
-                _slots[16] is not null and var loadedFnPtr
+                _slots[19] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[16] = nativeContext.LoadFunction("FT_Get_Char_Index", "freetype")
+                    : _slots[19] = nativeContext.LoadFunction("FT_Get_Char_Index", "freetype")
             )
         )(face, charcode);
 
@@ -4124,9 +4749,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.GetCharmapIndex(CharMapRec* charmap) =>
         (
             (delegate* unmanaged<CharMapRec*, int>)(
-                _slots[17] is not null and var loadedFnPtr
+                _slots[20] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[17] = nativeContext.LoadFunction("FT_Get_Charmap_Index", "freetype")
+                    : _slots[20] = nativeContext.LoadFunction("FT_Get_Charmap_Index", "freetype")
             )
         )(charmap);
 
@@ -4158,9 +4783,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     ulong IFreeType.GetFirstChar(FaceRec* face, uint* agindex) =>
         (
             (delegate* unmanaged<FaceRec*, uint*, ulong>)(
-                _slots[18] is not null and var loadedFnPtr
+                _slots[21] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[18] = nativeContext.LoadFunction("FT_Get_First_Char", "freetype")
+                    : _slots[21] = nativeContext.LoadFunction("FT_Get_First_Char", "freetype")
             )
         )(face, agindex);
 
@@ -4194,9 +4819,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     ushort IFreeType.GetFSTypeFlags(FaceRec* face) =>
         (
             (delegate* unmanaged<FaceRec*, ushort>)(
-                _slots[19] is not null and var loadedFnPtr
+                _slots[22] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[19] = nativeContext.LoadFunction("FT_Get_FSType_Flags", "freetype")
+                    : _slots[22] = nativeContext.LoadFunction("FT_Get_FSType_Flags", "freetype")
             )
         )(face);
 
@@ -4227,9 +4852,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.GetGlyphName(FaceRec* face, uint glyph_index, void* buffer, uint buffer_max) =>
         (
             (delegate* unmanaged<FaceRec*, uint, void*, uint, int>)(
-                _slots[20] is not null and var loadedFnPtr
+                _slots[23] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[20] = nativeContext.LoadFunction("FT_Get_Glyph_Name", "freetype")
+                    : _slots[23] = nativeContext.LoadFunction("FT_Get_Glyph_Name", "freetype")
             )
         )(face, glyph_index, buffer, buffer_max);
 
@@ -4278,9 +4903,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     ) =>
         (
             (delegate* unmanaged<FaceRec*, uint, uint, uint, Vector*, int>)(
-                _slots[21] is not null and var loadedFnPtr
+                _slots[24] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[21] = nativeContext.LoadFunction("FT_Get_Kerning", "freetype")
+                    : _slots[24] = nativeContext.LoadFunction("FT_Get_Kerning", "freetype")
             )
         )(face, left_glyph, right_glyph, kern_mode, akerning);
 
@@ -4331,15 +4956,50 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         Ref<Vector> akerning
     ) => DllImport.GetKerning(face, left_glyph, right_glyph, kern_mode, akerning);
 
+    [NativeName("FT_Get_Module")]
+    [NativeFunction("freetype", EntryPoint = "FT_Get_Module")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    ModuleRecHandle IFreeType.GetModule(LibraryRecHandle library, sbyte* module_name) =>
+        (
+            (delegate* unmanaged<LibraryRecHandle, sbyte*, ModuleRecHandle>)(
+                _slots[25] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[25] = nativeContext.LoadFunction("FT_Get_Module", "freetype")
+            )
+        )(library, module_name);
+
+    [NativeName("FT_Get_Module")]
+    [NativeFunction("freetype", EntryPoint = "FT_Get_Module")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static ModuleRecHandle GetModule(LibraryRecHandle library, sbyte* module_name) =>
+        DllImport.GetModule(library, module_name);
+
+    [NativeName("FT_Get_Module")]
+    [NativeFunction("freetype", EntryPoint = "FT_Get_Module")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    ModuleRecHandle IFreeType.GetModule(LibraryRecHandle library, Ref<sbyte> module_name)
+    {
+        fixed (sbyte* __dsl_module_name = module_name)
+        {
+            return (ModuleRecHandle)((IFreeType)this).GetModule(library, __dsl_module_name);
+        }
+    }
+
+    [NativeName("FT_Get_Module")]
+    [NativeFunction("freetype", EntryPoint = "FT_Get_Module")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static ModuleRecHandle GetModule(LibraryRecHandle library, Ref<sbyte> module_name) =>
+        DllImport.GetModule(library, module_name);
+
     [NativeName("FT_Get_Name_Index")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Name_Index")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     uint IFreeType.GetNameIndex(FaceRec* face, sbyte* glyph_name) =>
         (
             (delegate* unmanaged<FaceRec*, sbyte*, uint>)(
-                _slots[22] is not null and var loadedFnPtr
+                _slots[26] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[22] = nativeContext.LoadFunction("FT_Get_Name_Index", "freetype")
+                    : _slots[26] = nativeContext.LoadFunction("FT_Get_Name_Index", "freetype")
             )
         )(face, glyph_name);
 
@@ -4373,9 +5033,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     ulong IFreeType.GetNextChar(FaceRec* face, ulong char_code, uint* agindex) =>
         (
             (delegate* unmanaged<FaceRec*, ulong, uint*, ulong>)(
-                _slots[23] is not null and var loadedFnPtr
+                _slots[27] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[23] = nativeContext.LoadFunction("FT_Get_Next_Char", "freetype")
+                    : _slots[27] = nativeContext.LoadFunction("FT_Get_Next_Char", "freetype")
             )
         )(face, char_code, agindex);
 
@@ -4409,9 +5069,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     sbyte* IFreeType.GetPostscriptName(FaceRec* face) =>
         (
             (delegate* unmanaged<FaceRec*, sbyte*>)(
-                _slots[24] is not null and var loadedFnPtr
+                _slots[28] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[24] = nativeContext.LoadFunction("FT_Get_Postscript_Name", "freetype")
+                    : _slots[28] = nativeContext.LoadFunction("FT_Get_Postscript_Name", "freetype")
             )
         )(face);
 
@@ -4451,9 +5111,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     ) =>
         (
             (delegate* unmanaged<GlyphSlotRec*, uint, int*, uint*, int*, int*, Matrix*, int>)(
-                _slots[25] is not null and var loadedFnPtr
+                _slots[29] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[25] = nativeContext.LoadFunction("FT_Get_SubGlyph_Info", "freetype")
+                    : _slots[29] = nativeContext.LoadFunction("FT_Get_SubGlyph_Info", "freetype")
             )
         )(glyph, sub_index, p_index, p_flags, p_arg1, p_arg2, p_transform);
 
@@ -4522,9 +5182,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.GetTrackKerning(FaceRec* face, long point_size, int degree, long* akerning) =>
         (
             (delegate* unmanaged<FaceRec*, long, int, long*, int>)(
-                _slots[26] is not null and var loadedFnPtr
+                _slots[30] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[26] = nativeContext.LoadFunction("FT_Get_Track_Kerning", "freetype")
+                    : _slots[30] = nativeContext.LoadFunction("FT_Get_Track_Kerning", "freetype")
             )
         )(face, point_size, degree, akerning);
 
@@ -4568,9 +5228,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     void IFreeType.GetTransform(FaceRec* face, Matrix* matrix, Vector* delta) =>
         (
             (delegate* unmanaged<FaceRec*, Matrix*, Vector*, void>)(
-                _slots[27] is not null and var loadedFnPtr
+                _slots[31] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[27] = nativeContext.LoadFunction("FT_Get_Transform", "freetype")
+                    : _slots[31] = nativeContext.LoadFunction("FT_Get_Transform", "freetype")
             )
         )(face, matrix, delta);
 
@@ -4599,15 +5259,36 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     public static void GetTransform(Ref<FaceRec> face, Ref<Matrix> matrix, Ref<Vector> delta) =>
         DllImport.GetTransform(face, matrix, delta);
 
+    [NativeName("FT_Get_TrueType_Engine_Type")]
+    [NativeFunction("freetype", EntryPoint = "FT_Get_TrueType_Engine_Type")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    TrueTypeEngineType IFreeType.GetTrueTypeEngineType(LibraryRecHandle library) =>
+        (
+            (delegate* unmanaged<LibraryRecHandle, TrueTypeEngineType>)(
+                _slots[32] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[32] = nativeContext.LoadFunction(
+                        "FT_Get_TrueType_Engine_Type",
+                        "freetype"
+                    )
+            )
+        )(library);
+
+    [NativeName("FT_Get_TrueType_Engine_Type")]
+    [NativeFunction("freetype", EntryPoint = "FT_Get_TrueType_Engine_Type")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static TrueTypeEngineType GetTrueTypeEngineType(LibraryRecHandle library) =>
+        DllImport.GetTrueTypeEngineType(library);
+
     [NativeName("FT_Init_FreeType")]
     [NativeFunction("freetype", EntryPoint = "FT_Init_FreeType")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     int IFreeType.InitFreeType(LibraryRecHandle* alibrary) =>
         (
             (delegate* unmanaged<LibraryRecHandle*, int>)(
-                _slots[28] is not null and var loadedFnPtr
+                _slots[33] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[28] = nativeContext.LoadFunction("FT_Init_FreeType", "freetype")
+                    : _slots[33] = nativeContext.LoadFunction("FT_Init_FreeType", "freetype")
             )
         )(alibrary);
 
@@ -4644,9 +5325,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     ) =>
         (
             (delegate* unmanaged<LibraryRecHandle, int*, int*, int*, void>)(
-                _slots[29] is not null and var loadedFnPtr
+                _slots[34] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[29] = nativeContext.LoadFunction("FT_Library_Version", "freetype")
+                    : _slots[34] = nativeContext.LoadFunction("FT_Library_Version", "freetype")
             )
         )(library, amajor, aminor, apatch);
 
@@ -4694,9 +5375,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.LoadChar(FaceRec* face, ulong char_code, int load_flags) =>
         (
             (delegate* unmanaged<FaceRec*, ulong, int, int>)(
-                _slots[30] is not null and var loadedFnPtr
+                _slots[35] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[30] = nativeContext.LoadFunction("FT_Load_Char", "freetype")
+                    : _slots[35] = nativeContext.LoadFunction("FT_Load_Char", "freetype")
             )
         )(face, char_code, load_flags);
 
@@ -4729,9 +5410,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.LoadGlyph(FaceRec* face, uint glyph_index, int load_flags) =>
         (
             (delegate* unmanaged<FaceRec*, uint, int, int>)(
-                _slots[31] is not null and var loadedFnPtr
+                _slots[36] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[31] = nativeContext.LoadFunction("FT_Load_Glyph", "freetype")
+                    : _slots[36] = nativeContext.LoadFunction("FT_Load_Glyph", "freetype")
             )
         )(face, glyph_index, load_flags);
 
@@ -4764,9 +5445,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     long IFreeType.MulDiv(long a, long b, long c) =>
         (
             (delegate* unmanaged<long, long, long, long>)(
-                _slots[32] is not null and var loadedFnPtr
+                _slots[37] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[32] = nativeContext.LoadFunction("FT_MulDiv", "freetype")
+                    : _slots[37] = nativeContext.LoadFunction("FT_MulDiv", "freetype")
             )
         )(a, b, c);
 
@@ -4781,9 +5462,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     long IFreeType.MulFix(long a, long b) =>
         (
             (delegate* unmanaged<long, long, long>)(
-                _slots[33] is not null and var loadedFnPtr
+                _slots[38] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[33] = nativeContext.LoadFunction("FT_MulFix", "freetype")
+                    : _slots[38] = nativeContext.LoadFunction("FT_MulFix", "freetype")
             )
         )(a, b);
 
@@ -4803,9 +5484,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     ) =>
         (
             (delegate* unmanaged<LibraryRecHandle, sbyte*, long, FaceRec**, int>)(
-                _slots[34] is not null and var loadedFnPtr
+                _slots[39] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[34] = nativeContext.LoadFunction("FT_New_Face", "freetype")
+                    : _slots[39] = nativeContext.LoadFunction("FT_New_Face", "freetype")
             )
         )(library, filepathname, face_index, aface);
 
@@ -4847,6 +5528,42 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         Ref2D<FaceRec> aface
     ) => DllImport.NewFace(library, filepathname, face_index, aface);
 
+    [NativeName("FT_New_Library")]
+    [NativeFunction("freetype", EntryPoint = "FT_New_Library")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.NewLibrary(MemoryRec* memory, LibraryRecHandle* alibrary) =>
+        (
+            (delegate* unmanaged<MemoryRec*, LibraryRecHandle*, int>)(
+                _slots[40] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[40] = nativeContext.LoadFunction("FT_New_Library", "freetype")
+            )
+        )(memory, alibrary);
+
+    [NativeName("FT_New_Library")]
+    [NativeFunction("freetype", EntryPoint = "FT_New_Library")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int NewLibrary(MemoryRec* memory, LibraryRecHandle* alibrary) =>
+        DllImport.NewLibrary(memory, alibrary);
+
+    [NativeName("FT_New_Library")]
+    [NativeFunction("freetype", EntryPoint = "FT_New_Library")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.NewLibrary(Ref<MemoryRec> memory, Ref<LibraryRecHandle> alibrary)
+    {
+        fixed (LibraryRecHandle* __dsl_alibrary = alibrary)
+        fixed (MemoryRec* __dsl_memory = memory)
+        {
+            return (int)((IFreeType)this).NewLibrary(__dsl_memory, __dsl_alibrary);
+        }
+    }
+
+    [NativeName("FT_New_Library")]
+    [NativeFunction("freetype", EntryPoint = "FT_New_Library")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int NewLibrary(Ref<MemoryRec> memory, Ref<LibraryRecHandle> alibrary) =>
+        DllImport.NewLibrary(memory, alibrary);
+
     [NativeName("FT_New_Memory_Face")]
     [NativeFunction("freetype", EntryPoint = "FT_New_Memory_Face")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
@@ -4859,9 +5576,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     ) =>
         (
             (delegate* unmanaged<LibraryRecHandle, byte*, long, long, FaceRec**, int>)(
-                _slots[35] is not null and var loadedFnPtr
+                _slots[41] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[35] = nativeContext.LoadFunction("FT_New_Memory_Face", "freetype")
+                    : _slots[41] = nativeContext.LoadFunction("FT_New_Memory_Face", "freetype")
             )
         )(library, file_base, file_size, face_index, aface);
 
@@ -4923,9 +5640,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     ) =>
         (
             (delegate* unmanaged<LibraryRecHandle, OpenArgs*, long, FaceRec**, int>)(
-                _slots[36] is not null and var loadedFnPtr
+                _slots[42] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[36] = nativeContext.LoadFunction("FT_Open_Face", "freetype")
+                    : _slots[42] = nativeContext.LoadFunction("FT_Open_Face", "freetype")
             )
         )(library, args, face_index, aface);
 
@@ -4966,15 +5683,137 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         Ref2D<FaceRec> aface
     ) => DllImport.OpenFace(library, args, face_index, aface);
 
+    [NativeName("FT_Property_Get")]
+    [NativeFunction("freetype", EntryPoint = "FT_Property_Get")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.PropertyGet(
+        LibraryRecHandle library,
+        sbyte* module_name,
+        sbyte* property_name,
+        void* value
+    ) =>
+        (
+            (delegate* unmanaged<LibraryRecHandle, sbyte*, sbyte*, void*, int>)(
+                _slots[43] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[43] = nativeContext.LoadFunction("FT_Property_Get", "freetype")
+            )
+        )(library, module_name, property_name, value);
+
+    [NativeName("FT_Property_Get")]
+    [NativeFunction("freetype", EntryPoint = "FT_Property_Get")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int PropertyGet(
+        LibraryRecHandle library,
+        sbyte* module_name,
+        sbyte* property_name,
+        void* value
+    ) => DllImport.PropertyGet(library, module_name, property_name, value);
+
+    [NativeName("FT_Property_Get")]
+    [NativeFunction("freetype", EntryPoint = "FT_Property_Get")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.PropertyGet(
+        LibraryRecHandle library,
+        Ref<sbyte> module_name,
+        Ref<sbyte> property_name,
+        Ref value
+    )
+    {
+        fixed (void* __dsl_value = value)
+        fixed (sbyte* __dsl_property_name = property_name)
+        fixed (sbyte* __dsl_module_name = module_name)
+        {
+            return (int)
+                ((IFreeType)this).PropertyGet(
+                    library,
+                    __dsl_module_name,
+                    __dsl_property_name,
+                    __dsl_value
+                );
+        }
+    }
+
+    [NativeName("FT_Property_Get")]
+    [NativeFunction("freetype", EntryPoint = "FT_Property_Get")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int PropertyGet(
+        LibraryRecHandle library,
+        Ref<sbyte> module_name,
+        Ref<sbyte> property_name,
+        Ref value
+    ) => DllImport.PropertyGet(library, module_name, property_name, value);
+
+    [NativeName("FT_Property_Set")]
+    [NativeFunction("freetype", EntryPoint = "FT_Property_Set")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.PropertySet(
+        LibraryRecHandle library,
+        sbyte* module_name,
+        sbyte* property_name,
+        void* value
+    ) =>
+        (
+            (delegate* unmanaged<LibraryRecHandle, sbyte*, sbyte*, void*, int>)(
+                _slots[44] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[44] = nativeContext.LoadFunction("FT_Property_Set", "freetype")
+            )
+        )(library, module_name, property_name, value);
+
+    [NativeName("FT_Property_Set")]
+    [NativeFunction("freetype", EntryPoint = "FT_Property_Set")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int PropertySet(
+        LibraryRecHandle library,
+        sbyte* module_name,
+        sbyte* property_name,
+        void* value
+    ) => DllImport.PropertySet(library, module_name, property_name, value);
+
+    [NativeName("FT_Property_Set")]
+    [NativeFunction("freetype", EntryPoint = "FT_Property_Set")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.PropertySet(
+        LibraryRecHandle library,
+        Ref<sbyte> module_name,
+        Ref<sbyte> property_name,
+        Ref value
+    )
+    {
+        fixed (void* __dsl_value = value)
+        fixed (sbyte* __dsl_property_name = property_name)
+        fixed (sbyte* __dsl_module_name = module_name)
+        {
+            return (int)
+                ((IFreeType)this).PropertySet(
+                    library,
+                    __dsl_module_name,
+                    __dsl_property_name,
+                    __dsl_value
+                );
+        }
+    }
+
+    [NativeName("FT_Property_Set")]
+    [NativeFunction("freetype", EntryPoint = "FT_Property_Set")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int PropertySet(
+        LibraryRecHandle library,
+        Ref<sbyte> module_name,
+        Ref<sbyte> property_name,
+        Ref value
+    ) => DllImport.PropertySet(library, module_name, property_name, value);
+
     [NativeName("FT_Reference_Face")]
     [NativeFunction("freetype", EntryPoint = "FT_Reference_Face")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     int IFreeType.ReferenceFace(FaceRec* face) =>
         (
             (delegate* unmanaged<FaceRec*, int>)(
-                _slots[37] is not null and var loadedFnPtr
+                _slots[45] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[37] = nativeContext.LoadFunction("FT_Reference_Face", "freetype")
+                    : _slots[45] = nativeContext.LoadFunction("FT_Reference_Face", "freetype")
             )
         )(face);
 
@@ -4999,15 +5838,51 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static int ReferenceFace(Ref<FaceRec> face) => DllImport.ReferenceFace(face);
 
+    [NativeName("FT_Reference_Library")]
+    [NativeFunction("freetype", EntryPoint = "FT_Reference_Library")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.ReferenceLibrary(LibraryRecHandle library) =>
+        (
+            (delegate* unmanaged<LibraryRecHandle, int>)(
+                _slots[46] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[46] = nativeContext.LoadFunction("FT_Reference_Library", "freetype")
+            )
+        )(library);
+
+    [NativeName("FT_Reference_Library")]
+    [NativeFunction("freetype", EntryPoint = "FT_Reference_Library")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int ReferenceLibrary(LibraryRecHandle library) =>
+        DllImport.ReferenceLibrary(library);
+
+    [NativeName("FT_Remove_Module")]
+    [NativeFunction("freetype", EntryPoint = "FT_Remove_Module")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.RemoveModule(LibraryRecHandle library, ModuleRecHandle module) =>
+        (
+            (delegate* unmanaged<LibraryRecHandle, ModuleRecHandle, int>)(
+                _slots[47] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[47] = nativeContext.LoadFunction("FT_Remove_Module", "freetype")
+            )
+        )(library, module);
+
+    [NativeName("FT_Remove_Module")]
+    [NativeFunction("freetype", EntryPoint = "FT_Remove_Module")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int RemoveModule(LibraryRecHandle library, ModuleRecHandle module) =>
+        DllImport.RemoveModule(library, module);
+
     [NativeName("FT_Render_Glyph")]
     [NativeFunction("freetype", EntryPoint = "FT_Render_Glyph")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     int IFreeType.RenderGlyph(GlyphSlotRec* slot, RenderMode render_mode) =>
         (
             (delegate* unmanaged<GlyphSlotRec*, RenderMode, int>)(
-                _slots[38] is not null and var loadedFnPtr
+                _slots[48] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[38] = nativeContext.LoadFunction("FT_Render_Glyph", "freetype")
+                    : _slots[48] = nativeContext.LoadFunction("FT_Render_Glyph", "freetype")
             )
         )(slot, render_mode);
 
@@ -5040,9 +5915,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.RequestSize(FaceRec* face, SizeRequestRec* req) =>
         (
             (delegate* unmanaged<FaceRec*, SizeRequestRec*, int>)(
-                _slots[39] is not null and var loadedFnPtr
+                _slots[49] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[39] = nativeContext.LoadFunction("FT_Request_Size", "freetype")
+                    : _slots[49] = nativeContext.LoadFunction("FT_Request_Size", "freetype")
             )
         )(face, req);
 
@@ -5076,9 +5951,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     long IFreeType.RoundFix(long a) =>
         (
             (delegate* unmanaged<long, long>)(
-                _slots[40] is not null and var loadedFnPtr
+                _slots[50] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[40] = nativeContext.LoadFunction("FT_RoundFix", "freetype")
+                    : _slots[50] = nativeContext.LoadFunction("FT_RoundFix", "freetype")
             )
         )(a);
 
@@ -5093,9 +5968,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.SelectCharmap(FaceRec* face, Encoding encoding) =>
         (
             (delegate* unmanaged<FaceRec*, Encoding, int>)(
-                _slots[41] is not null and var loadedFnPtr
+                _slots[51] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[41] = nativeContext.LoadFunction("FT_Select_Charmap", "freetype")
+                    : _slots[51] = nativeContext.LoadFunction("FT_Select_Charmap", "freetype")
             )
         )(face, encoding);
 
@@ -5128,9 +6003,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.SelectSize(FaceRec* face, int strike_index) =>
         (
             (delegate* unmanaged<FaceRec*, int, int>)(
-                _slots[42] is not null and var loadedFnPtr
+                _slots[52] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[42] = nativeContext.LoadFunction("FT_Select_Size", "freetype")
+                    : _slots[52] = nativeContext.LoadFunction("FT_Select_Size", "freetype")
             )
         )(face, strike_index);
 
@@ -5169,9 +6044,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     ) =>
         (
             (delegate* unmanaged<FaceRec*, long, long, uint, uint, int>)(
-                _slots[43] is not null and var loadedFnPtr
+                _slots[53] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[43] = nativeContext.LoadFunction("FT_Set_Char_Size", "freetype")
+                    : _slots[53] = nativeContext.LoadFunction("FT_Set_Char_Size", "freetype")
             )
         )(face, char_width, char_height, horz_resolution, vert_resolution);
 
@@ -5227,9 +6102,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.SetCharmap(FaceRec* face, CharMapRec* charmap) =>
         (
             (delegate* unmanaged<FaceRec*, CharMapRec*, int>)(
-                _slots[44] is not null and var loadedFnPtr
+                _slots[54] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[44] = nativeContext.LoadFunction("FT_Set_Charmap", "freetype")
+                    : _slots[54] = nativeContext.LoadFunction("FT_Set_Charmap", "freetype")
             )
         )(face, charmap);
 
@@ -5257,15 +6132,61 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     public static int SetCharmap(Ref<FaceRec> face, Ref<CharMapRec> charmap) =>
         DllImport.SetCharmap(face, charmap);
 
+    [NativeName("FT_Set_Debug_Hook")]
+    [NativeFunction("freetype", EntryPoint = "FT_Set_Debug_Hook")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    void IFreeType.SetDebugHook(
+        LibraryRecHandle library,
+        uint hook_index,
+        DebugHookFunc debug_hook
+    ) =>
+        (
+            (delegate* unmanaged<LibraryRecHandle, uint, DebugHookFunc, void>)(
+                _slots[55] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[55] = nativeContext.LoadFunction("FT_Set_Debug_Hook", "freetype")
+            )
+        )(library, hook_index, debug_hook);
+
+    [NativeName("FT_Set_Debug_Hook")]
+    [NativeFunction("freetype", EntryPoint = "FT_Set_Debug_Hook")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static void SetDebugHook(
+        LibraryRecHandle library,
+        uint hook_index,
+        DebugHookFunc debug_hook
+    ) => DllImport.SetDebugHook(library, hook_index, debug_hook);
+
+    [NativeName("FT_Set_Default_Properties")]
+    [NativeFunction("freetype", EntryPoint = "FT_Set_Default_Properties")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    void IFreeType.SetDefaultProperties(LibraryRecHandle library) =>
+        (
+            (delegate* unmanaged<LibraryRecHandle, void>)(
+                _slots[56] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[56] = nativeContext.LoadFunction(
+                        "FT_Set_Default_Properties",
+                        "freetype"
+                    )
+            )
+        )(library);
+
+    [NativeName("FT_Set_Default_Properties")]
+    [NativeFunction("freetype", EntryPoint = "FT_Set_Default_Properties")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static void SetDefaultProperties(LibraryRecHandle library) =>
+        DllImport.SetDefaultProperties(library);
+
     [NativeName("FT_Set_Pixel_Sizes")]
     [NativeFunction("freetype", EntryPoint = "FT_Set_Pixel_Sizes")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     int IFreeType.SetPixelSizes(FaceRec* face, uint pixel_width, uint pixel_height) =>
         (
             (delegate* unmanaged<FaceRec*, uint, uint, int>)(
-                _slots[45] is not null and var loadedFnPtr
+                _slots[57] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[45] = nativeContext.LoadFunction("FT_Set_Pixel_Sizes", "freetype")
+                    : _slots[57] = nativeContext.LoadFunction("FT_Set_Pixel_Sizes", "freetype")
             )
         )(face, pixel_width, pixel_height);
 
@@ -5298,9 +6219,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     void IFreeType.SetTransform(FaceRec* face, Matrix* matrix, Vector* delta) =>
         (
             (delegate* unmanaged<FaceRec*, Matrix*, Vector*, void>)(
-                _slots[46] is not null and var loadedFnPtr
+                _slots[58] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[46] = nativeContext.LoadFunction("FT_Set_Transform", "freetype")
+                    : _slots[58] = nativeContext.LoadFunction("FT_Set_Transform", "freetype")
             )
         )(face, matrix, delta);
 
@@ -5335,9 +6256,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     void IFreeType.VectorTransform(Vector* vector, Matrix* matrix) =>
         (
             (delegate* unmanaged<Vector*, Matrix*, void>)(
-                _slots[47] is not null and var loadedFnPtr
+                _slots[59] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[47] = nativeContext.LoadFunction("FT_Vector_Transform", "freetype")
+                    : _slots[59] = nativeContext.LoadFunction("FT_Vector_Transform", "freetype")
             )
         )(vector, matrix);
 

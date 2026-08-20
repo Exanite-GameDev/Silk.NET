@@ -11,6 +11,18 @@ public unsafe partial interface IFreeType
 {
     public partial interface Static
     {
+        [NativeName("FT_Add_Default_Modules")]
+        [NativeFunction("freetype", EntryPoint = "FT_Add_Default_Modules")]
+        static abstract void AddDefaultModules(LibraryRecHandle library);
+
+        [NativeName("FT_Add_Module")]
+        [NativeFunction("freetype", EntryPoint = "FT_Add_Module")]
+        static abstract int AddModule(LibraryRecHandle library, ModuleClass* clazz);
+
+        [NativeName("FT_Add_Module")]
+        [NativeFunction("freetype", EntryPoint = "FT_Add_Module")]
+        static abstract int AddModule(LibraryRecHandle library, Ref<ModuleClass> clazz);
+
         [NativeName("FT_Attach_File")]
         [NativeFunction("freetype", EntryPoint = "FT_Attach_File")]
         static abstract int AttachFile(FaceRec* face, sbyte* filepathname);
@@ -46,6 +58,10 @@ public unsafe partial interface IFreeType
         [NativeName("FT_Done_FreeType")]
         [NativeFunction("freetype", EntryPoint = "FT_Done_FreeType")]
         static abstract int DoneFreeType(LibraryRecHandle library);
+
+        [NativeName("FT_Done_Library")]
+        [NativeFunction("freetype", EntryPoint = "FT_Done_Library")]
+        static abstract int DoneLibrary(LibraryRecHandle library);
 
         [NativeName("FT_Error_String")]
         [NativeFunction("freetype", EntryPoint = "FT_Error_String")]
@@ -217,6 +233,14 @@ public unsafe partial interface IFreeType
             Ref<Vector> akerning
         );
 
+        [NativeName("FT_Get_Module")]
+        [NativeFunction("freetype", EntryPoint = "FT_Get_Module")]
+        static abstract ModuleRecHandle GetModule(LibraryRecHandle library, sbyte* module_name);
+
+        [NativeName("FT_Get_Module")]
+        [NativeFunction("freetype", EntryPoint = "FT_Get_Module")]
+        static abstract ModuleRecHandle GetModule(LibraryRecHandle library, Ref<sbyte> module_name);
+
         [NativeName("FT_Get_Name_Index")]
         [NativeFunction("freetype", EntryPoint = "FT_Get_Name_Index")]
         static abstract uint GetNameIndex(FaceRec* face, sbyte* glyph_name);
@@ -291,6 +315,10 @@ public unsafe partial interface IFreeType
         [NativeFunction("freetype", EntryPoint = "FT_Get_Transform")]
         static abstract void GetTransform(Ref<FaceRec> face, Ref<Matrix> matrix, Ref<Vector> delta);
 
+        [NativeName("FT_Get_TrueType_Engine_Type")]
+        [NativeFunction("freetype", EntryPoint = "FT_Get_TrueType_Engine_Type")]
+        static abstract TrueTypeEngineType GetTrueTypeEngineType(LibraryRecHandle library);
+
         [NativeName("FT_Init_FreeType")]
         [NativeFunction("freetype", EntryPoint = "FT_Init_FreeType")]
         static abstract int InitFreeType(LibraryRecHandle* alibrary);
@@ -359,6 +387,14 @@ public unsafe partial interface IFreeType
             Ref2D<FaceRec> aface
         );
 
+        [NativeName("FT_New_Library")]
+        [NativeFunction("freetype", EntryPoint = "FT_New_Library")]
+        static abstract int NewLibrary(MemoryRec* memory, LibraryRecHandle* alibrary);
+
+        [NativeName("FT_New_Library")]
+        [NativeFunction("freetype", EntryPoint = "FT_New_Library")]
+        static abstract int NewLibrary(Ref<MemoryRec> memory, Ref<LibraryRecHandle> alibrary);
+
         [NativeName("FT_New_Memory_Face")]
         [NativeFunction("freetype", EntryPoint = "FT_New_Memory_Face")]
         static abstract int NewMemoryFace(
@@ -397,6 +433,42 @@ public unsafe partial interface IFreeType
             Ref2D<FaceRec> aface
         );
 
+        [NativeName("FT_Property_Get")]
+        [NativeFunction("freetype", EntryPoint = "FT_Property_Get")]
+        static abstract int PropertyGet(
+            LibraryRecHandle library,
+            sbyte* module_name,
+            sbyte* property_name,
+            void* value
+        );
+
+        [NativeName("FT_Property_Get")]
+        [NativeFunction("freetype", EntryPoint = "FT_Property_Get")]
+        static abstract int PropertyGet(
+            LibraryRecHandle library,
+            Ref<sbyte> module_name,
+            Ref<sbyte> property_name,
+            Ref value
+        );
+
+        [NativeName("FT_Property_Set")]
+        [NativeFunction("freetype", EntryPoint = "FT_Property_Set")]
+        static abstract int PropertySet(
+            LibraryRecHandle library,
+            sbyte* module_name,
+            sbyte* property_name,
+            void* value
+        );
+
+        [NativeName("FT_Property_Set")]
+        [NativeFunction("freetype", EntryPoint = "FT_Property_Set")]
+        static abstract int PropertySet(
+            LibraryRecHandle library,
+            Ref<sbyte> module_name,
+            Ref<sbyte> property_name,
+            Ref value
+        );
+
         [NativeName("FT_Reference_Face")]
         [NativeFunction("freetype", EntryPoint = "FT_Reference_Face")]
         static abstract int ReferenceFace(FaceRec* face);
@@ -404,6 +476,14 @@ public unsafe partial interface IFreeType
         [NativeName("FT_Reference_Face")]
         [NativeFunction("freetype", EntryPoint = "FT_Reference_Face")]
         static abstract int ReferenceFace(Ref<FaceRec> face);
+
+        [NativeName("FT_Reference_Library")]
+        [NativeFunction("freetype", EntryPoint = "FT_Reference_Library")]
+        static abstract int ReferenceLibrary(LibraryRecHandle library);
+
+        [NativeName("FT_Remove_Module")]
+        [NativeFunction("freetype", EntryPoint = "FT_Remove_Module")]
+        static abstract int RemoveModule(LibraryRecHandle library, ModuleRecHandle module);
 
         [NativeName("FT_Render_Glyph")]
         [NativeFunction("freetype", EntryPoint = "FT_Render_Glyph")]
@@ -469,6 +549,18 @@ public unsafe partial interface IFreeType
         [NativeFunction("freetype", EntryPoint = "FT_Set_Charmap")]
         static abstract int SetCharmap(Ref<FaceRec> face, Ref<CharMapRec> charmap);
 
+        [NativeName("FT_Set_Debug_Hook")]
+        [NativeFunction("freetype", EntryPoint = "FT_Set_Debug_Hook")]
+        static abstract void SetDebugHook(
+            LibraryRecHandle library,
+            uint hook_index,
+            DebugHookFunc debug_hook
+        );
+
+        [NativeName("FT_Set_Default_Properties")]
+        [NativeFunction("freetype", EntryPoint = "FT_Set_Default_Properties")]
+        static abstract void SetDefaultProperties(LibraryRecHandle library);
+
         [NativeName("FT_Set_Pixel_Sizes")]
         [NativeFunction("freetype", EntryPoint = "FT_Set_Pixel_Sizes")]
         static abstract int SetPixelSizes(FaceRec* face, uint pixel_width, uint pixel_height);
@@ -493,6 +585,18 @@ public unsafe partial interface IFreeType
         [NativeFunction("freetype", EntryPoint = "FT_Vector_Transform")]
         static abstract void VectorTransform(Ref<Vector> vector, Ref<Matrix> matrix);
     }
+
+    [NativeName("FT_Add_Default_Modules")]
+    [NativeFunction("freetype", EntryPoint = "FT_Add_Default_Modules")]
+    void AddDefaultModules(LibraryRecHandle library);
+
+    [NativeName("FT_Add_Module")]
+    [NativeFunction("freetype", EntryPoint = "FT_Add_Module")]
+    int AddModule(LibraryRecHandle library, ModuleClass* clazz);
+
+    [NativeName("FT_Add_Module")]
+    [NativeFunction("freetype", EntryPoint = "FT_Add_Module")]
+    int AddModule(LibraryRecHandle library, Ref<ModuleClass> clazz);
 
     [NativeName("FT_Attach_File")]
     [NativeFunction("freetype", EntryPoint = "FT_Attach_File")]
@@ -529,6 +633,10 @@ public unsafe partial interface IFreeType
     [NativeName("FT_Done_FreeType")]
     [NativeFunction("freetype", EntryPoint = "FT_Done_FreeType")]
     int DoneFreeType(LibraryRecHandle library);
+
+    [NativeName("FT_Done_Library")]
+    [NativeFunction("freetype", EntryPoint = "FT_Done_Library")]
+    int DoneLibrary(LibraryRecHandle library);
 
     [NativeName("FT_Error_String")]
     [NativeFunction("freetype", EntryPoint = "FT_Error_String")]
@@ -666,6 +774,14 @@ public unsafe partial interface IFreeType
         Ref<Vector> akerning
     );
 
+    [NativeName("FT_Get_Module")]
+    [NativeFunction("freetype", EntryPoint = "FT_Get_Module")]
+    ModuleRecHandle GetModule(LibraryRecHandle library, sbyte* module_name);
+
+    [NativeName("FT_Get_Module")]
+    [NativeFunction("freetype", EntryPoint = "FT_Get_Module")]
+    ModuleRecHandle GetModule(LibraryRecHandle library, Ref<sbyte> module_name);
+
     [NativeName("FT_Get_Name_Index")]
     [NativeFunction("freetype", EntryPoint = "FT_Get_Name_Index")]
     uint GetNameIndex(FaceRec* face, sbyte* glyph_name);
@@ -730,6 +846,10 @@ public unsafe partial interface IFreeType
     [NativeFunction("freetype", EntryPoint = "FT_Get_Transform")]
     void GetTransform(Ref<FaceRec> face, Ref<Matrix> matrix, Ref<Vector> delta);
 
+    [NativeName("FT_Get_TrueType_Engine_Type")]
+    [NativeFunction("freetype", EntryPoint = "FT_Get_TrueType_Engine_Type")]
+    TrueTypeEngineType GetTrueTypeEngineType(LibraryRecHandle library);
+
     [NativeName("FT_Init_FreeType")]
     [NativeFunction("freetype", EntryPoint = "FT_Init_FreeType")]
     int InitFreeType(LibraryRecHandle* alibrary);
@@ -788,6 +908,14 @@ public unsafe partial interface IFreeType
         Ref2D<FaceRec> aface
     );
 
+    [NativeName("FT_New_Library")]
+    [NativeFunction("freetype", EntryPoint = "FT_New_Library")]
+    int NewLibrary(MemoryRec* memory, LibraryRecHandle* alibrary);
+
+    [NativeName("FT_New_Library")]
+    [NativeFunction("freetype", EntryPoint = "FT_New_Library")]
+    int NewLibrary(Ref<MemoryRec> memory, Ref<LibraryRecHandle> alibrary);
+
     [NativeName("FT_New_Memory_Face")]
     [NativeFunction("freetype", EntryPoint = "FT_New_Memory_Face")]
     int NewMemoryFace(
@@ -821,6 +949,42 @@ public unsafe partial interface IFreeType
         Ref2D<FaceRec> aface
     );
 
+    [NativeName("FT_Property_Get")]
+    [NativeFunction("freetype", EntryPoint = "FT_Property_Get")]
+    int PropertyGet(
+        LibraryRecHandle library,
+        sbyte* module_name,
+        sbyte* property_name,
+        void* value
+    );
+
+    [NativeName("FT_Property_Get")]
+    [NativeFunction("freetype", EntryPoint = "FT_Property_Get")]
+    int PropertyGet(
+        LibraryRecHandle library,
+        Ref<sbyte> module_name,
+        Ref<sbyte> property_name,
+        Ref value
+    );
+
+    [NativeName("FT_Property_Set")]
+    [NativeFunction("freetype", EntryPoint = "FT_Property_Set")]
+    int PropertySet(
+        LibraryRecHandle library,
+        sbyte* module_name,
+        sbyte* property_name,
+        void* value
+    );
+
+    [NativeName("FT_Property_Set")]
+    [NativeFunction("freetype", EntryPoint = "FT_Property_Set")]
+    int PropertySet(
+        LibraryRecHandle library,
+        Ref<sbyte> module_name,
+        Ref<sbyte> property_name,
+        Ref value
+    );
+
     [NativeName("FT_Reference_Face")]
     [NativeFunction("freetype", EntryPoint = "FT_Reference_Face")]
     int ReferenceFace(FaceRec* face);
@@ -828,6 +992,14 @@ public unsafe partial interface IFreeType
     [NativeName("FT_Reference_Face")]
     [NativeFunction("freetype", EntryPoint = "FT_Reference_Face")]
     int ReferenceFace(Ref<FaceRec> face);
+
+    [NativeName("FT_Reference_Library")]
+    [NativeFunction("freetype", EntryPoint = "FT_Reference_Library")]
+    int ReferenceLibrary(LibraryRecHandle library);
+
+    [NativeName("FT_Remove_Module")]
+    [NativeFunction("freetype", EntryPoint = "FT_Remove_Module")]
+    int RemoveModule(LibraryRecHandle library, ModuleRecHandle module);
 
     [NativeName("FT_Render_Glyph")]
     [NativeFunction("freetype", EntryPoint = "FT_Render_Glyph")]
@@ -892,6 +1064,14 @@ public unsafe partial interface IFreeType
     [NativeName("FT_Set_Charmap")]
     [NativeFunction("freetype", EntryPoint = "FT_Set_Charmap")]
     int SetCharmap(Ref<FaceRec> face, Ref<CharMapRec> charmap);
+
+    [NativeName("FT_Set_Debug_Hook")]
+    [NativeFunction("freetype", EntryPoint = "FT_Set_Debug_Hook")]
+    void SetDebugHook(LibraryRecHandle library, uint hook_index, DebugHookFunc debug_hook);
+
+    [NativeName("FT_Set_Default_Properties")]
+    [NativeFunction("freetype", EntryPoint = "FT_Set_Default_Properties")]
+    void SetDefaultProperties(LibraryRecHandle library);
 
     [NativeName("FT_Set_Pixel_Sizes")]
     [NativeFunction("freetype", EntryPoint = "FT_Set_Pixel_Sizes")]
