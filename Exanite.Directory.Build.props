@@ -3,7 +3,10 @@
   <PropertyGroup>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'Silk.NET.Core' OR '$(MSBuildProjectName)' == 'Silk.NET.FreeType' OR '$(MSBuildProjectName)' == 'Silk.NET.HarfBuzz'">
+  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'Silk.NET.Core'
+                         OR '$(MSBuildProjectName)' == 'Silk.NET.SDL'
+                         OR '$(MSBuildProjectName)' == 'Silk.NET.FreeType'
+                         OR '$(MSBuildProjectName)' == 'Silk.NET.HarfBuzz'">
     <AssemblyName>Exanite.$(MSBuildProjectName.Replace('Silk', 'Silk3'))</AssemblyName>
     <PackageId>Exanite.$(MSBuildProjectName.Replace('Silk', 'Silk3'))</PackageId>
     <IsPackable>true</IsPackable>
