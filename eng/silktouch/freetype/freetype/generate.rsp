@@ -24,6 +24,14 @@ ft_open_stream
 ft_open_pathname
 ft_open_driver
 ft_open_params
+ft_module_driver_has_hinter
+ft_module_driver_hints_lightly
+ft_module_driver_no_outlines
+ft_module_driver_scalable
+ft_module_font_driver
+ft_module_hinter
+ft_module_renderer
+ft_module_styler
 
 # Standard library references
 ft_memcmp

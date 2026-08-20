@@ -4078,30 +4078,6 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     [NativeName("FT_MODULE_DRIVER_HINTS_LIGHTLY")]
     public const int ModuleDriverHintsLightly = 0x800;
 
-    [NativeName("ft_module_font_driver")]
-    public const int ModuleFontDriver = 1;
-
-    [NativeName("ft_module_renderer")]
-    public const int ModuleRenderer = 2;
-
-    [NativeName("ft_module_hinter")]
-    public const int ModuleHinter = 4;
-
-    [NativeName("ft_module_styler")]
-    public const int ModuleStyler = 8;
-
-    [NativeName("ft_module_driver_scalable")]
-    public const int ModuleDriverScalable = 0x100;
-
-    [NativeName("ft_module_driver_no_outlines")]
-    public const int ModuleDriverNoOutlines = 0x200;
-
-    [NativeName("ft_module_driver_has_hinter")]
-    public const int ModuleDriverHasHinter = 0x400;
-
-    [NativeName("ft_module_driver_hints_lightly")]
-    public const int ModuleDriverHintsLightly = 0x800;
-
     [NativeName("FT_DEBUG_HOOK_TRUETYPE")]
     public const int DebugHookTruetype = 0;
 
