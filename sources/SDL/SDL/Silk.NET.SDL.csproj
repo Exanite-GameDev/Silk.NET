@@ -7,6 +7,5 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Core\Silk.NET.Core.csproj" />
-    <ProjectReference Include="..\Native\Silk.NET.SDL.Native.csproj" />
   </ItemGroup>
 </Project>
