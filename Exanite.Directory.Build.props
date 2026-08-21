@@ -39,7 +39,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MinVer"/>
+    <PackageReference Include="MinVer" PrivateAssets="all"/>
   </ItemGroup>
 
   <!-- Include branch name in preview versions -->
