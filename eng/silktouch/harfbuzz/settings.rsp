@@ -4,10 +4,10 @@ HB_HAVE_FREETYPE=ON
 --headerFile
 header.txt
 --include-directory
-../../../../../Exanite.GameDev/native/Exanite.FreeType/include/Exanite/FreeType/
-../../../../../Exanite.GameDev/cmake/external/FreeType/include/
-../../../../../Exanite.GameDev/native/freetype/include/
-../../../../../Exanite.GameDev/native/harfbuzz/src
+../../../../../Exanite.GameDev.Native/native/Exanite.FreeType/include/Exanite/FreeType/
+../../../../../Exanite.GameDev.Native/cmake/external/FreeType/include/
+../../../../../Exanite.GameDev.Native/native/freetype/include/
+../../../../../Exanite.GameDev.Native/native/harfbuzz/src
 --with-callconv
 *=Winapi
 --with-librarypath
