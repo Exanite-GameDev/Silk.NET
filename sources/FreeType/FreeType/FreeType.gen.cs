@@ -24,7 +24,7 @@ partial class FreeType(INativeContext nativeContext) : IDisposable
         public static void MakeCurrent(IFreeType ctx) => Underlying.Value = ctx;
     }
 
-    private readonly unsafe void*[] _slots = new void*[60];
+    private readonly unsafe void*[] _slots = new void*[74];
     public static IFreeType Instance { get; } = new StaticWrapper<DllImport>();
 
     public static IFreeType Create() => Instance;

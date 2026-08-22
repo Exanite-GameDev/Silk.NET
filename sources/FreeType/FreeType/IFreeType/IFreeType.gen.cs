@@ -433,6 +433,152 @@ public unsafe partial interface IFreeType
             Ref2D<FaceRec> aface
         );
 
+        [NativeName("FT_Outline_Check")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Check")]
+        static abstract int OutlineCheck(Outline* outline);
+
+        [NativeName("FT_Outline_Check")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Check")]
+        static abstract int OutlineCheck(Ref<Outline> outline);
+
+        [NativeName("FT_Outline_Copy")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Copy")]
+        static abstract int OutlineCopy(Outline* source, Outline* target);
+
+        [NativeName("FT_Outline_Copy")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Copy")]
+        static abstract int OutlineCopy(Ref<Outline> source, Ref<Outline> target);
+
+        [NativeName("FT_Outline_Decompose")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Decompose")]
+        static abstract int OutlineDecompose(
+            Outline* outline,
+            OutlineFuncs* func_interface,
+            void* user
+        );
+
+        [NativeName("FT_Outline_Decompose")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Decompose")]
+        static abstract int OutlineDecompose(
+            Ref<Outline> outline,
+            Ref<OutlineFuncs> func_interface,
+            Ref user
+        );
+
+        [NativeName("FT_Outline_Done")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Done")]
+        static abstract int OutlineDone(LibraryRecHandle library, Outline* outline);
+
+        [NativeName("FT_Outline_Done")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Done")]
+        static abstract int OutlineDone(LibraryRecHandle library, Ref<Outline> outline);
+
+        [NativeName("FT_Outline_Embolden")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Embolden")]
+        static abstract int OutlineEmbolden(Outline* outline, long strength);
+
+        [NativeName("FT_Outline_Embolden")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Embolden")]
+        static abstract int OutlineEmbolden(Ref<Outline> outline, long strength);
+
+        [NativeName("FT_Outline_EmboldenXY")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_EmboldenXY")]
+        static abstract int OutlineEmboldenXY(Outline* outline, long xstrength, long ystrength);
+
+        [NativeName("FT_Outline_EmboldenXY")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_EmboldenXY")]
+        static abstract int OutlineEmboldenXY(Ref<Outline> outline, long xstrength, long ystrength);
+
+        [NativeName("FT_Outline_Get_Bitmap")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Bitmap")]
+        static abstract int OutlineGetBitmap(
+            LibraryRecHandle library,
+            Outline* outline,
+            Bitmap* abitmap
+        );
+
+        [NativeName("FT_Outline_Get_Bitmap")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Bitmap")]
+        static abstract int OutlineGetBitmap(
+            LibraryRecHandle library,
+            Ref<Outline> outline,
+            Ref<Bitmap> abitmap
+        );
+
+        [NativeName("FT_Outline_Get_CBox")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_CBox")]
+        static abstract void OutlineGetCBox(Outline* outline, BBox* acbox);
+
+        [NativeName("FT_Outline_Get_CBox")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_CBox")]
+        static abstract void OutlineGetCBox(Ref<Outline> outline, Ref<BBox> acbox);
+
+        [NativeName("FT_Outline_Get_Orientation")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Orientation")]
+        static abstract Orientation OutlineGetOrientation(Outline* outline);
+
+        [NativeName("FT_Outline_Get_Orientation")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Orientation")]
+        static abstract Orientation OutlineGetOrientation(Ref<Outline> outline);
+
+        [NativeName("FT_Outline_New")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_New")]
+        static abstract int OutlineNew(
+            LibraryRecHandle library,
+            uint numPoints,
+            int numContours,
+            Outline* anoutline
+        );
+
+        [NativeName("FT_Outline_New")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_New")]
+        static abstract int OutlineNew(
+            LibraryRecHandle library,
+            uint numPoints,
+            int numContours,
+            Ref<Outline> anoutline
+        );
+
+        [NativeName("FT_Outline_Render")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Render")]
+        static abstract int OutlineRender(
+            LibraryRecHandle library,
+            Outline* outline,
+            RasterParams* @params
+        );
+
+        [NativeName("FT_Outline_Render")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Render")]
+        static abstract int OutlineRender(
+            LibraryRecHandle library,
+            Ref<Outline> outline,
+            Ref<RasterParams> @params
+        );
+
+        [NativeName("FT_Outline_Reverse")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Reverse")]
+        static abstract void OutlineReverse(Outline* outline);
+
+        [NativeName("FT_Outline_Reverse")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Reverse")]
+        static abstract void OutlineReverse(Ref<Outline> outline);
+
+        [NativeName("FT_Outline_Transform")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Transform")]
+        static abstract void OutlineTransform(Outline* outline, Matrix* matrix);
+
+        [NativeName("FT_Outline_Transform")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Transform")]
+        static abstract void OutlineTransform(Ref<Outline> outline, Ref<Matrix> matrix);
+
+        [NativeName("FT_Outline_Translate")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Translate")]
+        static abstract void OutlineTranslate(Outline* outline, long xOffset, long yOffset);
+
+        [NativeName("FT_Outline_Translate")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Translate")]
+        static abstract void OutlineTranslate(Ref<Outline> outline, long xOffset, long yOffset);
+
         [NativeName("FT_Property_Get")]
         [NativeFunction("freetype", EntryPoint = "FT_Property_Get")]
         static abstract int PropertyGet(
@@ -948,6 +1094,123 @@ public unsafe partial interface IFreeType
         long face_index,
         Ref2D<FaceRec> aface
     );
+
+    [NativeName("FT_Outline_Check")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Check")]
+    int OutlineCheck(Outline* outline);
+
+    [NativeName("FT_Outline_Check")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Check")]
+    int OutlineCheck(Ref<Outline> outline);
+
+    [NativeName("FT_Outline_Copy")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Copy")]
+    int OutlineCopy(Outline* source, Outline* target);
+
+    [NativeName("FT_Outline_Copy")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Copy")]
+    int OutlineCopy(Ref<Outline> source, Ref<Outline> target);
+
+    [NativeName("FT_Outline_Decompose")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Decompose")]
+    int OutlineDecompose(Outline* outline, OutlineFuncs* func_interface, void* user);
+
+    [NativeName("FT_Outline_Decompose")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Decompose")]
+    int OutlineDecompose(Ref<Outline> outline, Ref<OutlineFuncs> func_interface, Ref user);
+
+    [NativeName("FT_Outline_Done")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Done")]
+    int OutlineDone(LibraryRecHandle library, Outline* outline);
+
+    [NativeName("FT_Outline_Done")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Done")]
+    int OutlineDone(LibraryRecHandle library, Ref<Outline> outline);
+
+    [NativeName("FT_Outline_Embolden")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Embolden")]
+    int OutlineEmbolden(Outline* outline, long strength);
+
+    [NativeName("FT_Outline_Embolden")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Embolden")]
+    int OutlineEmbolden(Ref<Outline> outline, long strength);
+
+    [NativeName("FT_Outline_EmboldenXY")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_EmboldenXY")]
+    int OutlineEmboldenXY(Outline* outline, long xstrength, long ystrength);
+
+    [NativeName("FT_Outline_EmboldenXY")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_EmboldenXY")]
+    int OutlineEmboldenXY(Ref<Outline> outline, long xstrength, long ystrength);
+
+    [NativeName("FT_Outline_Get_Bitmap")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Bitmap")]
+    int OutlineGetBitmap(LibraryRecHandle library, Outline* outline, Bitmap* abitmap);
+
+    [NativeName("FT_Outline_Get_Bitmap")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Bitmap")]
+    int OutlineGetBitmap(LibraryRecHandle library, Ref<Outline> outline, Ref<Bitmap> abitmap);
+
+    [NativeName("FT_Outline_Get_CBox")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_CBox")]
+    void OutlineGetCBox(Outline* outline, BBox* acbox);
+
+    [NativeName("FT_Outline_Get_CBox")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_CBox")]
+    void OutlineGetCBox(Ref<Outline> outline, Ref<BBox> acbox);
+
+    [NativeName("FT_Outline_Get_Orientation")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Orientation")]
+    Orientation OutlineGetOrientation(Outline* outline);
+
+    [NativeName("FT_Outline_Get_Orientation")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Orientation")]
+    Orientation OutlineGetOrientation(Ref<Outline> outline);
+
+    [NativeName("FT_Outline_New")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_New")]
+    int OutlineNew(LibraryRecHandle library, uint numPoints, int numContours, Outline* anoutline);
+
+    [NativeName("FT_Outline_New")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_New")]
+    int OutlineNew(
+        LibraryRecHandle library,
+        uint numPoints,
+        int numContours,
+        Ref<Outline> anoutline
+    );
+
+    [NativeName("FT_Outline_Render")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Render")]
+    int OutlineRender(LibraryRecHandle library, Outline* outline, RasterParams* @params);
+
+    [NativeName("FT_Outline_Render")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Render")]
+    int OutlineRender(LibraryRecHandle library, Ref<Outline> outline, Ref<RasterParams> @params);
+
+    [NativeName("FT_Outline_Reverse")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Reverse")]
+    void OutlineReverse(Outline* outline);
+
+    [NativeName("FT_Outline_Reverse")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Reverse")]
+    void OutlineReverse(Ref<Outline> outline);
+
+    [NativeName("FT_Outline_Transform")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Transform")]
+    void OutlineTransform(Outline* outline, Matrix* matrix);
+
+    [NativeName("FT_Outline_Transform")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Transform")]
+    void OutlineTransform(Ref<Outline> outline, Ref<Matrix> matrix);
+
+    [NativeName("FT_Outline_Translate")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Translate")]
+    void OutlineTranslate(Outline* outline, long xOffset, long yOffset);
+
+    [NativeName("FT_Outline_Translate")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Translate")]
+    void OutlineTranslate(Ref<Outline> outline, long xOffset, long yOffset);
 
     [NativeName("FT_Property_Get")]
     [NativeFunction("freetype", EntryPoint = "FT_Property_Get")]

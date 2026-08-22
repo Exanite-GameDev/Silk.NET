@@ -782,6 +782,289 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
             }
         }
 
+        [NativeName("FT_Outline_Check")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Outline_Check")]
+        public static extern int OutlineCheck(Outline* outline);
+
+        [NativeName("FT_Outline_Check")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Check")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineCheck(Ref<Outline> outline)
+        {
+            fixed (Outline* __dsl_outline = outline)
+            {
+                return (int)OutlineCheck(__dsl_outline);
+            }
+        }
+
+        [NativeName("FT_Outline_Copy")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Outline_Copy")]
+        public static extern int OutlineCopy(Outline* source, Outline* target);
+
+        [NativeName("FT_Outline_Copy")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Copy")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineCopy(Ref<Outline> source, Ref<Outline> target)
+        {
+            fixed (Outline* __dsl_target = target)
+            fixed (Outline* __dsl_source = source)
+            {
+                return (int)OutlineCopy(__dsl_source, __dsl_target);
+            }
+        }
+
+        [NativeName("FT_Outline_Decompose")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Outline_Decompose")]
+        public static extern int OutlineDecompose(
+            Outline* outline,
+            OutlineFuncs* func_interface,
+            void* user
+        );
+
+        [NativeName("FT_Outline_Decompose")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Decompose")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineDecompose(
+            Ref<Outline> outline,
+            Ref<OutlineFuncs> func_interface,
+            Ref user
+        )
+        {
+            fixed (void* __dsl_user = user)
+            fixed (OutlineFuncs* __dsl_func_interface = func_interface)
+            fixed (Outline* __dsl_outline = outline)
+            {
+                return (int)OutlineDecompose(__dsl_outline, __dsl_func_interface, __dsl_user);
+            }
+        }
+
+        [NativeName("FT_Outline_Done")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Outline_Done")]
+        public static extern int OutlineDone(LibraryRecHandle library, Outline* outline);
+
+        [NativeName("FT_Outline_Done")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Done")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineDone(LibraryRecHandle library, Ref<Outline> outline)
+        {
+            fixed (Outline* __dsl_outline = outline)
+            {
+                return (int)OutlineDone(library, __dsl_outline);
+            }
+        }
+
+        [NativeName("FT_Outline_Embolden")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Outline_Embolden")]
+        public static extern int OutlineEmbolden(Outline* outline, long strength);
+
+        [NativeName("FT_Outline_Embolden")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Embolden")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineEmbolden(Ref<Outline> outline, long strength)
+        {
+            fixed (Outline* __dsl_outline = outline)
+            {
+                return (int)OutlineEmbolden(__dsl_outline, strength);
+            }
+        }
+
+        [NativeName("FT_Outline_EmboldenXY")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Outline_EmboldenXY")]
+        public static extern int OutlineEmboldenXY(
+            Outline* outline,
+            long xstrength,
+            long ystrength
+        );
+
+        [NativeName("FT_Outline_EmboldenXY")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_EmboldenXY")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineEmboldenXY(Ref<Outline> outline, long xstrength, long ystrength)
+        {
+            fixed (Outline* __dsl_outline = outline)
+            {
+                return (int)OutlineEmboldenXY(__dsl_outline, xstrength, ystrength);
+            }
+        }
+
+        [NativeName("FT_Outline_Get_Bitmap")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Outline_Get_Bitmap")]
+        public static extern int OutlineGetBitmap(
+            LibraryRecHandle library,
+            Outline* outline,
+            Bitmap* abitmap
+        );
+
+        [NativeName("FT_Outline_Get_Bitmap")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Bitmap")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineGetBitmap(
+            LibraryRecHandle library,
+            Ref<Outline> outline,
+            Ref<Bitmap> abitmap
+        )
+        {
+            fixed (Bitmap* __dsl_abitmap = abitmap)
+            fixed (Outline* __dsl_outline = outline)
+            {
+                return (int)OutlineGetBitmap(library, __dsl_outline, __dsl_abitmap);
+            }
+        }
+
+        [NativeName("FT_Outline_Get_CBox")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Outline_Get_CBox")]
+        public static extern void OutlineGetCBox(Outline* outline, BBox* acbox);
+
+        [NativeName("FT_Outline_Get_CBox")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_CBox")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static void OutlineGetCBox(Ref<Outline> outline, Ref<BBox> acbox)
+        {
+            fixed (BBox* __dsl_acbox = acbox)
+            fixed (Outline* __dsl_outline = outline)
+            {
+                OutlineGetCBox(__dsl_outline, __dsl_acbox);
+            }
+        }
+
+        [NativeName("FT_Outline_Get_Orientation")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Outline_Get_Orientation")]
+        public static extern Orientation OutlineGetOrientation(Outline* outline);
+
+        [NativeName("FT_Outline_Get_Orientation")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Orientation")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static Orientation OutlineGetOrientation(Ref<Outline> outline)
+        {
+            fixed (Outline* __dsl_outline = outline)
+            {
+                return (Orientation)OutlineGetOrientation(__dsl_outline);
+            }
+        }
+
+        [NativeName("FT_Outline_New")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Outline_New")]
+        public static extern int OutlineNew(
+            LibraryRecHandle library,
+            uint numPoints,
+            int numContours,
+            Outline* anoutline
+        );
+
+        [NativeName("FT_Outline_New")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_New")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineNew(
+            LibraryRecHandle library,
+            uint numPoints,
+            int numContours,
+            Ref<Outline> anoutline
+        )
+        {
+            fixed (Outline* __dsl_anoutline = anoutline)
+            {
+                return (int)OutlineNew(library, numPoints, numContours, __dsl_anoutline);
+            }
+        }
+
+        [NativeName("FT_Outline_Render")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Outline_Render")]
+        public static extern int OutlineRender(
+            LibraryRecHandle library,
+            Outline* outline,
+            RasterParams* @params
+        );
+
+        [NativeName("FT_Outline_Render")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Render")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineRender(
+            LibraryRecHandle library,
+            Ref<Outline> outline,
+            Ref<RasterParams> @params
+        )
+        {
+            fixed (RasterParams* __dsl_params = @params)
+            fixed (Outline* __dsl_outline = outline)
+            {
+                return (int)OutlineRender(library, __dsl_outline, __dsl_params);
+            }
+        }
+
+        [NativeName("FT_Outline_Reverse")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Outline_Reverse")]
+        public static extern void OutlineReverse(Outline* outline);
+
+        [NativeName("FT_Outline_Reverse")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Reverse")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static void OutlineReverse(Ref<Outline> outline)
+        {
+            fixed (Outline* __dsl_outline = outline)
+            {
+                OutlineReverse(__dsl_outline);
+            }
+        }
+
+        [NativeName("FT_Outline_Transform")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Outline_Transform")]
+        public static extern void OutlineTransform(Outline* outline, Matrix* matrix);
+
+        [NativeName("FT_Outline_Transform")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Transform")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static void OutlineTransform(Ref<Outline> outline, Ref<Matrix> matrix)
+        {
+            fixed (Matrix* __dsl_matrix = matrix)
+            fixed (Outline* __dsl_outline = outline)
+            {
+                OutlineTransform(__dsl_outline, __dsl_matrix);
+            }
+        }
+
+        [NativeName("FT_Outline_Translate")]
+        [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Outline_Translate")]
+        public static extern void OutlineTranslate(Outline* outline, long xOffset, long yOffset);
+
+        [NativeName("FT_Outline_Translate")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Translate")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static void OutlineTranslate(Ref<Outline> outline, long xOffset, long yOffset)
+        {
+            fixed (Outline* __dsl_outline = outline)
+            {
+                OutlineTranslate(__dsl_outline, xOffset, yOffset);
+            }
+        }
+
         [NativeName("FT_Property_Get")]
         [DllImport("freetype", ExactSpelling = true, EntryPoint = "FT_Property_Get")]
         public static extern int PropertyGet(
@@ -1735,6 +2018,245 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
             long face_index,
             Ref2D<FaceRec> aface
         ) => T.OpenFace(library, args, face_index, aface);
+
+        [NativeName("FT_Outline_Check")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Check")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int OutlineCheck(Outline* outline) => T.OutlineCheck(outline);
+
+        [NativeName("FT_Outline_Check")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Check")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int OutlineCheck(Ref<Outline> outline) => T.OutlineCheck(outline);
+
+        [NativeName("FT_Outline_Copy")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Copy")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int OutlineCopy(Outline* source, Outline* target) => T.OutlineCopy(source, target);
+
+        [NativeName("FT_Outline_Copy")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Copy")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int OutlineCopy(Ref<Outline> source, Ref<Outline> target) =>
+            T.OutlineCopy(source, target);
+
+        [NativeName("FT_Outline_Decompose")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Decompose")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int OutlineDecompose(Outline* outline, OutlineFuncs* func_interface, void* user) =>
+            T.OutlineDecompose(outline, func_interface, user);
+
+        [NativeName("FT_Outline_Decompose")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Decompose")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int OutlineDecompose(
+            Ref<Outline> outline,
+            Ref<OutlineFuncs> func_interface,
+            Ref user
+        ) => T.OutlineDecompose(outline, func_interface, user);
+
+        [NativeName("FT_Outline_Done")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Done")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int OutlineDone(LibraryRecHandle library, Outline* outline) =>
+            T.OutlineDone(library, outline);
+
+        [NativeName("FT_Outline_Done")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Done")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int OutlineDone(LibraryRecHandle library, Ref<Outline> outline) =>
+            T.OutlineDone(library, outline);
+
+        [NativeName("FT_Outline_Embolden")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Embolden")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int OutlineEmbolden(Outline* outline, long strength) =>
+            T.OutlineEmbolden(outline, strength);
+
+        [NativeName("FT_Outline_Embolden")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Embolden")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int OutlineEmbolden(Ref<Outline> outline, long strength) =>
+            T.OutlineEmbolden(outline, strength);
+
+        [NativeName("FT_Outline_EmboldenXY")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_EmboldenXY")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int OutlineEmboldenXY(Outline* outline, long xstrength, long ystrength) =>
+            T.OutlineEmboldenXY(outline, xstrength, ystrength);
+
+        [NativeName("FT_Outline_EmboldenXY")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_EmboldenXY")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int OutlineEmboldenXY(Ref<Outline> outline, long xstrength, long ystrength) =>
+            T.OutlineEmboldenXY(outline, xstrength, ystrength);
+
+        [NativeName("FT_Outline_Get_Bitmap")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Bitmap")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int OutlineGetBitmap(LibraryRecHandle library, Outline* outline, Bitmap* abitmap) =>
+            T.OutlineGetBitmap(library, outline, abitmap);
+
+        [NativeName("FT_Outline_Get_Bitmap")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Bitmap")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int OutlineGetBitmap(
+            LibraryRecHandle library,
+            Ref<Outline> outline,
+            Ref<Bitmap> abitmap
+        ) => T.OutlineGetBitmap(library, outline, abitmap);
+
+        [NativeName("FT_Outline_Get_CBox")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_CBox")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public void OutlineGetCBox(Outline* outline, BBox* acbox) =>
+            T.OutlineGetCBox(outline, acbox);
+
+        [NativeName("FT_Outline_Get_CBox")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_CBox")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public void OutlineGetCBox(Ref<Outline> outline, Ref<BBox> acbox) =>
+            T.OutlineGetCBox(outline, acbox);
+
+        [NativeName("FT_Outline_Get_Orientation")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Orientation")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public Orientation OutlineGetOrientation(Outline* outline) =>
+            T.OutlineGetOrientation(outline);
+
+        [NativeName("FT_Outline_Get_Orientation")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Orientation")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public Orientation OutlineGetOrientation(Ref<Outline> outline) =>
+            T.OutlineGetOrientation(outline);
+
+        [NativeName("FT_Outline_New")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_New")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int OutlineNew(
+            LibraryRecHandle library,
+            uint numPoints,
+            int numContours,
+            Outline* anoutline
+        ) => T.OutlineNew(library, numPoints, numContours, anoutline);
+
+        [NativeName("FT_Outline_New")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_New")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int OutlineNew(
+            LibraryRecHandle library,
+            uint numPoints,
+            int numContours,
+            Ref<Outline> anoutline
+        ) => T.OutlineNew(library, numPoints, numContours, anoutline);
+
+        [NativeName("FT_Outline_Render")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Render")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int OutlineRender(
+            LibraryRecHandle library,
+            Outline* outline,
+            RasterParams* @params
+        ) => T.OutlineRender(library, outline, @params);
+
+        [NativeName("FT_Outline_Render")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Render")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public int OutlineRender(
+            LibraryRecHandle library,
+            Ref<Outline> outline,
+            Ref<RasterParams> @params
+        ) => T.OutlineRender(library, outline, @params);
+
+        [NativeName("FT_Outline_Reverse")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Reverse")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public void OutlineReverse(Outline* outline) => T.OutlineReverse(outline);
+
+        [NativeName("FT_Outline_Reverse")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Reverse")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public void OutlineReverse(Ref<Outline> outline) => T.OutlineReverse(outline);
+
+        [NativeName("FT_Outline_Transform")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Transform")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public void OutlineTransform(Outline* outline, Matrix* matrix) =>
+            T.OutlineTransform(outline, matrix);
+
+        [NativeName("FT_Outline_Transform")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Transform")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public void OutlineTransform(Ref<Outline> outline, Ref<Matrix> matrix) =>
+            T.OutlineTransform(outline, matrix);
+
+        [NativeName("FT_Outline_Translate")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Translate")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public void OutlineTranslate(Outline* outline, long xOffset, long yOffset) =>
+            T.OutlineTranslate(outline, xOffset, yOffset);
+
+        [NativeName("FT_Outline_Translate")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Translate")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public void OutlineTranslate(Ref<Outline> outline, long xOffset, long yOffset) =>
+            T.OutlineTranslate(outline, xOffset, yOffset);
 
         [NativeName("FT_Property_Get")]
         [NativeFunction("freetype", EntryPoint = "FT_Property_Get")]
@@ -2919,6 +3441,336 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
             fixed (OpenArgs* __dsl_args = args)
             {
                 return (int)OpenFace(library, __dsl_args, face_index, __dsl_aface);
+            }
+        }
+
+        [NativeName("FT_Outline_Check")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Check")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineCheck(Outline* outline) => Underlying.Value!.OutlineCheck(outline);
+
+        [NativeName("FT_Outline_Check")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Check")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineCheck(Ref<Outline> outline)
+        {
+            fixed (Outline* __dsl_outline = outline)
+            {
+                return (int)OutlineCheck(__dsl_outline);
+            }
+        }
+
+        [NativeName("FT_Outline_Copy")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Copy")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineCopy(Outline* source, Outline* target) =>
+            Underlying.Value!.OutlineCopy(source, target);
+
+        [NativeName("FT_Outline_Copy")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Copy")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineCopy(Ref<Outline> source, Ref<Outline> target)
+        {
+            fixed (Outline* __dsl_target = target)
+            fixed (Outline* __dsl_source = source)
+            {
+                return (int)OutlineCopy(__dsl_source, __dsl_target);
+            }
+        }
+
+        [NativeName("FT_Outline_Decompose")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Decompose")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineDecompose(
+            Outline* outline,
+            OutlineFuncs* func_interface,
+            void* user
+        ) => Underlying.Value!.OutlineDecompose(outline, func_interface, user);
+
+        [NativeName("FT_Outline_Decompose")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Decompose")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineDecompose(
+            Ref<Outline> outline,
+            Ref<OutlineFuncs> func_interface,
+            Ref user
+        )
+        {
+            fixed (void* __dsl_user = user)
+            fixed (OutlineFuncs* __dsl_func_interface = func_interface)
+            fixed (Outline* __dsl_outline = outline)
+            {
+                return (int)OutlineDecompose(__dsl_outline, __dsl_func_interface, __dsl_user);
+            }
+        }
+
+        [NativeName("FT_Outline_Done")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Done")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineDone(LibraryRecHandle library, Outline* outline) =>
+            Underlying.Value!.OutlineDone(library, outline);
+
+        [NativeName("FT_Outline_Done")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Done")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineDone(LibraryRecHandle library, Ref<Outline> outline)
+        {
+            fixed (Outline* __dsl_outline = outline)
+            {
+                return (int)OutlineDone(library, __dsl_outline);
+            }
+        }
+
+        [NativeName("FT_Outline_Embolden")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Embolden")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineEmbolden(Outline* outline, long strength) =>
+            Underlying.Value!.OutlineEmbolden(outline, strength);
+
+        [NativeName("FT_Outline_Embolden")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Embolden")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineEmbolden(Ref<Outline> outline, long strength)
+        {
+            fixed (Outline* __dsl_outline = outline)
+            {
+                return (int)OutlineEmbolden(__dsl_outline, strength);
+            }
+        }
+
+        [NativeName("FT_Outline_EmboldenXY")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_EmboldenXY")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineEmboldenXY(Outline* outline, long xstrength, long ystrength) =>
+            Underlying.Value!.OutlineEmboldenXY(outline, xstrength, ystrength);
+
+        [NativeName("FT_Outline_EmboldenXY")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_EmboldenXY")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineEmboldenXY(Ref<Outline> outline, long xstrength, long ystrength)
+        {
+            fixed (Outline* __dsl_outline = outline)
+            {
+                return (int)OutlineEmboldenXY(__dsl_outline, xstrength, ystrength);
+            }
+        }
+
+        [NativeName("FT_Outline_Get_Bitmap")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Bitmap")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineGetBitmap(
+            LibraryRecHandle library,
+            Outline* outline,
+            Bitmap* abitmap
+        ) => Underlying.Value!.OutlineGetBitmap(library, outline, abitmap);
+
+        [NativeName("FT_Outline_Get_Bitmap")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Bitmap")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineGetBitmap(
+            LibraryRecHandle library,
+            Ref<Outline> outline,
+            Ref<Bitmap> abitmap
+        )
+        {
+            fixed (Bitmap* __dsl_abitmap = abitmap)
+            fixed (Outline* __dsl_outline = outline)
+            {
+                return (int)OutlineGetBitmap(library, __dsl_outline, __dsl_abitmap);
+            }
+        }
+
+        [NativeName("FT_Outline_Get_CBox")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_CBox")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static void OutlineGetCBox(Outline* outline, BBox* acbox) =>
+            Underlying.Value!.OutlineGetCBox(outline, acbox);
+
+        [NativeName("FT_Outline_Get_CBox")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_CBox")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static void OutlineGetCBox(Ref<Outline> outline, Ref<BBox> acbox)
+        {
+            fixed (BBox* __dsl_acbox = acbox)
+            fixed (Outline* __dsl_outline = outline)
+            {
+                OutlineGetCBox(__dsl_outline, __dsl_acbox);
+            }
+        }
+
+        [NativeName("FT_Outline_Get_Orientation")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Orientation")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static Orientation OutlineGetOrientation(Outline* outline) =>
+            Underlying.Value!.OutlineGetOrientation(outline);
+
+        [NativeName("FT_Outline_Get_Orientation")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Orientation")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static Orientation OutlineGetOrientation(Ref<Outline> outline)
+        {
+            fixed (Outline* __dsl_outline = outline)
+            {
+                return (Orientation)OutlineGetOrientation(__dsl_outline);
+            }
+        }
+
+        [NativeName("FT_Outline_New")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_New")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineNew(
+            LibraryRecHandle library,
+            uint numPoints,
+            int numContours,
+            Outline* anoutline
+        ) => Underlying.Value!.OutlineNew(library, numPoints, numContours, anoutline);
+
+        [NativeName("FT_Outline_New")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_New")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineNew(
+            LibraryRecHandle library,
+            uint numPoints,
+            int numContours,
+            Ref<Outline> anoutline
+        )
+        {
+            fixed (Outline* __dsl_anoutline = anoutline)
+            {
+                return (int)OutlineNew(library, numPoints, numContours, __dsl_anoutline);
+            }
+        }
+
+        [NativeName("FT_Outline_Render")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Render")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineRender(
+            LibraryRecHandle library,
+            Outline* outline,
+            RasterParams* @params
+        ) => Underlying.Value!.OutlineRender(library, outline, @params);
+
+        [NativeName("FT_Outline_Render")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Render")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static int OutlineRender(
+            LibraryRecHandle library,
+            Ref<Outline> outline,
+            Ref<RasterParams> @params
+        )
+        {
+            fixed (RasterParams* __dsl_params = @params)
+            fixed (Outline* __dsl_outline = outline)
+            {
+                return (int)OutlineRender(library, __dsl_outline, __dsl_params);
+            }
+        }
+
+        [NativeName("FT_Outline_Reverse")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Reverse")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static void OutlineReverse(Outline* outline) =>
+            Underlying.Value!.OutlineReverse(outline);
+
+        [NativeName("FT_Outline_Reverse")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Reverse")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static void OutlineReverse(Ref<Outline> outline)
+        {
+            fixed (Outline* __dsl_outline = outline)
+            {
+                OutlineReverse(__dsl_outline);
+            }
+        }
+
+        [NativeName("FT_Outline_Transform")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Transform")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static void OutlineTransform(Outline* outline, Matrix* matrix) =>
+            Underlying.Value!.OutlineTransform(outline, matrix);
+
+        [NativeName("FT_Outline_Transform")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Transform")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static void OutlineTransform(Ref<Outline> outline, Ref<Matrix> matrix)
+        {
+            fixed (Matrix* __dsl_matrix = matrix)
+            fixed (Outline* __dsl_outline = outline)
+            {
+                OutlineTransform(__dsl_outline, __dsl_matrix);
+            }
+        }
+
+        [NativeName("FT_Outline_Translate")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Translate")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static void OutlineTranslate(Outline* outline, long xOffset, long yOffset) =>
+            Underlying.Value!.OutlineTranslate(outline, xOffset, yOffset);
+
+        [NativeName("FT_Outline_Translate")]
+        [NativeFunction("freetype", EntryPoint = "FT_Outline_Translate")]
+        [MethodImpl(
+            MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization
+        )]
+        public static void OutlineTranslate(Ref<Outline> outline, long xOffset, long yOffset)
+        {
+            fixed (Outline* __dsl_outline = outline)
+            {
+                OutlineTranslate(__dsl_outline, xOffset, yOffset);
             }
         }
 
@@ -5659,6 +6511,552 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
         Ref2D<FaceRec> aface
     ) => DllImport.OpenFace(library, args, face_index, aface);
 
+    [NativeName("FT_Outline_Check")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Check")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.OutlineCheck(Outline* outline) =>
+        (
+            (delegate* unmanaged<Outline*, int>)(
+                _slots[43] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[43] = nativeContext.LoadFunction("FT_Outline_Check", "freetype")
+            )
+        )(outline);
+
+    [NativeName("FT_Outline_Check")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Check")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int OutlineCheck(Outline* outline) => DllImport.OutlineCheck(outline);
+
+    [NativeName("FT_Outline_Check")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Check")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.OutlineCheck(Ref<Outline> outline)
+    {
+        fixed (Outline* __dsl_outline = outline)
+        {
+            return (int)((IFreeType)this).OutlineCheck(__dsl_outline);
+        }
+    }
+
+    [NativeName("FT_Outline_Check")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Check")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int OutlineCheck(Ref<Outline> outline) => DllImport.OutlineCheck(outline);
+
+    [NativeName("FT_Outline_Copy")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Copy")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.OutlineCopy(Outline* source, Outline* target) =>
+        (
+            (delegate* unmanaged<Outline*, Outline*, int>)(
+                _slots[44] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[44] = nativeContext.LoadFunction("FT_Outline_Copy", "freetype")
+            )
+        )(source, target);
+
+    [NativeName("FT_Outline_Copy")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Copy")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int OutlineCopy(Outline* source, Outline* target) =>
+        DllImport.OutlineCopy(source, target);
+
+    [NativeName("FT_Outline_Copy")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Copy")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.OutlineCopy(Ref<Outline> source, Ref<Outline> target)
+    {
+        fixed (Outline* __dsl_target = target)
+        fixed (Outline* __dsl_source = source)
+        {
+            return (int)((IFreeType)this).OutlineCopy(__dsl_source, __dsl_target);
+        }
+    }
+
+    [NativeName("FT_Outline_Copy")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Copy")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int OutlineCopy(Ref<Outline> source, Ref<Outline> target) =>
+        DllImport.OutlineCopy(source, target);
+
+    [NativeName("FT_Outline_Decompose")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Decompose")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.OutlineDecompose(Outline* outline, OutlineFuncs* func_interface, void* user) =>
+        (
+            (delegate* unmanaged<Outline*, OutlineFuncs*, void*, int>)(
+                _slots[45] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[45] = nativeContext.LoadFunction("FT_Outline_Decompose", "freetype")
+            )
+        )(outline, func_interface, user);
+
+    [NativeName("FT_Outline_Decompose")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Decompose")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int OutlineDecompose(
+        Outline* outline,
+        OutlineFuncs* func_interface,
+        void* user
+    ) => DllImport.OutlineDecompose(outline, func_interface, user);
+
+    [NativeName("FT_Outline_Decompose")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Decompose")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.OutlineDecompose(Ref<Outline> outline, Ref<OutlineFuncs> func_interface, Ref user)
+    {
+        fixed (void* __dsl_user = user)
+        fixed (OutlineFuncs* __dsl_func_interface = func_interface)
+        fixed (Outline* __dsl_outline = outline)
+        {
+            return (int)
+                ((IFreeType)this).OutlineDecompose(__dsl_outline, __dsl_func_interface, __dsl_user);
+        }
+    }
+
+    [NativeName("FT_Outline_Decompose")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Decompose")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int OutlineDecompose(
+        Ref<Outline> outline,
+        Ref<OutlineFuncs> func_interface,
+        Ref user
+    ) => DllImport.OutlineDecompose(outline, func_interface, user);
+
+    [NativeName("FT_Outline_Done")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Done")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.OutlineDone(LibraryRecHandle library, Outline* outline) =>
+        (
+            (delegate* unmanaged<LibraryRecHandle, Outline*, int>)(
+                _slots[46] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[46] = nativeContext.LoadFunction("FT_Outline_Done", "freetype")
+            )
+        )(library, outline);
+
+    [NativeName("FT_Outline_Done")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Done")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int OutlineDone(LibraryRecHandle library, Outline* outline) =>
+        DllImport.OutlineDone(library, outline);
+
+    [NativeName("FT_Outline_Done")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Done")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.OutlineDone(LibraryRecHandle library, Ref<Outline> outline)
+    {
+        fixed (Outline* __dsl_outline = outline)
+        {
+            return (int)((IFreeType)this).OutlineDone(library, __dsl_outline);
+        }
+    }
+
+    [NativeName("FT_Outline_Done")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Done")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int OutlineDone(LibraryRecHandle library, Ref<Outline> outline) =>
+        DllImport.OutlineDone(library, outline);
+
+    [NativeName("FT_Outline_Embolden")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Embolden")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.OutlineEmbolden(Outline* outline, long strength) =>
+        (
+            (delegate* unmanaged<Outline*, long, int>)(
+                _slots[47] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[47] = nativeContext.LoadFunction("FT_Outline_Embolden", "freetype")
+            )
+        )(outline, strength);
+
+    [NativeName("FT_Outline_Embolden")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Embolden")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int OutlineEmbolden(Outline* outline, long strength) =>
+        DllImport.OutlineEmbolden(outline, strength);
+
+    [NativeName("FT_Outline_Embolden")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Embolden")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.OutlineEmbolden(Ref<Outline> outline, long strength)
+    {
+        fixed (Outline* __dsl_outline = outline)
+        {
+            return (int)((IFreeType)this).OutlineEmbolden(__dsl_outline, strength);
+        }
+    }
+
+    [NativeName("FT_Outline_Embolden")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Embolden")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int OutlineEmbolden(Ref<Outline> outline, long strength) =>
+        DllImport.OutlineEmbolden(outline, strength);
+
+    [NativeName("FT_Outline_EmboldenXY")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_EmboldenXY")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.OutlineEmboldenXY(Outline* outline, long xstrength, long ystrength) =>
+        (
+            (delegate* unmanaged<Outline*, long, long, int>)(
+                _slots[48] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[48] = nativeContext.LoadFunction("FT_Outline_EmboldenXY", "freetype")
+            )
+        )(outline, xstrength, ystrength);
+
+    [NativeName("FT_Outline_EmboldenXY")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_EmboldenXY")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int OutlineEmboldenXY(Outline* outline, long xstrength, long ystrength) =>
+        DllImport.OutlineEmboldenXY(outline, xstrength, ystrength);
+
+    [NativeName("FT_Outline_EmboldenXY")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_EmboldenXY")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.OutlineEmboldenXY(Ref<Outline> outline, long xstrength, long ystrength)
+    {
+        fixed (Outline* __dsl_outline = outline)
+        {
+            return (int)((IFreeType)this).OutlineEmboldenXY(__dsl_outline, xstrength, ystrength);
+        }
+    }
+
+    [NativeName("FT_Outline_EmboldenXY")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_EmboldenXY")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int OutlineEmboldenXY(Ref<Outline> outline, long xstrength, long ystrength) =>
+        DllImport.OutlineEmboldenXY(outline, xstrength, ystrength);
+
+    [NativeName("FT_Outline_Get_Bitmap")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Bitmap")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.OutlineGetBitmap(LibraryRecHandle library, Outline* outline, Bitmap* abitmap) =>
+        (
+            (delegate* unmanaged<LibraryRecHandle, Outline*, Bitmap*, int>)(
+                _slots[49] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[49] = nativeContext.LoadFunction("FT_Outline_Get_Bitmap", "freetype")
+            )
+        )(library, outline, abitmap);
+
+    [NativeName("FT_Outline_Get_Bitmap")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Bitmap")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int OutlineGetBitmap(
+        LibraryRecHandle library,
+        Outline* outline,
+        Bitmap* abitmap
+    ) => DllImport.OutlineGetBitmap(library, outline, abitmap);
+
+    [NativeName("FT_Outline_Get_Bitmap")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Bitmap")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.OutlineGetBitmap(
+        LibraryRecHandle library,
+        Ref<Outline> outline,
+        Ref<Bitmap> abitmap
+    )
+    {
+        fixed (Bitmap* __dsl_abitmap = abitmap)
+        fixed (Outline* __dsl_outline = outline)
+        {
+            return (int)((IFreeType)this).OutlineGetBitmap(library, __dsl_outline, __dsl_abitmap);
+        }
+    }
+
+    [NativeName("FT_Outline_Get_Bitmap")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Bitmap")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int OutlineGetBitmap(
+        LibraryRecHandle library,
+        Ref<Outline> outline,
+        Ref<Bitmap> abitmap
+    ) => DllImport.OutlineGetBitmap(library, outline, abitmap);
+
+    [NativeName("FT_Outline_Get_CBox")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_CBox")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    void IFreeType.OutlineGetCBox(Outline* outline, BBox* acbox) =>
+        (
+            (delegate* unmanaged<Outline*, BBox*, void>)(
+                _slots[50] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[50] = nativeContext.LoadFunction("FT_Outline_Get_CBox", "freetype")
+            )
+        )(outline, acbox);
+
+    [NativeName("FT_Outline_Get_CBox")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_CBox")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static void OutlineGetCBox(Outline* outline, BBox* acbox) =>
+        DllImport.OutlineGetCBox(outline, acbox);
+
+    [NativeName("FT_Outline_Get_CBox")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_CBox")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    void IFreeType.OutlineGetCBox(Ref<Outline> outline, Ref<BBox> acbox)
+    {
+        fixed (BBox* __dsl_acbox = acbox)
+        fixed (Outline* __dsl_outline = outline)
+        {
+            ((IFreeType)this).OutlineGetCBox(__dsl_outline, __dsl_acbox);
+        }
+    }
+
+    [NativeName("FT_Outline_Get_CBox")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_CBox")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static void OutlineGetCBox(Ref<Outline> outline, Ref<BBox> acbox) =>
+        DllImport.OutlineGetCBox(outline, acbox);
+
+    [NativeName("FT_Outline_Get_Orientation")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Orientation")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    Orientation IFreeType.OutlineGetOrientation(Outline* outline) =>
+        (
+            (delegate* unmanaged<Outline*, Orientation>)(
+                _slots[51] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[51] = nativeContext.LoadFunction(
+                        "FT_Outline_Get_Orientation",
+                        "freetype"
+                    )
+            )
+        )(outline);
+
+    [NativeName("FT_Outline_Get_Orientation")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Orientation")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static Orientation OutlineGetOrientation(Outline* outline) =>
+        DllImport.OutlineGetOrientation(outline);
+
+    [NativeName("FT_Outline_Get_Orientation")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Orientation")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    Orientation IFreeType.OutlineGetOrientation(Ref<Outline> outline)
+    {
+        fixed (Outline* __dsl_outline = outline)
+        {
+            return (Orientation)((IFreeType)this).OutlineGetOrientation(__dsl_outline);
+        }
+    }
+
+    [NativeName("FT_Outline_Get_Orientation")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Get_Orientation")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static Orientation OutlineGetOrientation(Ref<Outline> outline) =>
+        DllImport.OutlineGetOrientation(outline);
+
+    [NativeName("FT_Outline_New")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_New")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.OutlineNew(
+        LibraryRecHandle library,
+        uint numPoints,
+        int numContours,
+        Outline* anoutline
+    ) =>
+        (
+            (delegate* unmanaged<LibraryRecHandle, uint, int, Outline*, int>)(
+                _slots[52] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[52] = nativeContext.LoadFunction("FT_Outline_New", "freetype")
+            )
+        )(library, numPoints, numContours, anoutline);
+
+    [NativeName("FT_Outline_New")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_New")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int OutlineNew(
+        LibraryRecHandle library,
+        uint numPoints,
+        int numContours,
+        Outline* anoutline
+    ) => DllImport.OutlineNew(library, numPoints, numContours, anoutline);
+
+    [NativeName("FT_Outline_New")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_New")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.OutlineNew(
+        LibraryRecHandle library,
+        uint numPoints,
+        int numContours,
+        Ref<Outline> anoutline
+    )
+    {
+        fixed (Outline* __dsl_anoutline = anoutline)
+        {
+            return (int)
+                ((IFreeType)this).OutlineNew(library, numPoints, numContours, __dsl_anoutline);
+        }
+    }
+
+    [NativeName("FT_Outline_New")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_New")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int OutlineNew(
+        LibraryRecHandle library,
+        uint numPoints,
+        int numContours,
+        Ref<Outline> anoutline
+    ) => DllImport.OutlineNew(library, numPoints, numContours, anoutline);
+
+    [NativeName("FT_Outline_Render")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Render")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.OutlineRender(
+        LibraryRecHandle library,
+        Outline* outline,
+        RasterParams* @params
+    ) =>
+        (
+            (delegate* unmanaged<LibraryRecHandle, Outline*, RasterParams*, int>)(
+                _slots[53] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[53] = nativeContext.LoadFunction("FT_Outline_Render", "freetype")
+            )
+        )(library, outline, @params);
+
+    [NativeName("FT_Outline_Render")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Render")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int OutlineRender(
+        LibraryRecHandle library,
+        Outline* outline,
+        RasterParams* @params
+    ) => DllImport.OutlineRender(library, outline, @params);
+
+    [NativeName("FT_Outline_Render")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Render")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    int IFreeType.OutlineRender(
+        LibraryRecHandle library,
+        Ref<Outline> outline,
+        Ref<RasterParams> @params
+    )
+    {
+        fixed (RasterParams* __dsl_params = @params)
+        fixed (Outline* __dsl_outline = outline)
+        {
+            return (int)((IFreeType)this).OutlineRender(library, __dsl_outline, __dsl_params);
+        }
+    }
+
+    [NativeName("FT_Outline_Render")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Render")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static int OutlineRender(
+        LibraryRecHandle library,
+        Ref<Outline> outline,
+        Ref<RasterParams> @params
+    ) => DllImport.OutlineRender(library, outline, @params);
+
+    [NativeName("FT_Outline_Reverse")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Reverse")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    void IFreeType.OutlineReverse(Outline* outline) =>
+        (
+            (delegate* unmanaged<Outline*, void>)(
+                _slots[54] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[54] = nativeContext.LoadFunction("FT_Outline_Reverse", "freetype")
+            )
+        )(outline);
+
+    [NativeName("FT_Outline_Reverse")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Reverse")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static void OutlineReverse(Outline* outline) => DllImport.OutlineReverse(outline);
+
+    [NativeName("FT_Outline_Reverse")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Reverse")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    void IFreeType.OutlineReverse(Ref<Outline> outline)
+    {
+        fixed (Outline* __dsl_outline = outline)
+        {
+            ((IFreeType)this).OutlineReverse(__dsl_outline);
+        }
+    }
+
+    [NativeName("FT_Outline_Reverse")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Reverse")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static void OutlineReverse(Ref<Outline> outline) => DllImport.OutlineReverse(outline);
+
+    [NativeName("FT_Outline_Transform")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Transform")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    void IFreeType.OutlineTransform(Outline* outline, Matrix* matrix) =>
+        (
+            (delegate* unmanaged<Outline*, Matrix*, void>)(
+                _slots[55] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[55] = nativeContext.LoadFunction("FT_Outline_Transform", "freetype")
+            )
+        )(outline, matrix);
+
+    [NativeName("FT_Outline_Transform")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Transform")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static void OutlineTransform(Outline* outline, Matrix* matrix) =>
+        DllImport.OutlineTransform(outline, matrix);
+
+    [NativeName("FT_Outline_Transform")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Transform")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    void IFreeType.OutlineTransform(Ref<Outline> outline, Ref<Matrix> matrix)
+    {
+        fixed (Matrix* __dsl_matrix = matrix)
+        fixed (Outline* __dsl_outline = outline)
+        {
+            ((IFreeType)this).OutlineTransform(__dsl_outline, __dsl_matrix);
+        }
+    }
+
+    [NativeName("FT_Outline_Transform")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Transform")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static void OutlineTransform(Ref<Outline> outline, Ref<Matrix> matrix) =>
+        DllImport.OutlineTransform(outline, matrix);
+
+    [NativeName("FT_Outline_Translate")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Translate")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    void IFreeType.OutlineTranslate(Outline* outline, long xOffset, long yOffset) =>
+        (
+            (delegate* unmanaged<Outline*, long, long, void>)(
+                _slots[56] is not null and var loadedFnPtr
+                    ? loadedFnPtr
+                    : _slots[56] = nativeContext.LoadFunction("FT_Outline_Translate", "freetype")
+            )
+        )(outline, xOffset, yOffset);
+
+    [NativeName("FT_Outline_Translate")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Translate")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static void OutlineTranslate(Outline* outline, long xOffset, long yOffset) =>
+        DllImport.OutlineTranslate(outline, xOffset, yOffset);
+
+    [NativeName("FT_Outline_Translate")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Translate")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    void IFreeType.OutlineTranslate(Ref<Outline> outline, long xOffset, long yOffset)
+    {
+        fixed (Outline* __dsl_outline = outline)
+        {
+            ((IFreeType)this).OutlineTranslate(__dsl_outline, xOffset, yOffset);
+        }
+    }
+
+    [NativeName("FT_Outline_Translate")]
+    [NativeFunction("freetype", EntryPoint = "FT_Outline_Translate")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+    public static void OutlineTranslate(Ref<Outline> outline, long xOffset, long yOffset) =>
+        DllImport.OutlineTranslate(outline, xOffset, yOffset);
+
     [NativeName("FT_Property_Get")]
     [NativeFunction("freetype", EntryPoint = "FT_Property_Get")]
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
@@ -5670,9 +7068,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     ) =>
         (
             (delegate* unmanaged<LibraryRecHandle, sbyte*, sbyte*, void*, int>)(
-                _slots[43] is not null and var loadedFnPtr
+                _slots[57] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[43] = nativeContext.LoadFunction("FT_Property_Get", "freetype")
+                    : _slots[57] = nativeContext.LoadFunction("FT_Property_Get", "freetype")
             )
         )(library, module_name, property_name, value);
 
@@ -5731,9 +7129,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     ) =>
         (
             (delegate* unmanaged<LibraryRecHandle, sbyte*, sbyte*, void*, int>)(
-                _slots[44] is not null and var loadedFnPtr
+                _slots[58] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[44] = nativeContext.LoadFunction("FT_Property_Set", "freetype")
+                    : _slots[58] = nativeContext.LoadFunction("FT_Property_Set", "freetype")
             )
         )(library, module_name, property_name, value);
 
@@ -5787,9 +7185,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.ReferenceFace(FaceRec* face) =>
         (
             (delegate* unmanaged<FaceRec*, int>)(
-                _slots[45] is not null and var loadedFnPtr
+                _slots[59] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[45] = nativeContext.LoadFunction("FT_Reference_Face", "freetype")
+                    : _slots[59] = nativeContext.LoadFunction("FT_Reference_Face", "freetype")
             )
         )(face);
 
@@ -5820,9 +7218,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.ReferenceLibrary(LibraryRecHandle library) =>
         (
             (delegate* unmanaged<LibraryRecHandle, int>)(
-                _slots[46] is not null and var loadedFnPtr
+                _slots[60] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[46] = nativeContext.LoadFunction("FT_Reference_Library", "freetype")
+                    : _slots[60] = nativeContext.LoadFunction("FT_Reference_Library", "freetype")
             )
         )(library);
 
@@ -5838,9 +7236,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.RemoveModule(LibraryRecHandle library, ModuleRecHandle module) =>
         (
             (delegate* unmanaged<LibraryRecHandle, ModuleRecHandle, int>)(
-                _slots[47] is not null and var loadedFnPtr
+                _slots[61] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[47] = nativeContext.LoadFunction("FT_Remove_Module", "freetype")
+                    : _slots[61] = nativeContext.LoadFunction("FT_Remove_Module", "freetype")
             )
         )(library, module);
 
@@ -5856,9 +7254,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.RenderGlyph(GlyphSlotRec* slot, RenderMode render_mode) =>
         (
             (delegate* unmanaged<GlyphSlotRec*, RenderMode, int>)(
-                _slots[48] is not null and var loadedFnPtr
+                _slots[62] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[48] = nativeContext.LoadFunction("FT_Render_Glyph", "freetype")
+                    : _slots[62] = nativeContext.LoadFunction("FT_Render_Glyph", "freetype")
             )
         )(slot, render_mode);
 
@@ -5891,9 +7289,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.RequestSize(FaceRec* face, SizeRequestRec* req) =>
         (
             (delegate* unmanaged<FaceRec*, SizeRequestRec*, int>)(
-                _slots[49] is not null and var loadedFnPtr
+                _slots[63] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[49] = nativeContext.LoadFunction("FT_Request_Size", "freetype")
+                    : _slots[63] = nativeContext.LoadFunction("FT_Request_Size", "freetype")
             )
         )(face, req);
 
@@ -5927,9 +7325,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     long IFreeType.RoundFix(long a) =>
         (
             (delegate* unmanaged<long, long>)(
-                _slots[50] is not null and var loadedFnPtr
+                _slots[64] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[50] = nativeContext.LoadFunction("FT_RoundFix", "freetype")
+                    : _slots[64] = nativeContext.LoadFunction("FT_RoundFix", "freetype")
             )
         )(a);
 
@@ -5944,9 +7342,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.SelectCharmap(FaceRec* face, Encoding encoding) =>
         (
             (delegate* unmanaged<FaceRec*, Encoding, int>)(
-                _slots[51] is not null and var loadedFnPtr
+                _slots[65] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[51] = nativeContext.LoadFunction("FT_Select_Charmap", "freetype")
+                    : _slots[65] = nativeContext.LoadFunction("FT_Select_Charmap", "freetype")
             )
         )(face, encoding);
 
@@ -5979,9 +7377,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.SelectSize(FaceRec* face, int strike_index) =>
         (
             (delegate* unmanaged<FaceRec*, int, int>)(
-                _slots[52] is not null and var loadedFnPtr
+                _slots[66] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[52] = nativeContext.LoadFunction("FT_Select_Size", "freetype")
+                    : _slots[66] = nativeContext.LoadFunction("FT_Select_Size", "freetype")
             )
         )(face, strike_index);
 
@@ -6020,9 +7418,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     ) =>
         (
             (delegate* unmanaged<FaceRec*, long, long, uint, uint, int>)(
-                _slots[53] is not null and var loadedFnPtr
+                _slots[67] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[53] = nativeContext.LoadFunction("FT_Set_Char_Size", "freetype")
+                    : _slots[67] = nativeContext.LoadFunction("FT_Set_Char_Size", "freetype")
             )
         )(face, char_width, char_height, horz_resolution, vert_resolution);
 
@@ -6078,9 +7476,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.SetCharmap(FaceRec* face, CharMapRec* charmap) =>
         (
             (delegate* unmanaged<FaceRec*, CharMapRec*, int>)(
-                _slots[54] is not null and var loadedFnPtr
+                _slots[68] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[54] = nativeContext.LoadFunction("FT_Set_Charmap", "freetype")
+                    : _slots[68] = nativeContext.LoadFunction("FT_Set_Charmap", "freetype")
             )
         )(face, charmap);
 
@@ -6118,9 +7516,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     ) =>
         (
             (delegate* unmanaged<LibraryRecHandle, uint, DebugHookFunc, void>)(
-                _slots[55] is not null and var loadedFnPtr
+                _slots[69] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[55] = nativeContext.LoadFunction("FT_Set_Debug_Hook", "freetype")
+                    : _slots[69] = nativeContext.LoadFunction("FT_Set_Debug_Hook", "freetype")
             )
         )(library, hook_index, debug_hook);
 
@@ -6139,9 +7537,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     void IFreeType.SetDefaultProperties(LibraryRecHandle library) =>
         (
             (delegate* unmanaged<LibraryRecHandle, void>)(
-                _slots[56] is not null and var loadedFnPtr
+                _slots[70] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[56] = nativeContext.LoadFunction(
+                    : _slots[70] = nativeContext.LoadFunction(
                         "FT_Set_Default_Properties",
                         "freetype"
                     )
@@ -6160,9 +7558,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     int IFreeType.SetPixelSizes(FaceRec* face, uint pixel_width, uint pixel_height) =>
         (
             (delegate* unmanaged<FaceRec*, uint, uint, int>)(
-                _slots[57] is not null and var loadedFnPtr
+                _slots[71] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[57] = nativeContext.LoadFunction("FT_Set_Pixel_Sizes", "freetype")
+                    : _slots[71] = nativeContext.LoadFunction("FT_Set_Pixel_Sizes", "freetype")
             )
         )(face, pixel_width, pixel_height);
 
@@ -6195,9 +7593,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     void IFreeType.SetTransform(FaceRec* face, Matrix* matrix, Vector* delta) =>
         (
             (delegate* unmanaged<FaceRec*, Matrix*, Vector*, void>)(
-                _slots[58] is not null and var loadedFnPtr
+                _slots[72] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[58] = nativeContext.LoadFunction("FT_Set_Transform", "freetype")
+                    : _slots[72] = nativeContext.LoadFunction("FT_Set_Transform", "freetype")
             )
         )(face, matrix, delta);
 
@@ -6232,9 +7630,9 @@ public unsafe partial class FreeType : IFreeType, IFreeType.Static
     void IFreeType.VectorTransform(Vector* vector, Matrix* matrix) =>
         (
             (delegate* unmanaged<Vector*, Matrix*, void>)(
-                _slots[59] is not null and var loadedFnPtr
+                _slots[73] is not null and var loadedFnPtr
                     ? loadedFnPtr
-                    : _slots[59] = nativeContext.LoadFunction("FT_Vector_Transform", "freetype")
+                    : _slots[73] = nativeContext.LoadFunction("FT_Vector_Transform", "freetype")
             )
         )(vector, matrix);
 
