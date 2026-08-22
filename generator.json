@@ -972,7 +972,7 @@
         {
             "profileName": "VulkanMemoryAllocator",
             "sources": [
-                "../Exanite.GameDev.Native/native/VulkanMemoryAllocator/include/vk_mem_alloc.h"
+                "../Exanite.GameDev.Native/projects/VulkanMemoryAllocator/include/vk_mem_alloc.h"
             ],
             "mode": "Clang",
             "cacheDir": "build/cache",
@@ -987,8 +987,8 @@
                     "--language=c++",
                     "--std=c++17",
                     "-m64",
-                    "-I../Exanite.GameDev.Native/native/VulkanMemoryAllocator/include",
-                    "-I../Exanite.GameDev.Native/native/Vulkan-Headers/include"
+                    "-I../Exanite.GameDev.Native/projects/VulkanMemoryAllocator/include",
+                    "-I../Exanite.GameDev.Native/projects/Vulkan-Headers/include"
                 ],
                 "traverse": [],
                 "classes": {
@@ -1081,7 +1081,7 @@
         {
             "profileName": "Tracy",
             "sources": [
-                "../Exanite.GameDev.Native/native/Exanite.Tracy/include/Exanite/Tracy/Tracy.h"
+                "../Exanite.GameDev.Native/projects/Exanite.Tracy/include/Exanite/Tracy/Tracy.h"
             ],
             "mode": "Clang",
             "cacheDir": "build/cache",
@@ -1097,11 +1097,11 @@
                     "--std=c++17",
                     "-m64",
                     "-DTRACY_ENABLE",
-                    "-I../Exanite.GameDev.Native/native/tracy/public",
-                    "-I../Exanite.GameDev.Native/native/tracy/public/tracy"
+                    "-I../Exanite.GameDev.Native/projects/tracy/public",
+                    "-I../Exanite.GameDev.Native/projects/tracy/public/tracy"
                 ],
                 "traverse": [
-                    "../Exanite.GameDev.Native/native/tracy/public/tracy/TracyC.h"
+                    "../Exanite.GameDev.Native/projects/tracy/public/tracy/TracyC.h"
                 ],
                 "classes": {
                     "Tracy.h": "[Core]Tracy"
@@ -1141,7 +1141,7 @@
         {
             "profileName": "Slang",
             "sources": [
-                "../Exanite.GameDev.Native/native/slang/include/slang.h"
+                "../Exanite.GameDev.Native/projects/slang/include/slang.h"
             ],
             "mode": "Clang",
             "cacheDir": "build/cache",
@@ -1161,7 +1161,7 @@
                     "-Wno-ignored-pragma-intrinsic",
                     "-Wno-nonportable-include-path",
                     "-Wno-pragma-pack",
-                    "-I../Exanite.GameDev.Native/native/slang/include"
+                    "-I../Exanite.GameDev.Native/projects/slang/include"
                 ],
                 "traverse": [],
                 "classes": {
@@ -1205,7 +1205,7 @@
         {
             "profileName": "FreeType",
             "sources": [
-                "../Exanite.GameDev.Native/native/Exanite.FreeType/include/Exanite/FreeType/FreeType.h"
+                "../Exanite.GameDev.Native/projects/Exanite.FreeType/include/Exanite/FreeType/FreeType.h"
             ],
             "mode": "Clang",
             "cacheDir": "build/cache",
@@ -1224,11 +1224,11 @@
                     "-DFT2_BUILD_LIBRARY=ON",
                     "-DDLL_EXPORT=ON",
                     "-I../Exanite.GameDev.Native/cmake/FreeType/include",
-                    "-I../Exanite.GameDev.Native/native/freetype/include"
+                    "-I../Exanite.GameDev.Native/projects/freetype/include"
                 ],
                 "traverse": [
                     "../Exanite.GameDev.Native/cmake/FreeType/include/**/*.h",
-                    "../Exanite.GameDev.Native/native/freetype/include/**/*.h"
+                    "../Exanite.GameDev.Native/projects/freetype/include/**/*.h"
                 ],
                 "classes": {
                     "FreeType.h": "[Core]FreeType"
@@ -1320,7 +1320,7 @@
         {
             "profileName": "HarfBuzz",
             "sources": [
-                "../Exanite.GameDev.Native/native/harfbuzz/src/hb.h"
+                "../Exanite.GameDev.Native/projects/harfbuzz/src/hb.h"
             ],
             "mode": "Clang",
             "cacheDir": "build/cache",
@@ -1336,10 +1336,10 @@
                     "--std=c++17",
                     "-m64",
                     "-DHB_HAVE_FREETYPE=ON",
-                    "-I../Exanite.GameDev.Native/native/harfbuzz/src"
+                    "-I../Exanite.GameDev.Native/projects/harfbuzz/src"
                 ],
                 "traverse": [
-                    "../Exanite.GameDev.Native/native/harfbuzz/src/*.h"
+                    "../Exanite.GameDev.Native/projects/harfbuzz/src/*.h"
                 ],
                 "classes": {
                     "hb.h": "[Core]HarfBuzz"
