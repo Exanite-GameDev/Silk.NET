@@ -6,9 +6,9 @@ DLL_EXPORT=ON
 --headerFile
 header.txt
 --include-directory
-../../../../../Exanite.GameDev.Native/projects/Exanite.FreeType/include/Exanite/FreeType/
-../../../../../Exanite.GameDev.Native/cmake/external/FreeType/include/
-../../../../../Exanite.GameDev.Native/projects/freetype/include/
+../../../../../Exanite.Engine.Native/projects/Exanite.FreeType/include/Exanite/FreeType/
+../../../../../Exanite.Engine.Native/cmake/external/FreeType/include/
+../../../../../Exanite.Engine.Native/projects/freetype/include/
 --with-callconv
 *=Winapi
 --with-librarypath
