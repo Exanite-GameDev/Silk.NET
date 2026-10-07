@@ -23,12 +23,16 @@
 
   "ignorePaths": [
     "archive/**",
+    "src/**",
+    "build/**",
     "**/global.json"
   ],
 
   "nuget": {
     "ignorePaths": [
       "archive/**",
+      "src/**",
+      "build/**",
       "**/global.json"
     ],
   }
