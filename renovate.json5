@@ -93,10 +93,12 @@
         "Microsoft**",
         "csharpier**",
         "NUnit**",
+        "xunit**",
         "NAudio**",
         "coverlet.collector**",
         "Humanizer**",
         "Verify**",
+        "System**",
         
         "Silk.NET.BuildTools",
 
