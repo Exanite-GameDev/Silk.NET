@@ -71,7 +71,7 @@
     {
       "groupName": "Exanite",
       "matchPackageNames": [
-        "Exanite**",
+        "Exanite**", 
       ],
     },
     {
@@ -85,6 +85,25 @@
       "matchPackageNames": [
         "Exanite.Silk3.NET**",
       ],
-    }
+    },
+    {
+      "groupName": "Do not update",
+      "matchPackageNames": [
+        // These are Silk's own dependencies
+        "Microsoft**",
+        "csharpier**",
+        "NUnit**",
+        "NAudio**",
+        "coverlet.collector**",
+        "Humanizer**",
+        "Verify**",
+        
+        "Silk.NET.BuildTools",
+
+        // These are dependencies I introduced
+        "!Microsoft.SourceLink**"
+      ],
+      "enabled": false
+    },
   ],
 }
