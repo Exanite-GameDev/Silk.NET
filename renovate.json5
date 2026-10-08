@@ -56,6 +56,12 @@
   
   "packageRules": [
     {
+      "groupName": "dotnet-sdk",
+      "matchPackageNames": [
+        "dotnet-sdk",
+      ],
+    },
+    {
       "groupName": "Microsoft.Build",
       "matchPackageNames": [
         "Microsoft.Build**",
