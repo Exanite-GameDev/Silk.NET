@@ -8,6 +8,11 @@
     "Renovate"
   ],
 
+  "baseBranchPatterns": [
+    "silk2",
+    "silk3"
+  ],
+  
   "dependencyDashboard": true,
   "timezone": "America/New_York",
 
@@ -23,17 +28,29 @@
 
   "ignorePaths": [
     "archive/**",
+    "**/global.json",
+
+    // silk2
     "src/**",
     "build/**",
-    "**/global.json"
+
+    // silk3
+    "sources/**",
+    "eng/**"
   ],
 
   "nuget": {
     "ignorePaths": [
       "archive/**",
+      "**/global.json",
+
+      // silk2
       "src/**",
       "build/**",
-      "**/global.json"
+
+      // silk3
+      "sources/**",
+      "eng/**"
     ],
   },
   
