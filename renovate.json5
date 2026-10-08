@@ -35,5 +35,39 @@
       "build/**",
       "**/global.json"
     ],
-  }
+  },
+  
+  "packageRules": [
+    {
+      "groupName": "Microsoft.Build",
+      "matchPackageNames": [
+        "Microsoft.Build**",
+        "Microsoft.NET.StringTools"
+      ],
+    },
+    {
+      "groupName": "Microsoft.CodeAnalysis",
+      "matchPackageNames": [
+        "Microsoft.CodeAnalysis**"
+      ],
+    },
+    {
+      "groupName": "Exanite",
+      "matchPackageNames": [
+        "Exanite**",
+      ],
+    },
+    {
+      "groupName": "Exanite.Silk2.NET",
+      "matchPackageNames": [
+        "Exanite.Silk2.NET**",
+      ],
+    },
+    {
+      "groupName": "Exanite.Silk3.NET",
+      "matchPackageNames": [
+        "Exanite.Silk3.NET**",
+      ],
+    }
+  ],
 }
