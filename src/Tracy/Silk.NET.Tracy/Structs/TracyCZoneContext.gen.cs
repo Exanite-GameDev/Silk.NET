@@ -22,7 +22,8 @@ namespace Silk.NET.Tracy
         public TracyCZoneContext
         (
             uint? id = null,
-            int? active = null
+            int? active = null,
+            ulong? connectionId = null
         ) : this()
         {
             if (id is not null)
@@ -33,6 +34,11 @@ namespace Silk.NET.Tracy
             if (active is not null)
             {
                 Active = active.Value;
+            }
+
+            if (connectionId is not null)
+            {
+                ConnectionId = connectionId.Value;
             }
         }
 
@@ -46,5 +52,10 @@ namespace Silk.NET.Tracy
         [NativeName("Type.Name", "int32_t")]
         [NativeName("Name", "active")]
         public int Active;
+
+        [NativeName("Type", "uint64_t")]
+        [NativeName("Type.Name", "uint64_t")]
+        [NativeName("Name", "connectionId")]
+        public ulong ConnectionId;
     }
 }
