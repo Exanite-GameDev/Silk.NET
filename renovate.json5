@@ -32,7 +32,6 @@
 
     // silk2
     "src/**",
-    "build/**",
 
     // silk3
     "sources/**",
@@ -46,7 +45,6 @@
 
       // silk2
       "src/**",
-      "build/**",
 
       // silk3
       "sources/**",
