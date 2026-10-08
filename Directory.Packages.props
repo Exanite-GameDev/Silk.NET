@@ -2,7 +2,7 @@
   <ItemGroup>
     <!-- Common -->
     <PackageVersion Include="DotNet.ReproducibleBuilds" Version="2.0.2" />
-    <PackageVersion Include="DotNet.ReproducibleBuilds.Isolated" Version="2.0.2" />
+    <PackageVersion Include="DotNet.ReproducibleBuilds.Isolated" Version="2.0.5" />
     <PackageVersion Include="Microsoft.Build.Tasks.Core" Version="17.14.28" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.6.0" />
     <PackageVersion Include="NAudio.Core" Version="2.3.0" />
