@@ -73,6 +73,12 @@
       ],
     },
     {
+      "groupName": "DotNet.ReproducibleBuilds",
+      "matchPackageNames": [
+        "DotNet.ReproducibleBuilds**"
+      ],
+    },
+    {
       "groupName": "Exanite",
       "matchPackageNames": [
         "Exanite**", 
